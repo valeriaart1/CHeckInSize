@@ -8,6 +8,12 @@
 import UIKit
 
 class LoginMainViewController: UIViewController {
+    
+    // MARK: - Validation Error
+    enum LoginMainError: String, Error {
+        
+        case zeroCaseCredentials = "Не указаны данные для входа"
+    }
 
     // MARK: Properties
 
@@ -57,9 +63,13 @@ class LoginMainViewController: UIViewController {
     // MARK: Methods
 
     @objc private func loginButtonTapped() {
-
-        let login = loginTextField.text
-        let pwd = passwordTextField.text
+        
+        guard let login = loginTextField.text,
+              let pwd = passwordTextField.text
+        else {
+            self.alertFactory.showAlert(with: LoginMainError.zeroCaseCredentials)
+            return
+        }
         
         validationService.validate(login: login, and: pwd) { success, error in
             guard success
@@ -70,7 +80,7 @@ class LoginMainViewController: UIViewController {
                 return
             }
 
-            self.loginService.login(login: login!, pwd: pwd!) { success, error in
+            self.loginService.login(login: login, pwd: pwd) { success, error in
                 self.router.routeToTrainingScene()
             }
         }

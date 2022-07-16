@@ -14,6 +14,14 @@ enum ValidationError: String, Error {
     case zeroCaseCredentials = "Не указаны данные для входа"
 }
 
+extension String {
+
+    var isEmpty: Bool {
+
+        count == 0 ? true : false
+    }
+}
+
 // MARK: - ValidationService
 
 final class ValidationService {
@@ -21,19 +29,26 @@ final class ValidationService {
     private typealias VError = ValidationError
 
     func validate(
-        login: String?,
-        and password: String?,
+        login: String,
+        and password: String,
         _ completion: @escaping (Bool, Error?) -> Void
     ) {
-        switch (login, password) {
-        case (nil, nil):
+        guard !login.isEmpty,
+              !password.isEmpty
+        else {
             completion(false, VError.zeroCaseCredentials)
-        case (nil, _):
+            return
+        }
+        
+        switch (login.isEmpty, password.isEmpty) {
+        case (true, _):
             completion(false, VError.zeroCharsLogin)
-        case (_, nil):
+        case (_, true):
             completion(false, VError.zeroCharsPassword)
         default:
             completion(true, nil)
         }
     }
 }
+
+

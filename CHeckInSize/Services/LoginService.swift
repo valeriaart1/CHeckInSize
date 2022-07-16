@@ -22,7 +22,7 @@ final class LoginService {
     ) {
         if true {
             completion(true, nil)
-        } else { //нужно смотреть, есть ли в базе такой логин, если нет, то invalidLogin, если логин есть, а пароль неверный - invalidPassword
+        } else { 
             completion(false, LError.invalidLogin)
         }
     }
