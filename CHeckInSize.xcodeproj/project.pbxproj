@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3502A9BB2885938200547CD9 /* bubblegum_sans_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3502A9BA2885938200547CD9 /* bubblegum_sans_regular.ttf */; };
+		3505B798288A886E0052E7D7 /* UIComponentsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505B797288A886E0052E7D7 /* UIComponentsFactory.swift */; };
+		3505B79A288A89930052E7D7 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505B799288A89930052E7D7 /* CustomButton.swift */; };
+		3505B79C288A89A20052E7D7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505B79B288A89A20052E7D7 /* CustomTextField.swift */; };
+		3505B79E288A8D870052E7D7 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505B79D288A8D870052E7D7 /* CustomLabel.swift */; };
+		351BCFED2886918C00E9A6B7 /* NunitoSans_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 351BCFEC2886918C00E9A6B7 /* NunitoSans_Bold.ttf */; };
+		351BCFEF288692C100E9A6B7 /* Roboto_Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 351BCFEE288692C100E9A6B7 /* Roboto_Black.ttf */; };
+		351BCFF12886959500E9A6B7 /* NunitoSans_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 351BCFF02886959500E9A6B7 /* NunitoSans_Regular.ttf */; };
+		351BCFF32886C6B000E9A6B7 /* UIKitTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351BCFF22886C6B000E9A6B7 /* UIKitTemplate.swift */; };
 		35548739287B25A1009BD164 /* LogicSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35548738287B25A1009BD164 /* LogicSceneRouter.swift */; };
 		3554873B287B25B3009BD164 /* LogicSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554873A287B25B3009BD164 /* LogicSceneBuilder.swift */; };
 		3554873D287B25C7009BD164 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554873C287B25C7009BD164 /* ForgotPasswordViewController.swift */; };
@@ -19,16 +28,26 @@
 		3554874B287B2640009BD164 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554874A287B2640009BD164 /* ValidationService.swift */; };
 		35556A93286CE4B800988DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35556A92286CE4B800988DA7 /* AppDelegate.swift */; };
 		35556A95286CE4B800988DA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35556A94286CE4B800988DA7 /* SceneDelegate.swift */; };
-		35556A9A286CE4B800988DA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35556A98286CE4B800988DA7 /* Main.storyboard */; };
 		35556A9F286CE4B800988DA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35556A9E286CE4B800988DA7 /* Assets.xcassets */; };
 		35556AA2286CE4B800988DA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35556AA0286CE4B800988DA7 /* LaunchScreen.storyboard */; };
+		35792A2D288C6BB400811631 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35792A2C288C6BB400811631 /* CustomAlert.swift */; };
 		35CB9881287EF79900965CB2 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB9880287EF79900965CB2 /* CoreDataService.swift */; };
 		35CB9886287EFAC700965CB2 /* CHeckInSize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35CB9884287EFAC700965CB2 /* CHeckInSize.xcdatamodeld */; };
 		35CB9891287EFD9900965CB2 /* UserAccount+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB988F287EFD9900965CB2 /* UserAccount+CoreDataClass.swift */; };
 		35CB9892287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB9890287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift */; };
+		35F292732887D0FB005AC7CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F292722887D0FB005AC7CD /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3502A9BA2885938200547CD9 /* bubblegum_sans_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bubblegum_sans_regular.ttf; sourceTree = "<group>"; };
+		3505B797288A886E0052E7D7 /* UIComponentsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponentsFactory.swift; sourceTree = "<group>"; };
+		3505B799288A89930052E7D7 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		3505B79B288A89A20052E7D7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		3505B79D288A8D870052E7D7 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		351BCFEC2886918C00E9A6B7 /* NunitoSans_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NunitoSans_Bold.ttf; sourceTree = "<group>"; };
+		351BCFEE288692C100E9A6B7 /* Roboto_Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roboto_Black.ttf; sourceTree = "<group>"; };
+		351BCFF02886959500E9A6B7 /* NunitoSans_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NunitoSans_Regular.ttf; sourceTree = "<group>"; };
+		351BCFF22886C6B000E9A6B7 /* UIKitTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitTemplate.swift; sourceTree = "<group>"; };
 		35548738287B25A1009BD164 /* LogicSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicSceneRouter.swift; sourceTree = "<group>"; };
 		3554873A287B25B3009BD164 /* LogicSceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicSceneBuilder.swift; sourceTree = "<group>"; };
 		3554873C287B25C7009BD164 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -42,14 +61,15 @@
 		35556A8F286CE4B700988DA7 /* CHeckInSize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHeckInSize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35556A92286CE4B800988DA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35556A94286CE4B800988DA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		35556A99286CE4B800988DA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35556A9E286CE4B800988DA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35556AA1286CE4B800988DA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35556AA3286CE4B800988DA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35792A2C288C6BB400811631 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		35CB9880287EF79900965CB2 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		35CB9885287EFAC700965CB2 /* CHeckInSize.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CHeckInSize.xcdatamodel; sourceTree = "<group>"; };
 		35CB988F287EFD9900965CB2 /* UserAccount+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserAccount+CoreDataClass.swift"; path = "CHeckInSize/CoreData/UserAccount+CoreDataClass.swift"; sourceTree = "<group>"; };
 		35CB9890287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserAccount+CoreDataProperties.swift"; path = "CHeckInSize/CoreData/UserAccount+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		35F292722887D0FB005AC7CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				35556AA0286CE4B800988DA7 /* LaunchScreen.storyboard */,
-				35556A98286CE4B800988DA7 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -114,7 +133,6 @@
 		35548737287B255B009BD164 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				35548746287B2621009BD164 /* AlertFactory.swift */,
 				35548748287B262E009BD164 /* LoginService.swift */,
 				3554874A287B2640009BD164 /* ValidationService.swift */,
 				35CB9880287EF79900965CB2 /* CoreDataService.swift */,
@@ -144,12 +162,17 @@
 			isa = PBXGroup;
 			children = (
 				35556AA3286CE4B800988DA7 /* Info.plist */,
+				3502A9BA2885938200547CD9 /* bubblegum_sans_regular.ttf */,
+				351BCFF02886959500E9A6B7 /* NunitoSans_Regular.ttf */,
+				351BCFEC2886918C00E9A6B7 /* NunitoSans_Bold.ttf */,
+				351BCFEE288692C100E9A6B7 /* Roboto_Black.ttf */,
 				3554872D287B1F10009BD164 /* Common */,
 				35CB9883287EF98F00965CB2 /* SupportingFiles */,
 				3554872E287B1F85009BD164 /* LoginScene */,
 				35548732287B2465009BD164 /* Storyboards */,
 				35548733287B247D009BD164 /* Resources */,
 				35548737287B255B009BD164 /* Services */,
+				35F292742887D219005AC7CD /* UIKitComponents */,
 			);
 			path = CHeckInSize;
 			sourceTree = "<group>";
@@ -160,6 +183,21 @@
 				35CB9884287EFAC700965CB2 /* CHeckInSize.xcdatamodeld */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		35F292742887D219005AC7CD /* UIKitComponents */ = {
+			isa = PBXGroup;
+			children = (
+				351BCFF22886C6B000E9A6B7 /* UIKitTemplate.swift */,
+				35F292722887D0FB005AC7CD /* Constants.swift */,
+				35548746287B2621009BD164 /* AlertFactory.swift */,
+				35792A2C288C6BB400811631 /* CustomAlert.swift */,
+				3505B797288A886E0052E7D7 /* UIComponentsFactory.swift */,
+				3505B799288A89930052E7D7 /* CustomButton.swift */,
+				3505B79B288A89A20052E7D7 /* CustomTextField.swift */,
+				3505B79D288A8D870052E7D7 /* CustomLabel.swift */,
+			);
+			path = UIKitComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,8 +259,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				35556AA2286CE4B800988DA7 /* LaunchScreen.storyboard in Resources */,
+				351BCFEF288692C100E9A6B7 /* Roboto_Black.ttf in Resources */,
+				351BCFED2886918C00E9A6B7 /* NunitoSans_Bold.ttf in Resources */,
+				3502A9BB2885938200547CD9 /* bubblegum_sans_regular.ttf in Resources */,
 				35556A9F286CE4B800988DA7 /* Assets.xcassets in Resources */,
-				35556A9A286CE4B800988DA7 /* Main.storyboard in Resources */,
+				351BCFF12886959500E9A6B7 /* NunitoSans_Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				35548741287B25EA009BD164 /* OneTimePasswrodViewController.swift in Sources */,
+				3505B79E288A8D870052E7D7 /* CustomLabel.swift in Sources */,
+				351BCFF32886C6B000E9A6B7 /* UIKitTemplate.swift in Sources */,
+				35792A2D288C6BB400811631 /* CustomAlert.swift in Sources */,
+				3505B798288A886E0052E7D7 /* UIComponentsFactory.swift in Sources */,
 				35548745287B260F009BD164 /* SignupViewController.swift in Sources */,
 				3554873F287B25D6009BD164 /* LoginMainViewController.swift in Sources */,
 				35CB9881287EF79900965CB2 /* CoreDataService.swift in Sources */,
@@ -246,23 +291,18 @@
 				3554873B287B25B3009BD164 /* LogicSceneBuilder.swift in Sources */,
 				3554874B287B2640009BD164 /* ValidationService.swift in Sources */,
 				35CB9891287EFD9900965CB2 /* UserAccount+CoreDataClass.swift in Sources */,
+				3505B79A288A89930052E7D7 /* CustomButton.swift in Sources */,
 				35548747287B2621009BD164 /* AlertFactory.swift in Sources */,
 				35548739287B25A1009BD164 /* LogicSceneRouter.swift in Sources */,
+				3505B79C288A89A20052E7D7 /* CustomTextField.swift in Sources */,
 				35556A95286CE4B800988DA7 /* SceneDelegate.swift in Sources */,
+				35F292732887D0FB005AC7CD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		35556A98286CE4B800988DA7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35556A99286CE4B800988DA7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		35556AA0286CE4B800988DA7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -402,7 +442,6 @@
 				INFOPLIST_FILE = CHeckInSize/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -430,7 +469,6 @@
 				INFOPLIST_FILE = CHeckInSize/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

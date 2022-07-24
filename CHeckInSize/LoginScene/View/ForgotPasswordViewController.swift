@@ -12,7 +12,6 @@ class ForgotPasswordViewController: UIViewController {
     private var validationService: ValidationService
     private var loginService: LoginService
 
-
     init(
         validationService: ValidationService,
         loginService: LoginService

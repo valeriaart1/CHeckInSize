@@ -5,15 +5,6 @@
 //  Created by Валерия Артемьева on 10.07.22.
 //
 
-// MARK: - Validation Error
-
-enum ValidationError: String, Error {
-
-    case zeroCharsLogin = "Не указан логин"
-    case zeroCharsPassword = "Не указан пароль"
-    case zeroCaseCredentials = "Не указаны данные для входа"
-}
-
 extension String {
 
     var isEmpty: Bool {
