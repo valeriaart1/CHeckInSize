@@ -16,14 +16,17 @@ class LoginMainViewController: UIViewController {
     private let validationService: ValidationService
     private let loginService: LoginService
     private let alertFactory: AlertFactory
+    private let uiComponentsFactory: UIComponentsFactory
     private let router: LoginSceneRouter
-    private lazy var logo: UIStackView = uikitTemplate.logo
-    private lazy var loginTextField: UITextField = UIComponentsFactory().makeTextField(with: "Номер телефона, эл. адрес или имя пользователя", fieldType: .loginScreenTextField)
-    private lazy var passwordTextField: UITextField = UIComponentsFactory().makeTextField(with: "Пароль", fieldType: .loginScreenTextField)
-    private lazy var forgotPasswordButton: UIButton = UIComponentsFactory().makeButton(with: "Забыли пароль?", buttonType: .buttonWithNunitoBoldUnderline, and: nil)
-    private lazy var signInButton: UIButton = UIComponentsFactory().makeButton(with: "ВОЙТИ", buttonType: .blackButton, and: nil)
-    private lazy var noAccountLabel: UILabel = UIComponentsFactory().makeLabel(with: "Еще нет аккаунта?", labelType: .labelWithNunito)
-    private lazy var signUpButton: UIButton = UIComponentsFactory().makeButton(with: "Зарегистрируйтесь", buttonType: .buttonWithNunitoBoldUnderline, and: nil)
+    private lazy var logoImage: UIImageView = uikitTemplate.logoImage
+    private lazy var appName: UILabel = uikitTemplate.appName
+    private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Вход в CHeckInSize", labelType: .labelWithNunitoBold, size: nil)
+    private lazy var loginTextField: UITextField = uiComponentsFactory.makeTextField(with: "Номер телефона, эл. адрес или имя пользователя", fieldType: .loginScreenTextField)
+    private lazy var passwordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Пароль", fieldType: .loginScreenTextField)
+    private lazy var forgotPasswordButton: UIButton = uiComponentsFactory.makeButton(with: "Забыли пароль?", buttonType: .buttonWithNunitoBoldUnderline, and: nil)
+    private lazy var signInButton: UIButton = uiComponentsFactory.makeButton(with: "ВОЙТИ", buttonType: .blackButton, and: nil)
+    private lazy var noAccountLabel: UILabel = uiComponentsFactory.makeLabel(with: "Еще нет аккаунта?", labelType: .labelWithNunito, size: nil)
+    private lazy var signUpButton: UIButton = uiComponentsFactory.makeButton(with: "Зарегистрируйтесь", buttonType: .buttonWithNunitoBoldUnderline, and: nil)
 
 
     // MARK: Intialization
@@ -32,12 +35,14 @@ class LoginMainViewController: UIViewController {
         router: LoginSceneRouter,
         validationService: ValidationService,
         loginService: LoginService,
-        alertFactory: AlertFactory
+        alertFactory: AlertFactory,
+        uiComponentsFactory: UIComponentsFactory
     ) {
         self.validationService = validationService
         self.loginService = loginService
         self.alertFactory = alertFactory
         self.router = router
+        self.uiComponentsFactory = uiComponentsFactory
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -61,7 +66,9 @@ class LoginMainViewController: UIViewController {
     
     func addSubviews() {
         [
-            logo,
+            logoImage,
+            appName,
+            header,
             loginTextField,
             passwordTextField,
             forgotPasswordButton,
@@ -78,52 +85,66 @@ class LoginMainViewController: UIViewController {
     func constrainSubviews() {
         
         NSLayoutConstraint.activate([
-            logo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coefficientLogoLoginSceneLeadingAnchor * view.frame.width),
-            logo.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.coefficientLogoLoginSceneTrailingAnchor * view.frame.width),
-            logo.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.coefficientLogoLoginSceneTopAnchor * view.frame.height),
-            logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logo.heightAnchor.constraint(equalToConstant: Constants.coefficientLogoLoginSceneHeightAnchor * view.frame.height)
+            logoImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.coeffLoginLogoTopAnchor * view.frame.height),
+            logoImage.widthAnchor.constraint(equalToConstant: Constants.coeffLoginLogoImageWidthAnchor * view.frame.width),
+            logoImage.heightAnchor.constraint(equalToConstant: Constants.coeffLogoHeightAnchor * view.frame.height)
         ])
         
         NSLayoutConstraint.activate([
-            loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coefficientLeadingAnchor * view.frame.width),
-            loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.coefficientTrailingAnchor * view.frame.width),
-            loginTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.coefficientLoginTextFieldTopAnchor * view.frame.height),
-            loginTextField.heightAnchor.constraint(equalToConstant: Constants.coefficientLoginHeightAnchor * view.frame.height)
+            appName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            appName.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.coeffLoginLogoTopAnchor * view.frame.height),
+            appName.widthAnchor.constraint(equalToConstant: Constants.coeffLoginAppNameWidthAnchor * view.frame.width),
+            appName.heightAnchor.constraint(equalToConstant: Constants.coeffLogoHeightAnchor * view.frame.height)
         ])
-
+        
         NSLayoutConstraint.activate([
-            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coefficientLeadingAnchor * view.frame.width),
-            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.coefficientTrailingAnchor * view.frame.width),
-            passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: Constants.coefficientPasswordTextFieldTopAnchor * view.frame.height),
-            passwordTextField.heightAnchor.constraint(equalToConstant: Constants.coefficientLoginHeightAnchor * view.frame.height)
+            header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            header.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            header.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.coeffLoginHeaderTopAnchor * view.frame.height),
+            header.heightAnchor.constraint(equalToConstant: Constants.coeffLoginLabelUnderLineButtonHeightAnchor * view.frame.height)
         ])
-
+        
         NSLayoutConstraint.activate([
-            forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coefficientLeadingAnchor * view.frame.width),
-            forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.coefficientTrailingAnchor * view.frame.width),
-            forgotPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: Constants.coefficientSignUpTopAnchor * view.frame.height),
-            forgotPasswordButton.heightAnchor.constraint(equalToConstant: Constants.coefficientLoginHeightAnchor * view.frame.height)
+            loginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            loginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            loginTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.coeffLoginSecondTextFieldTopAnchor * view.frame.height),
+            loginTextField.heightAnchor.constraint(equalToConstant: Constants.coeffLoginTextFieldButtonHeightAnchor * view.frame.height)
         ])
-
+        
         NSLayoutConstraint.activate([
-            signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coefficientLeadingAnchor * view.frame.width),
-            signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.coefficientTrailingAnchor * view.frame.width),
-            signInButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor, constant: Constants.coefficientLoginHeightAnchor * view.frame.height),
-            signInButton.heightAnchor.constraint(equalToConstant: Constants.coefficientLoginHeightAnchor * view.frame.height)
+            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            passwordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.coeffLoginThirdTextFieldTopAnchor * view.frame.height),
+            passwordTextField.heightAnchor.constraint(equalToConstant: Constants.coeffLoginTextFieldButtonHeightAnchor * view.frame.height)
         ])
-
+        
         NSLayoutConstraint.activate([
-            noAccountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coefficientLeadingAnchor * view.frame.width),
-            noAccountLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.coefficientTrailingAnchor * view.frame.width),
-            noAccountLabel.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: Constants.coefficientSignUpTopAnchor * view.frame.height),
-            noAccountLabel.heightAnchor.constraint(equalToConstant: Constants.coefficientLoginHeightAnchor * view.frame.height)
+            forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            forgotPasswordButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.coeffLoginUnderTextFieldButtonTopAnchor * view.frame.height),
+            forgotPasswordButton.heightAnchor.constraint(equalToConstant: Constants.coeffLoginLabelUnderLineButtonHeightAnchor * view.frame.height)
         ])
-
+        
         NSLayoutConstraint.activate([
-            signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.coefficientTrailingAnchor * view.frame.width),
-            signUpButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: Constants.coefficientSignUpTopAnchor * view.frame.height),
-            signUpButton.heightAnchor.constraint(equalToConstant: Constants.coefficientLoginHeightAnchor * view.frame.height)
+            signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            signInButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.coeffLoginMainButtonTopAnchor * view.frame.height),
+            signInButton.heightAnchor.constraint(equalToConstant: Constants.coeffLoginTextFieldButtonHeightAnchor * view.frame.height)
+        ])
+        
+        NSLayoutConstraint.activate([
+            noAccountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            noAccountLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.coeffLoginUnderButtonTopAnchor * view.frame.height),
+            noAccountLabel.widthAnchor.constraint(equalToConstant: Constants.coeffLoginUnderButtonWidthAnchor * view.frame.width),
+            noAccountLabel.heightAnchor.constraint(equalToConstant: Constants.coeffLoginLabelUnderLineButtonHeightAnchor * view.frame.height)
+        ])
+        
+        NSLayoutConstraint.activate([
+            signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.coeffLeadingTrailingAnchor * view.frame.width),
+            signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.coeffLoginUnderButtonTopAnchor * view.frame.height),
+            signUpButton.widthAnchor.constraint(equalToConstant: Constants.coeffLoginUnderButtonWidthAnchor * view.frame.width),
+            signUpButton.heightAnchor.constraint(equalToConstant: Constants.coeffLoginLabelUnderLineButtonHeightAnchor * view.frame.height)
         ])
     }
 

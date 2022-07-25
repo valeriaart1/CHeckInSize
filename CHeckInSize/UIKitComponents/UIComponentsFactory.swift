@@ -32,9 +32,10 @@ final class UIComponentsFactory {
     
     func makeLabel(
       with text: String,
-      labelType type: CustomLabelType
+      labelType type: CustomLabelType,
+      size: Float?
     ) -> CustomLabel {
-      let label = CustomLabel(type: type, text: text)
+      let label = CustomLabel(type: type, text: text, size: size)
       return label
     }
 }

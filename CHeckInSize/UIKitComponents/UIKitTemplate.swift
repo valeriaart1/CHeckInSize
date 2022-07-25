@@ -33,18 +33,19 @@ final class UIKitTemplate {
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white.cgColor, range: NSRange(location:2,length:3))
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white.cgColor, range: NSRange(location:6,length:1))
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white.cgColor, range: NSRange(location:8,length:3))
-        myMutableString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "Bubblegum Sans", size: 43.0)!, range: NSRange(location:0,length:myString.lengthOfBytes(using: .ascii)))
+        myMutableString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "Bubblegum Sans", size: 45.0)!, range: NSRange(location:0,length:myString.lengthOfBytes(using: .ascii)))
         label.attributedText = myMutableString
+        label.textAlignment = .center
         return label
     }()
     
-    lazy var logo: UIStackView = {
-        let stack = UIStackView(frame: .zero)
-        stack.axis = .horizontal
-        stack.spacing = 2
-        stack.addArrangedSubview(logoImage)
-        stack.addArrangedSubview(appName)
-        logoImage.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 749), for: .horizontal)
-        return stack
-    }()
+//    lazy var logo: UIStackView = {
+//        let stack = UIStackView(frame: .zero)
+//        stack.axis = .horizontal
+//        stack.spacing = 2
+//        stack.addArrangedSubview(logoImage)
+//        stack.addArrangedSubview(appName)
+//        logoImage.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 749), for: .horizontal)
+//        return stack
+//    }()
 }

@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
           
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = LoginMainViewController(router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService(), alertFactory: AlertFactory())
+        window.rootViewController = LoginMainViewController(router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService(), alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
         window.makeKeyAndVisible()
         self.window = window
     }

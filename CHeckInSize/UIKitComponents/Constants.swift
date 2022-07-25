@@ -10,16 +10,24 @@ import UIKit
 struct Constants {
     static let backgroundImageName = "backgroundImage.png"
     static let logoImageName = "logoImage.png"
-    static let coefficientLeadingAnchor = 0.05
-    static let coefficientTrailingAnchor = -0.05
-    static let coefficientLogoLoginSceneLeadingAnchor = 0.16
-    static let coefficientLogoLoginSceneTrailingAnchor = -0.16
-    static let coefficientLogoLoginSceneHeightAnchor = 0.09
-    static let coefficientLogoLoginSceneTopAnchor = 0.13
-    static let coefficientLoginHeightAnchor = 0.065
-    static let coefficientSignUpTopAnchor = 0.006
-    static let coefficientLoginTextFieldTopAnchor = 0.34
-    static let coefficientPasswordTextFieldTopAnchor = 0.02
+    static let coeffLeadingTrailingAnchor = 0.08
+    static let coeffLogoHeightAnchor = 0.1
+    static let coeffLoginLogoTopAnchor = 0.14
+    static let coeffLoginLogoImageWidthAnchor = 0.21
+    static let coeffLoginAppNameWidthAnchor = 0.64
+    static let coeffLoginLabelUnderLineButtonHeightAnchor = 0.037
+    static let coeffLoginTextFieldButtonHeightAnchor = 0.064
+    static let coeffLoginInstructionHeightAnchor = 0.099
+    static let coeffLoginHeaderTopAnchor = 0.286
+    static let coeffLoginInstructionTopAnchor = 0.335
+    static let coeffLoginFirstTextFieldTopAnchor = 0.309
+    static let coeffLoginSecondTextFieldTopAnchor = 0.398
+    static let coeffLoginThirdTextFieldTopAnchor = 0.488
+    static let coeffLoginFouthTextFieldTopAnchor = 0.578
+    static let coeffLoginUnderTextFieldButtonTopAnchor = 0.562
+    static let coeffLoginMainButtonTopAnchor = 0.714
+    static let coeffLoginUnderButtonTopAnchor = 0.788
+    static let coeffLoginUnderButtonWidthAnchor = 0.562
 }
 
 // MARK: Validation Error
@@ -51,6 +59,7 @@ enum CustomTextFieldType {
 
 enum CustomLabelType {
     case labelWithNunito
+    case labelWithNunitoBold
 }
 
 enum CustomAlertType {
