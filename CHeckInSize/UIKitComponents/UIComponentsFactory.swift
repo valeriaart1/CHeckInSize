@@ -19,24 +19,24 @@ final class UIComponentsFactory {
         if let action = action {
             button.addAction(action, for: .touchUpInside)
         }
-    return button
+        return button
     }
 
     func makeTextField(
-    with placeholder: String,
-    fieldType type: CustomTextFieldType
+        fieldType type: CustomTextFieldType,
+        with placeholder: String = ""
     ) -> CustomTextField {
-    let textField = CustomTextField(placeholder: placeholder)
-    return textField
+        let textField = CustomTextField(placeholder: placeholder)
+        return textField
     }
     
     func makeLabel(
-      with text: String,
-      labelType type: CustomLabelType,
-      size: Float?,
-      textAligment: NSTextAlignment?
+        labelType type: CustomLabelType,
+        with text: String = "",
+        size: Float = 200.0,
+        textAligment: NSTextAlignment = .center
     ) -> CustomLabel {
-      let label = CustomLabel(type: type, text: text, size: size, textAligment: textAligment)
-      return label
+        let label = CustomLabel(type: type, text: text, size: size, textAligment: textAligment)
+        return label
     }
 }

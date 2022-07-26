@@ -54,6 +54,10 @@ class LoginMainViewController: UIViewController {
 
     // MARK: View Life Cycle
 
+    override func loadView() {
+        super.loadView()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
@@ -190,6 +194,8 @@ class LoginMainViewController: UIViewController {
     }
     
     private lazy var forgotPasswordButtonTapped = UIAction { [weak self] _ in
-        self?.router.routingBetweenScenes(from: self ?? UIViewController(), to: LoginSceneBuilder().makeLoginSceneViewController(viewControllerName: .ForgotPasswordViewController, router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService()), presentStyle: .fullScreen, transStyle: .crossDissolve)
+        self?.router.routingBetweenScenes(
+            from: self ?? UIViewController(),
+            to: LoginSceneBuilder().makeLoginSceneViewController(viewControllerName: .ForgotPasswordViewController, router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService()), presentStyle: .fullScreen, transStyle: .crossDissolve)
     }
 }

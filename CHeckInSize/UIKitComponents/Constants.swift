@@ -8,8 +8,10 @@
 import UIKit
 
 struct Constants {
+
     static let backgroundImageName = "backgroundImage.png"
     static let logoImageName = "logoImage.png"
+
     static let coeffLeadingTrailingAnchor = 0.08
     static let coeffLogoHeightAnchor = 0.1
     static let coeffLoginLogoTopAnchor = 0.14
@@ -41,22 +43,26 @@ enum ValidationError: String, Error {
     case usernameNotBelongAccount = "Введенное имя пользователя не принадлежит аккаунту"
 }
 
+/// Можно поднять в UI Factory
 enum CustomButtonType {
 
     case blackButton
     case buttonWithNunitoBoldUnderline
 }
 
+/// Можно поднять в UI Factory
 enum CustomTextFieldType {
     case loginScreenTextField
     case namingTextFieldAlert
 }
 
+/// Можно поднять в UI Factory
 enum CustomLabelType {
     case labelWithNunito
     case labelWithNunitoBold
 }
 
+/// Можно поднять в Alert Factory
 enum CustomAlertType {
     case agreementAlertWithTextField
     case agreementAlert
@@ -65,6 +71,8 @@ enum CustomAlertType {
 }
 
 enum ViewControllerNaming {
+
+    /// Здесь лучше убрать капитализцию, тк это рушит гайдлайны (если не нужно прям реально больше буквы)
     case LoginMainViewController
     case ForgotPasswordViewController
     case OneTimePasswordViewController
@@ -72,7 +80,9 @@ enum ViewControllerNaming {
     case SignupViewController
 }
 
+/// Это вынести в отдельный extension (отдельный файл и поднять в папку extensions)
 extension UIColor {
+
     convenience init(red: Int, green: Int, blue: Int, alpha: Int) {
        self.init(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: CGFloat(alpha)/100.0)
     }

@@ -7,16 +7,31 @@
 
 import UIKit
 
+// MARK: - CustomTextField
+
 final class CustomTextField: UITextField {
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
+    // MARK: Initialization
+
     init(
         type: CustomTextFieldType = .loginScreenTextField,
         placeholder: String = ""
     ) {
         super.init(frame: .zero)
+        setAppearance(from: type)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: – Private Methods
+
+extension CustomTextField {
+
+    private func setAppearance(from type: CustomTextFieldType) {
         switch type {
         case .loginScreenTextField:
             self.keyboardType = .namePhonePad
@@ -26,7 +41,7 @@ final class CustomTextField: UITextField {
             let spacerView = UIView(frame:CGRect(x:0, y:0, width:15, height:10))
             self.leftViewMode = UITextField.ViewMode.always
             self.leftView = spacerView
-              self.layer.borderColor = UIColor(hexString: "#000000", alpha: 0.9).cgColor
+            self.layer.borderColor = UIColor(hexString: "#000000", alpha: 0.9).cgColor
             self.layer.borderWidth = 1
             self.clearButtonMode = .always
         case .namingTextFieldAlert:
@@ -37,10 +52,9 @@ final class CustomTextField: UITextField {
             let spacerView = UIView(frame:CGRect(x:0, y:0, width:15, height:10))
             self.leftViewMode = UITextField.ViewMode.always
             self.leftView = spacerView
-              self.layer.borderColor = UIColor(hexString: "#000000", alpha: 0.9).cgColor
+            self.layer.borderColor = UIColor(hexString: "#000000", alpha: 0.9).cgColor
             self.layer.borderWidth = 1
             self.clearButtonMode = .always
-            
         }
     }
 }

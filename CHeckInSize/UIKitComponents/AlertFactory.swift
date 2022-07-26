@@ -18,7 +18,16 @@ final class AlertFactory  {
         agreementButtonText: String?,
         textFieldPlaceholder: String?
     ) -> CustomAlert {
-        let alert = CustomAlert(title: title, message: message, preferredStyle: preferredStyle, alertType: alertType, cancelButtonText: cancelButtonText, agreementButtonText: agreementButtonText, textFieldPlaceholder: textFieldPlaceholder)
+        let alert = CustomAlert(
+            title: title,
+            message: message,
+            preferredStyle: preferredStyle,
+            alertType: alertType,
+            cancelButtonText: cancelButtonText,
+            agreementButtonText: agreementButtonText,
+            textFieldPlaceholder: textFieldPlaceholder
+        )
+
         return alert
     }
     
@@ -27,7 +36,16 @@ final class AlertFactory  {
         message: String?,
         preferredStyle: UIAlertController.Style = .alert
     ) -> CustomAlert {
-        let alert = CustomAlert(title: title, message: message, preferredStyle: preferredStyle, alertType: .errorAlert, cancelButtonText: nil, agreementButtonText: nil, textFieldPlaceholder: nil)
+        let alert = CustomAlert(
+            title: title,
+            message: message,
+            preferredStyle: preferredStyle,
+            alertType: .errorAlert,
+            cancelButtonText: nil,
+            agreementButtonText: nil,
+            textFieldPlaceholder: nil
+        )
+
         return alert
     }
 }

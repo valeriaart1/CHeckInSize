@@ -17,10 +17,10 @@ class PasswordCreationViewController: UIViewController {
     private let uiComponentsFactory: UIComponentsFactory
     private lazy var logoImage: UIImageView = uikitTemplate.logoImage
     private lazy var appName: UILabel = uikitTemplate.appName
-    private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Cоздание надежного пароля", labelType: .labelWithNunitoBold, size: nil, textAligment: nil)
-    private lazy var instructionCreatingPasswordLabel: UILabel = uiComponentsFactory.makeLabel(with: "Пароль должен содержать не менее 6 символов, включая цифры, буквы и специальные символы (!$@%)", labelType: .labelWithNunito, size: nil, textAligment: nil)
-    private lazy var newPasswordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Новый пароль", fieldType: .loginScreenTextField)
-    private lazy var repeatNewPasswordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Введите новый пароль ещё раз", fieldType: .loginScreenTextField)
+    private lazy var header: UILabel = uiComponentsFactory.makeLabel(labelType: .labelWithNunitoBold, with: "Cоздание надежного пароля", size: nil, textAligment: nil)
+    private lazy var instructionCreatingPasswordLabel: UILabel = uiComponentsFactory.makeLabel(labelType: .labelWithNunito, with: "Пароль должен содержать не менее 6 символов, включая цифры, буквы и специальные символы (!$@%)", size: nil, textAligment: nil)
+    private lazy var newPasswordTextField: UITextField = uiComponentsFactory.makeTextField(fieldType: .loginScreenTextField, with: "Новый пароль")
+    private lazy var repeatNewPasswordTextField: UITextField = uiComponentsFactory.makeTextField(fieldType: .loginScreenTextField, with: "Введите новый пароль ещё раз")
     private lazy var resetPasswordButton: UIButton = uiComponentsFactory.makeButton(with: "СБРОСИТЬ ПАРОЛЬ", buttonType: .blackButton, and: getLoginLinkButtonTapped, contentAligment: nil)
 
 
