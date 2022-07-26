@@ -17,11 +17,11 @@ class ForgotPasswordViewController: UIViewController {
     private let uiComponentsFactory: UIComponentsFactory
     private lazy var logoImage: UIImageView = uikitTemplate.logoImage
     private lazy var appName: UILabel = uikitTemplate.appName
-    private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Не удается войти?", labelType: .labelWithNunitoBold, size: nil)
-    private lazy var instructionChangingPasswordLabel: UILabel = uiComponentsFactory.makeLabel(with: "Введите свой электронный адрес, имя пользователя или номер телефона, и мы отправим вам ссылку для восстановления доступа к аккаунту.", labelType: .labelWithNunito, size: nil)
+    private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Не удается войти?", labelType: .labelWithNunitoBold, size: nil, textAligment: nil)
+    private lazy var instructionChangingPasswordLabel: UILabel = uiComponentsFactory.makeLabel(with: "Введите свой электронный адрес, имя пользователя или номер телефона, и мы отправим вам ссылку для восстановления доступа к аккаунту.", labelType: .labelWithNunito, size: nil, textAligment: nil)
     private lazy var loginTextField: UITextField = uiComponentsFactory.makeTextField(with: "Эл. адрес, телефон или имя пользователя", fieldType: .loginScreenTextField)
-    private lazy var createNewAccountButton: UIButton = uiComponentsFactory.makeButton(with: "Создать новый аккаунт", buttonType: .buttonWithNunitoBoldUnderline, and: nil)
-    private lazy var getLoginLinkButton: UIButton = uiComponentsFactory.makeButton(with: "ПОЛУЧИТЬ ССЫЛКУ ДЛЯ ВХОДА", buttonType: .blackButton, and: nil)
+    private lazy var createNewAccountButton: UIButton = uiComponentsFactory.makeButton(with: "Создать новый аккаунт", buttonType: .buttonWithNunitoBoldUnderline, and: createNewAccountButtonTapped, contentAligment: nil)
+    private lazy var getLoginLinkButton: UIButton = uiComponentsFactory.makeButton(with: "ПОЛУЧИТЬ ССЫЛКУ ДЛЯ ВХОДА", buttonType: .blackButton, and: getLoginLinkButtonTapped, contentAligment: nil)
 
 
     // MARK: Intialization
@@ -121,9 +121,13 @@ class ForgotPasswordViewController: UIViewController {
         ])
     }
 
-    // MARK: Methods
-
-    @objc private func getLoginLinkButtonTapped() {
-        //
+    // MARK: Actions
+    
+    private lazy var getLoginLinkButtonTapped = UIAction { [weak self] _ in
+        print("")
+    }
+    
+    private lazy var createNewAccountButtonTapped = UIAction { [weak self] _ in
+        print("")
     }
 }

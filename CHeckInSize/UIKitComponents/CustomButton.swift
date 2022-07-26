@@ -14,7 +14,8 @@ final class CustomButton: UIButton {
     
     init(
         type: CustomButtonType = .buttonWithNunitoBoldUnderline,
-        title: String = ""
+        title: String = "",
+        contentAligment: ContentHorizontalAlignment?
     ) {
         super.init(frame: .zero)
         switch type {
@@ -32,6 +33,7 @@ final class CustomButton: UIButton {
                 NSAttributedString.Key.underlineStyle : 1] as [NSAttributedString.Key : Any]
             let buttonTitleStr = NSMutableAttributedString(string: title, attributes:attrs)
             self.setAttributedTitle(buttonTitleStr, for: .normal)
+            self.contentHorizontalAlignment = contentAligment ?? .center
         }
     }
 }

@@ -8,8 +8,19 @@
 import UIKit
 
 final class LoginSceneRouter: UINavigationController {
-
-    func routeToTrainingScene() {
-        
+    
+    func routingBetweenScenes (
+        from view: UIViewController,
+        to mode: UIViewController,
+        presentStyle: UIModalPresentationStyle?,
+        transStyle: UIModalTransitionStyle?
+    ) {
+        mode.modalPresentationStyle = presentStyle ?? .fullScreen
+        mode.modalTransitionStyle = transStyle ?? .partialCurl
+        view.present(mode, animated: true, completion: nil)
     }
+    
+//    func routeToTrainingScene() {
+//
+//    }
 }

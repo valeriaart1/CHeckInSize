@@ -17,11 +17,11 @@ class OneTimePasswordViewController: UIViewController {
     private let uiComponentsFactory: UIComponentsFactory
     private lazy var logoImage: UIImageView = uikitTemplate.logoImage
     private lazy var appName: UILabel = uikitTemplate.appName
-    private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Ввод кода безопасности", labelType: .labelWithNunitoBold, size: nil)
-    private lazy var instructionEnterCodeLabel: UILabel = uiComponentsFactory.makeLabel(with: "Введите 6-значный код, который мы отправили на почту", labelType: .labelWithNunito, size: nil)
+    private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Ввод кода безопасности", labelType: .labelWithNunitoBold, size: nil, textAligment: nil)
+    private lazy var instructionEnterCodeLabel: UILabel = uiComponentsFactory.makeLabel(with: "Введите 6-значный код, который мы отправили на почту", labelType: .labelWithNunito, size: nil, textAligment: nil)
     private lazy var codeTextField: UITextField = uiComponentsFactory.makeTextField(with: "Код", fieldType: .loginScreenTextField)
-    private lazy var getNewCodeButton: UIButton = uiComponentsFactory.makeButton(with: "Получить новый код", buttonType: .buttonWithNunitoBoldUnderline, and: nil)
-    private lazy var confirmButton: UIButton = uiComponentsFactory.makeButton(with: "ПОДТВЕРДИТЬ", buttonType: .blackButton, and: nil)
+    private lazy var getNewCodeButton: UIButton = uiComponentsFactory.makeButton(with: "Получить новый код", buttonType: .buttonWithNunitoBoldUnderline, and: getNewCodeTapped, contentAligment: nil)
+    private lazy var confirmButton: UIButton = uiComponentsFactory.makeButton(with: "ПОДТВЕРДИТЬ", buttonType: .blackButton, and: confirmButtonTapped, contentAligment: nil)
 
 
     // MARK: Intialization
@@ -121,9 +121,13 @@ class OneTimePasswordViewController: UIViewController {
         ])
     }
 
-    // MARK: Methods
-
-    @objc private func confirmButtonTapped() {
-        //
+    // MARK: Actions
+    
+    private lazy var confirmButtonTapped = UIAction { [weak self] _ in
+        print("")
+    }
+    
+    private lazy var getNewCodeTapped = UIAction { [weak self] _ in
+        print("")
     }
 }

@@ -10,14 +10,14 @@ import UIKit
 final class UIComponentsFactory {
 
     func makeButton(
-    with title: String,
-    buttonType type: CustomButtonType,
-    and action: Selector? = nil
+        with title: String,
+        buttonType type: CustomButtonType,
+        and action: UIAction? = nil,
+        contentAligment: UIButton.ContentHorizontalAlignment?
     ) -> CustomButton {
-        let button = CustomButton(type: type, title: title)
-
+        let button = CustomButton(type: type, title: title, contentAligment: contentAligment)
         if let action = action {
-          button.addTarget(self, action: action, for: .touchUpInside)
+            button.addAction(action, for: .touchUpInside)
         }
     return button
     }
@@ -33,9 +33,10 @@ final class UIComponentsFactory {
     func makeLabel(
       with text: String,
       labelType type: CustomLabelType,
-      size: Float?
+      size: Float?,
+      textAligment: NSTextAlignment?
     ) -> CustomLabel {
-      let label = CustomLabel(type: type, text: text, size: size)
+      let label = CustomLabel(type: type, text: text, size: size, textAligment: textAligment)
       return label
     }
 }

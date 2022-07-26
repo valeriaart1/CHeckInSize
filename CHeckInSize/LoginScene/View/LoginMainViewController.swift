@@ -20,13 +20,13 @@ class LoginMainViewController: UIViewController {
     private let router: LoginSceneRouter
     private lazy var logoImage: UIImageView = uikitTemplate.logoImage
     private lazy var appName: UILabel = uikitTemplate.appName
-    private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Вход в CHeckInSize", labelType: .labelWithNunitoBold, size: nil)
+    private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Вход в CHeckInSize", labelType: .labelWithNunitoBold, size: nil, textAligment: nil)
     private lazy var loginTextField: UITextField = uiComponentsFactory.makeTextField(with: "Номер телефона, эл. адрес или имя пользователя", fieldType: .loginScreenTextField)
     private lazy var passwordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Пароль", fieldType: .loginScreenTextField)
-    private lazy var forgotPasswordButton: UIButton = uiComponentsFactory.makeButton(with: "Забыли пароль?", buttonType: .buttonWithNunitoBoldUnderline, and: nil)
-    private lazy var signInButton: UIButton = uiComponentsFactory.makeButton(with: "ВОЙТИ", buttonType: .blackButton, and: nil)
-    private lazy var noAccountLabel: UILabel = uiComponentsFactory.makeLabel(with: "Еще нет аккаунта?", labelType: .labelWithNunito, size: nil)
-    private lazy var signUpButton: UIButton = uiComponentsFactory.makeButton(with: "Зарегистрируйтесь", buttonType: .buttonWithNunitoBoldUnderline, and: nil)
+    private lazy var forgotPasswordButton: UIButton = uiComponentsFactory.makeButton(with: "Забыли пароль?", buttonType: .buttonWithNunitoBoldUnderline, and: forgotPasswordButtonTapped, contentAligment: nil)
+    private lazy var signInButton: UIButton = uiComponentsFactory.makeButton(with: "ВОЙТИ", buttonType: .blackButton, and: loginButtonTapped, contentAligment: nil)
+    private lazy var noAccountLabel: UILabel = uiComponentsFactory.makeLabel(with: "Еще нет аккаунта?", labelType: .labelWithNunito, size: nil, textAligment: .left)
+    private lazy var signUpButton: UIButton = uiComponentsFactory.makeButton(with: "Зарегистрируйтесь", buttonType: .buttonWithNunitoBoldUnderline, and: signUpButtonTapped, contentAligment: .right)
 
 
     // MARK: Intialization
@@ -148,37 +148,48 @@ class LoginMainViewController: UIViewController {
         ])
     }
 
-    // MARK: Methods
-
-    @objc private func loginButtonTapped() {
-        
-        guard let login = loginTextField.text,
-              let pwd = passwordTextField.text
+    // MARK: Actions
+    
+    private lazy var loginButtonTapped = UIAction { [weak self] _ in
+        guard let login = self?.loginTextField.text,
+              let pwd = self?.passwordTextField.text
+              
         else {
-            self.present(alertFactory.showErrorAlert(title: "Ошибка", message: LoginMainError.zeroCaseCredentials.rawValue), animated: true, completion: nil)
+            if let alert = self?.alertFactory.showErrorAlert(title: "Ошибка", message: ValidationError.zeroCaseCredentials.rawValue) {
+                self?.present(alert, animated: true, completion: nil)
+            }
             return
         }
         
-        validationService.validate(login: login, and: pwd) { success, error in
+        self?.validationService.validate(login: login, and: pwd) { success, error in
             guard success
             else { 
-                if let error = error {
-                    self.present(self.alertFactory.showErrorAlert(title: "Ошибка", message: error.localizedDescription), animated: true, completion: nil)
+                if let error = error,
+                    let alert = self?.alertFactory.showErrorAlert(title: "Ошибка", message: error.localizedDescription) {
+                    self?.present(alert, animated: true, completion: nil)
                 }
                 return
             }
 
-            self.loginService.login(login: login, pwd: pwd) { success, error in
-                self.router.routeToTrainingScene()
+            self?.loginService.login(login: login, pwd: pwd) { success, error in
+                guard success
+                else {
+                    if let error = error,
+                        let alert = self?.alertFactory.showErrorAlert(title: "Ошибка", message: error.localizedDescription){
+                        self?.present(alert, animated: true, completion: nil)
+                    }
+                    return
+                }
+//                self?.router.routingBetweenScenes(from: self ?? UIViewController(), to: <#T##UIViewController#>, presentStyle: <#T##UIModalPresentationStyle#>, transStyle: <#T##UIModalTransitionStyle#>)
             }
         }
     }
-
-    @objc private func signUpButtonTapped() {
-
+    
+    private lazy var signUpButtonTapped = UIAction { [weak self] _ in
+        self?.router.routingBetweenScenes(from: self ?? UIViewController(), to: LoginSceneBuilder().makeLoginSceneViewController(viewControllerName: .SignupViewController, router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService()), presentStyle: .fullScreen, transStyle: .crossDissolve)
     }
-
-    @objc private func forgotPasswordButtonTapped() {
-
+    
+    private lazy var forgotPasswordButtonTapped = UIAction { [weak self] _ in
+        self?.router.routingBetweenScenes(from: self ?? UIViewController(), to: LoginSceneBuilder().makeLoginSceneViewController(viewControllerName: .ForgotPasswordViewController, router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService()), presentStyle: .fullScreen, transStyle: .crossDissolve)
     }
 }

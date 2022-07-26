@@ -30,13 +30,6 @@ struct Constants {
     static let coeffLoginUnderButtonWidthAnchor = 0.562
 }
 
-// MARK: Validation Error
-
-enum LoginMainError: String, Error {
-    
-    case zeroCaseCredentials = "Не указаны данные для входа"
-}
-
 // MARK: - Validation Error
 
 enum ValidationError: String, Error {
@@ -44,6 +37,8 @@ enum ValidationError: String, Error {
     case zeroCharsLogin = "Не указан логин"
     case zeroCharsPassword = "Не указан пароль"
     case zeroCaseCredentials = "Не указаны данные для входа"
+    case uncorrectPassword = "Введен неверный пароль"
+    case usernameNotBelongAccount = "Введенное имя пользователя не принадлежит аккаунту"
 }
 
 enum CustomButtonType {
@@ -67,6 +62,14 @@ enum CustomAlertType {
     case agreementAlert
     case disagreementAlert
     case errorAlert
+}
+
+enum ViewControllerNaming {
+    case LoginMainViewController
+    case ForgotPasswordViewController
+    case OneTimePasswordViewController
+    case PasswordCreationViewController
+    case SignupViewController
 }
 
 extension UIColor {

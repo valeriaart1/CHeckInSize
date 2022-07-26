@@ -21,7 +21,7 @@ class SignupViewController: UIViewController {
     private lazy var fullNameTextField: UITextField = uiComponentsFactory.makeTextField(with: "Имя и фамилия", fieldType: .loginScreenTextField)
     private lazy var userNameTextField: UITextField = uiComponentsFactory.makeTextField(with: "Имя пользователя", fieldType: .loginScreenTextField)
     private lazy var passwordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Пароль", fieldType: .loginScreenTextField)
-    private lazy var signUpButton: UIButton = uiComponentsFactory.makeButton(with: "РЕГИСТРАЦИЯ", buttonType: .blackButton, and: nil)
+    private lazy var signUpButton: UIButton = uiComponentsFactory.makeButton(with: "РЕГИСТРАЦИЯ", buttonType: .blackButton, and: signUpButtonTapped, contentAligment: nil)
 
 
     // MARK: Intialization
@@ -121,9 +121,9 @@ class SignupViewController: UIViewController {
         ])
     }
 
-    // MARK: Methods
-
-    @objc private func signUpButtonTapped() {
-        //
+    // MARK: Actions
+    
+    private lazy var signUpButtonTapped = UIAction { [weak self] _ in
+        print("")
     }
 }
