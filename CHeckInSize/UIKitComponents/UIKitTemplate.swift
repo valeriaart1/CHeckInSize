@@ -38,14 +38,4 @@ final class UIKitTemplate {
         label.textAlignment = .center
         return label
     }()
-    
-//    lazy var logo: UIStackView = {
-//        let stack = UIStackView(frame: .zero)
-//        stack.axis = .horizontal
-//        stack.spacing = 2
-//        stack.addArrangedSubview(logoImage)
-//        stack.addArrangedSubview(appName)
-//        logoImage.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 749), for: .horizontal)
-//        return stack
-//    }()
 }

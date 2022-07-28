@@ -9,73 +9,55 @@ import UIKit
 
 final class LoginSceneBuilder {
     
-//    func makeMainViewController() -> UIViewController {
-//        let view = LoginMainViewController.init(router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService(), alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
-//
-//        let navigationController = UINavigationController(rootViewController: view)
-//        return navigationController
-//    }
-    
-    func makeLoginSceneViewController(
-        viewControllerName: ViewControllerNaming,
-        router: LoginSceneRouter,
-        validationService: ValidationService,
-        loginService: LoginService
-    ) -> UIViewController {
-        
-        var view: UIViewController?
-        let alertFactory = AlertFactory()
-        let uiComponentsFactory = UIComponentsFactory()
+    func makeLoginSceneViewController (
+        viewControllerName: ViewControllerNaming
+    ) -> UILoginViewController {
         
         switch viewControllerName {
             
-        case .LoginMainViewController:
-            view = LoginMainViewController.init(router: router, validationService: validationService, loginService: loginService, alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
+        case .loginMainViewController:
+            return LoginMainViewController.init(router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService(), alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
             
-        case .OneTimePasswordViewController:
-            view = OneTimePasswordViewController.init(alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
+        case .oneTimePasswordViewController:
+            return OneTimePasswordViewController.init(router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService(), alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
             
-        case .SignupViewController:
-            view = SignupViewController.init(alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
+        case .signupViewController:
+            return SignupViewController.init(router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService(), alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
             
-        case .PasswordCreationViewController:
-            view = PasswordCreationViewController.init(alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
+        case .passwordCreationViewController:
+            return PasswordCreationViewController.init(router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService(), alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
             
-        case .ForgotPasswordViewController:
-            view = ForgotPasswordViewController.init(alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
+        case .forgotPasswordViewController:
+            return ForgotPasswordViewController.init(router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService(), alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
+            
+        case .trainingMainViewController:
+//            return TrainingMainViewController.init(router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService(), alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
+            return LoginMainViewController(router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService(), alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
             
         }
-        
-        let navigationController = UINavigationController(rootViewController: view ?? UIViewController())
-        
-        return navigationController
     }
+}
+
+extension LoginSceneBuilder {
     
-//    func makeForgotPasswordController() -> UIViewController {
-//        let view = ForgotPasswordViewController.init(alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
-//
-//        let navigationController = UINavigationController(rootViewController: view)
-//        return navigationController
-//    }
-//
-//    func makeOneTimePasswordController() -> UIViewController {
-//        let view = OneTimePasswordViewController.init(alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
-//
-//        let navigationController = UINavigationController(rootViewController: view)
-//        return navigationController
-//    }
-//
-//    func makePasswordCreationController() -> UIViewController {
-//        let view = PasswordCreationViewController.init(alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
-//
-//        let navigationController = UINavigationController(rootViewController: view)
-//        return navigationController
-//    }
-//
-//    func makeSignupController() -> UIViewController {
-//        let view = SignupViewController.init(alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
-//
-//        let navigationController = UINavigationController(rootViewController: view)
-//        return navigationController
-//    }
+    func makeLoginSceneViewControllerWithOptions (
+        viewControllerName: ViewControllerNaming,
+        router: LoginSceneRouter? = LoginSceneRouter(),
+        validationService: ValidationService?,
+        loginService: LoginService?,
+        alertFactory: AlertFactory?,
+        uiComponentsFactory: UIComponentsFactory?
+    ) -> UIViewController {
+        
+        let mode = makeLoginSceneViewController (viewControllerName: viewControllerName)
+        mode.updateOptionsViewController(
+            router: router ?? LoginSceneRouter(),
+            validationService: validationService ?? ValidationService(),
+            loginService: loginService ?? LoginService(),
+            alertFactory: alertFactory ?? AlertFactory(),
+            uiComponentsFactory: uiComponentsFactory ?? UIComponentsFactory()
+            )
+        
+        return mode
+    }
 }

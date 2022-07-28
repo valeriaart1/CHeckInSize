@@ -7,43 +7,47 @@
 
 import UIKit
 
+// MARK: - Validation Error
+
+enum CustomError: String, Error {
+
+    //ValidationError
+    case zeroCharsLogin = "Не указан логин"
+    case zeroCharsPassword = "Не указан пароль"
+    case zeroCaseCredentials = "Не указаны данные для входа"
+    case uncorrectPassword = "Введен неверный пароль"
+    case usernameNotBelongAccount = "Введенное имя пользователя не принадлежит аккаунту"
+    
+    //
+}
+
+enum CustomAlertType {
+    
+    case agreementAlertWithTextField
+    case agreementAlert
+    case disagreementAlert
+    case errorAlert
+}
+
 final class AlertFactory  {
 
     func showAlert(
-        title: String?,
-        message: String?,
+        title: String,
+        alertType: CustomAlertType,
+        message: CustomError,
         preferredStyle: UIAlertController.Style = .alert,
-        alertType: CustomAlertType = .agreementAlert,
-        cancelButtonText: String?,
-        agreementButtonText: String?,
-        textFieldPlaceholder: String?
+        cancelButtonText: String = "",
+        agreementButtonText: String = "",
+        textFieldPlaceholder: String = ""
     ) -> CustomAlert {
         let alert = CustomAlert(
             title: title,
-            message: message,
+            message: message.rawValue,
             preferredStyle: preferredStyle,
             alertType: alertType,
             cancelButtonText: cancelButtonText,
             agreementButtonText: agreementButtonText,
             textFieldPlaceholder: textFieldPlaceholder
-        )
-
-        return alert
-    }
-    
-    func showErrorAlert(
-        title: String?,
-        message: String?,
-        preferredStyle: UIAlertController.Style = .alert
-    ) -> CustomAlert {
-        let alert = CustomAlert(
-            title: title,
-            message: message,
-            preferredStyle: preferredStyle,
-            alertType: .errorAlert,
-            cancelButtonText: nil,
-            agreementButtonText: nil,
-            textFieldPlaceholder: nil
         )
 
         return alert

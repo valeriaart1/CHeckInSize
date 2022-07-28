@@ -17,15 +17,15 @@ extension String {
 
 final class ValidationService {
 
-    private typealias VError = ValidationError
+    private typealias VError = CustomError
 
     func validate(
         login: String,
         and password: String,
         _ completion: @escaping (Bool, Error?) -> Void
     ) {
-        guard !login.isEmpty,
-              !password.isEmpty
+        
+        guard !(login.isEmpty && password.isEmpty)
         else {
             completion(false, VError.zeroCaseCredentials)
             return

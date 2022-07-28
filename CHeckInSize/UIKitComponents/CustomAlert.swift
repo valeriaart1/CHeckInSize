@@ -7,29 +7,54 @@
 
 import UIKit
 
-
+// MARK: - CustomAlert
 
 final class CustomAlert: UIAlertController {
     
-    func configurationTextField(textField: UITextField!){
-        if textField == nil {
-            textField.text = "Filename"
-        }
-    }
-    
-    convenience init(
-        title: String? = "",
-        message: String? = "",
+    // MARK: Initialization
+
+    init(
+        title: String,
+        message: String,
         preferredStyle: UIAlertController.Style,
         alertType: CustomAlertType,
-        cancelButtonText: String? = "Отмена",
-        agreementButtonText: String? = "",
-        textFieldPlaceholder: String? = ""
-    ){
-        self.init(title: title, message: message, preferredStyle: preferredStyle)
+        cancelButtonText: String,
+        agreementButtonText: String,
+        textFieldPlaceholder: String
+    ) {
+        super.init(nibName: nil, bundle: nil)
         
+        setAppearance(
+            title: title,
+            message: message,
+            preferredStyle: preferredStyle,
+            alertType: alertType,
+            cancelButtonText: cancelButtonText,
+            agreementButtonText: agreementButtonText,
+            textFieldPlaceholder: textFieldPlaceholder
+        )
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: – Private Methods
+
+extension CustomAlert {
+
+    private func setAppearance(
+        title: String,
+        message: String,
+        preferredStyle: UIAlertController.Style,
+        alertType: CustomAlertType,
+        cancelButtonText: String,
+        agreementButtonText: String,
+        textFieldPlaceholder: String
+    ) {
         switch alertType {
-            
         case .agreementAlert:
             self.title = title
             // Create cancel button with action handler
@@ -68,7 +93,9 @@ final class CustomAlert: UIAlertController {
             
             // Create OK button with action handler
             let ok = UIAlertAction(title: "ОК", style: .default, handler: nil)
+            ok.setValue(UIColor.black, forKey: "titleTextColor")
             self.addAction(ok)
         }
     }
 }
+

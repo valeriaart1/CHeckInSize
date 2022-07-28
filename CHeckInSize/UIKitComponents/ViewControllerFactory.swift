@@ -17,23 +17,24 @@ final class ViewContorllerFatory {
         validationService: ValidationService? = nil
     ) -> UIViewController
     {
-        switch type {
-
-        case .LoginMainViewController:
-            view = LoginMainViewController.init(router: router, validationService: validationService, loginService: loginService, alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
-
-        case .OneTimePasswordViewController:
-            view = OneTimePasswordViewController.init(alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
-
-        case .SignupViewController:
-            view = SignupViewController.init(alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
-
-        case .PasswordCreationViewController:
-            view = PasswordCreationViewController.init(alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
-
-        case .ForgotPasswordViewController:
-            view = ForgotPasswordViewController.init(alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
-
-        }
+        let view: UIViewController = UIViewController()
+//        switch type {
+//        case .LoginMainViewController:
+//            view = LoginMainViewController.init(router: router, validationService: validationService, loginService: loginService, alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
+//
+//        case .OneTimePasswordViewController:
+//            view = OneTimePasswordViewController.init(alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
+//
+//        case .SignupViewController:
+//            view = SignupViewController.init(alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
+//
+//        case .PasswordCreationViewController:
+//            view = PasswordCreationViewController.init(alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
+//
+//        case .ForgotPasswordViewController:
+//            view = ForgotPasswordViewController.init(alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
+//
+//        }
+        return view
     }
 }

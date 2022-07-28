@@ -14,11 +14,14 @@ final class CustomTextField: UITextField {
     // MARK: Initialization
 
     init(
-        type: CustomTextFieldType = .loginScreenTextField,
-        placeholder: String = ""
+        type: CustomTextFieldType,
+        placeholder: String
     ) {
         super.init(frame: .zero)
-        setAppearance(from: type)
+        setAppearance(
+            from: type,
+            placeholder: placeholder
+        )
     }
 
     @available(*, unavailable)
@@ -31,7 +34,10 @@ final class CustomTextField: UITextField {
 
 extension CustomTextField {
 
-    private func setAppearance(from type: CustomTextFieldType) {
+    private func setAppearance(
+        from type: CustomTextFieldType,
+        placeholder: String
+    ) {
         switch type {
         case .loginScreenTextField:
             self.keyboardType = .namePhonePad

@@ -12,10 +12,16 @@
 		3505B79A288A89930052E7D7 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505B799288A89930052E7D7 /* CustomButton.swift */; };
 		3505B79C288A89A20052E7D7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505B79B288A89A20052E7D7 /* CustomTextField.swift */; };
 		3505B79E288A8D870052E7D7 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3505B79D288A8D870052E7D7 /* CustomLabel.swift */; };
+		350FC196289153AA002D7B17 /* CustomUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350FC195289153AA002D7B17 /* CustomUIColor.swift */; };
+		350FC198289153EB002D7B17 /* LoginConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350FC197289153EB002D7B17 /* LoginConstants.swift */; };
 		351BCFED2886918C00E9A6B7 /* NunitoSans_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 351BCFEC2886918C00E9A6B7 /* NunitoSans_Bold.ttf */; };
 		351BCFEF288692C100E9A6B7 /* Roboto_Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 351BCFEE288692C100E9A6B7 /* Roboto_Black.ttf */; };
 		351BCFF12886959500E9A6B7 /* NunitoSans_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 351BCFF02886959500E9A6B7 /* NunitoSans_Regular.ttf */; };
 		351BCFF32886C6B000E9A6B7 /* UIKitTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351BCFF22886C6B000E9A6B7 /* UIKitTemplate.swift */; };
+		351CC7EA28925AFE00DFEDAF /* TrainingSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CC7E928925AFE00DFEDAF /* TrainingSceneRouter.swift */; };
+		351CC7EC28925B0E00DFEDAF /* TrainingSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CC7EB28925B0E00DFEDAF /* TrainingSceneBuilder.swift */; };
+		351CC7EE28925B2E00DFEDAF /* TrainingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CC7ED28925B2E00DFEDAF /* TrainingMainViewController.swift */; };
+		351CC7F228925C7600DFEDAF /* TrainingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CC7F128925C7600DFEDAF /* TrainingConstants.swift */; };
 		35548739287B25A1009BD164 /* LogicSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35548738287B25A1009BD164 /* LogicSceneRouter.swift */; };
 		3554873B287B25B3009BD164 /* LogicSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554873A287B25B3009BD164 /* LogicSceneBuilder.swift */; };
 		3554873D287B25C7009BD164 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554873C287B25C7009BD164 /* ForgotPasswordViewController.swift */; };
@@ -31,6 +37,7 @@
 		35556A9F286CE4B800988DA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35556A9E286CE4B800988DA7 /* Assets.xcassets */; };
 		35556AA2286CE4B800988DA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35556AA0286CE4B800988DA7 /* LaunchScreen.storyboard */; };
 		35792A2D288C6BB400811631 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35792A2C288C6BB400811631 /* CustomAlert.swift */; };
+		35ABD53F2892B6340081EE88 /* UILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ABD53E2892B6340081EE88 /* UILoginViewController.swift */; };
 		35CB9881287EF79900965CB2 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB9880287EF79900965CB2 /* CoreDataService.swift */; };
 		35CB9886287EFAC700965CB2 /* CHeckInSize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35CB9884287EFAC700965CB2 /* CHeckInSize.xcdatamodeld */; };
 		35CB9891287EFD9900965CB2 /* UserAccount+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB988F287EFD9900965CB2 /* UserAccount+CoreDataClass.swift */; };
@@ -46,10 +53,16 @@
 		3505B799288A89930052E7D7 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		3505B79B288A89A20052E7D7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3505B79D288A8D870052E7D7 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		350FC195289153AA002D7B17 /* CustomUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIColor.swift; sourceTree = "<group>"; };
+		350FC197289153EB002D7B17 /* LoginConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConstants.swift; sourceTree = "<group>"; };
 		351BCFEC2886918C00E9A6B7 /* NunitoSans_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NunitoSans_Bold.ttf; sourceTree = "<group>"; };
 		351BCFEE288692C100E9A6B7 /* Roboto_Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roboto_Black.ttf; sourceTree = "<group>"; };
 		351BCFF02886959500E9A6B7 /* NunitoSans_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NunitoSans_Regular.ttf; sourceTree = "<group>"; };
 		351BCFF22886C6B000E9A6B7 /* UIKitTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitTemplate.swift; sourceTree = "<group>"; };
+		351CC7E928925AFE00DFEDAF /* TrainingSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSceneRouter.swift; sourceTree = "<group>"; };
+		351CC7EB28925B0E00DFEDAF /* TrainingSceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSceneBuilder.swift; sourceTree = "<group>"; };
+		351CC7ED28925B2E00DFEDAF /* TrainingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMainViewController.swift; sourceTree = "<group>"; };
+		351CC7F128925C7600DFEDAF /* TrainingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingConstants.swift; sourceTree = "<group>"; };
 		35548738287B25A1009BD164 /* LogicSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicSceneRouter.swift; sourceTree = "<group>"; };
 		3554873A287B25B3009BD164 /* LogicSceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicSceneBuilder.swift; sourceTree = "<group>"; };
 		3554873C287B25C7009BD164 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +80,7 @@
 		35556AA1286CE4B800988DA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35556AA3286CE4B800988DA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35792A2C288C6BB400811631 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		35ABD53E2892B6340081EE88 /* UILoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoginViewController.swift; sourceTree = "<group>"; };
 		35CB9880287EF79900965CB2 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		35CB9885287EFAC700965CB2 /* CHeckInSize.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CHeckInSize.xcdatamodel; sourceTree = "<group>"; };
 		35CB988F287EFD9900965CB2 /* UserAccount+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserAccount+CoreDataClass.swift"; path = "CHeckInSize/CoreData/UserAccount+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -87,6 +101,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		351CC7E728925AD500DFEDAF /* TrainingScene */ = {
+			isa = PBXGroup;
+			children = (
+				351CC7E928925AFE00DFEDAF /* TrainingSceneRouter.swift */,
+				351CC7EB28925B0E00DFEDAF /* TrainingSceneBuilder.swift */,
+				351CC7E828925AE700DFEDAF /* View */,
+			);
+			path = TrainingScene;
+			sourceTree = "<group>";
+		};
+		351CC7E828925AE700DFEDAF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				351CC7ED28925B2E00DFEDAF /* TrainingMainViewController.swift */,
+				351CC7F128925C7600DFEDAF /* TrainingConstants.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		351CC7F328927AC800DFEDAF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				350FC195289153AA002D7B17 /* CustomUIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3554872D287B1F10009BD164 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,11 +166,13 @@
 		35548736287B24EF009BD164 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				35ABD53E2892B6340081EE88 /* UILoginViewController.swift */,
 				3554873C287B25C7009BD164 /* ForgotPasswordViewController.swift */,
 				3554873E287B25D6009BD164 /* LoginMainViewController.swift */,
 				35548740287B25EA009BD164 /* OneTimePasswrodViewController.swift */,
 				35548742287B25FE009BD164 /* PasswordCreationViewController.swift */,
 				35548744287B260F009BD164 /* SignupViewController.swift */,
+				350FC197289153EB002D7B17 /* LoginConstants.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,9 +216,11 @@
 				3554872D287B1F10009BD164 /* Common */,
 				35CB9883287EF98F00965CB2 /* SupportingFiles */,
 				3554872E287B1F85009BD164 /* LoginScene */,
+				351CC7E728925AD500DFEDAF /* TrainingScene */,
 				35548732287B2465009BD164 /* Storyboards */,
 				35548733287B247D009BD164 /* Resources */,
 				35548737287B255B009BD164 /* Services */,
+				351CC7F328927AC800DFEDAF /* Extensions */,
 				35F292742887D219005AC7CD /* UIKitComponents */,
 			);
 			path = CHeckInSize;
@@ -283,6 +328,9 @@
 				35548741287B25EA009BD164 /* OneTimePasswrodViewController.swift in Sources */,
 				3505B79E288A8D870052E7D7 /* CustomLabel.swift in Sources */,
 				351BCFF32886C6B000E9A6B7 /* UIKitTemplate.swift in Sources */,
+				351CC7EA28925AFE00DFEDAF /* TrainingSceneRouter.swift in Sources */,
+				351CC7EE28925B2E00DFEDAF /* TrainingMainViewController.swift in Sources */,
+				350FC196289153AA002D7B17 /* CustomUIColor.swift in Sources */,
 				35792A2D288C6BB400811631 /* CustomAlert.swift in Sources */,
 				3505B798288A886E0052E7D7 /* UIComponentsFactory.swift in Sources */,
 				35548745287B260F009BD164 /* SignupViewController.swift in Sources */,
@@ -291,12 +339,16 @@
 				35556A93286CE4B800988DA7 /* AppDelegate.swift in Sources */,
 				35548743287B25FE009BD164 /* PasswordCreationViewController.swift in Sources */,
 				35CB9892287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift in Sources */,
+				350FC198289153EB002D7B17 /* LoginConstants.swift in Sources */,
 				35CB9886287EFAC700965CB2 /* CHeckInSize.xcdatamodeld in Sources */,
+				35ABD53F2892B6340081EE88 /* UILoginViewController.swift in Sources */,
+				351CC7EC28925B0E00DFEDAF /* TrainingSceneBuilder.swift in Sources */,
 				3554873D287B25C7009BD164 /* ForgotPasswordViewController.swift in Sources */,
 				35548749287B262E009BD164 /* LoginService.swift in Sources */,
 				3554873B287B25B3009BD164 /* LogicSceneBuilder.swift in Sources */,
 				3554874B287B2640009BD164 /* ValidationService.swift in Sources */,
 				3F71C3FC2890854D00A7B772 /* ViewControllerFactory.swift in Sources */,
+				351CC7F228925C7600DFEDAF /* TrainingConstants.swift in Sources */,
 				35CB9891287EFD9900965CB2 /* UserAccount+CoreDataClass.swift in Sources */,
 				3505B79A288A89930052E7D7 /* CustomButton.swift in Sources */,
 				35548747287B2621009BD164 /* AlertFactory.swift in Sources */,

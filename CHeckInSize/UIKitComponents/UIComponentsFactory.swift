@@ -7,33 +7,49 @@
 
 import UIKit
 
+enum CustomButtonType {
+
+    case blackButton
+    case buttonWithNunitoBoldUnderline
+}
+
+enum CustomTextFieldType {
+    
+    case loginScreenTextField
+    case namingTextFieldAlert
+}
+
+enum CustomLabelType {
+    
+    case labelWithNunito
+    case labelWithNunitoBold
+}
+
 final class UIComponentsFactory {
 
     func makeButton(
         with title: String,
         buttonType type: CustomButtonType,
-        and action: UIAction? = nil,
-        contentAligment: UIButton.ContentHorizontalAlignment?
+        and action: UIAction, //уместен ли здесь опционал? по идее для всех кнопок должны быть прописаны какие-то действия, даже на этапе глубокой разработки можно создать пустую функцию
+        contentAligment: UIButton.ContentHorizontalAlignment = .center
     ) -> CustomButton {
         let button = CustomButton(type: type, title: title, contentAligment: contentAligment)
-        if let action = action {
-            button.addAction(action, for: .touchUpInside)
-        }
+        button.addAction(action, for: .touchUpInside)
         return button
     }
 
     func makeTextField(
-        fieldType type: CustomTextFieldType,
-        with placeholder: String = ""
+        with placeholder: String,
+        fieldType type: CustomTextFieldType
     ) -> CustomTextField {
-        let textField = CustomTextField(placeholder: placeholder)
+        let textField = CustomTextField(type: type, placeholder: placeholder)
         return textField
     }
     
     func makeLabel(
+        with text: String,
         labelType type: CustomLabelType,
-        with text: String = "",
-        size: Float = 200.0,
+        size: Float?,
         textAligment: NSTextAlignment = .center
     ) -> CustomLabel {
         let label = CustomLabel(type: type, text: text, size: size, textAligment: textAligment)
