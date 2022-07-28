@@ -9,21 +9,23 @@ import UIKit
 
 final class LoginSceneRouter {
     
-    func routingBetweenScenes (
+    func route(
         from view: UIViewController?,
         to viewControllerName: ViewControllerNaming,
-        router: LoginSceneRouter?,
-        validationService: ValidationService?,
-        loginService: LoginService?,
-        alertFactory: AlertFactory?,
-        uiComponentsFactory: UIComponentsFactory?,
         presentStyle: UIModalPresentationStyle = .fullScreen,
-        transStyle: UIModalTransitionStyle = .crossDissolve
+        transitionStyle: UIModalTransitionStyle = .crossDissolve
     ) {
-        let mode = LoginSceneBuilder().makeLoginSceneViewControllerWithOptions(viewControllerName: viewControllerName, router: router, validationService: validationService, loginService: loginService, alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
-        view?.navigationController?.pushViewController(mode, animated: true)
+
+        let viewController = ViewContorllerFatory.make(viewController: .forgotPasswordViewController)
+        viewController.modalPresentationStyle = presentStyle
+        viewController.modalTransitionStyle = transitionStyle
+
+        view?.navigationController?.pushViewController(viewController, animated: true)
+
+        //        let mode = LoginSceneBuilder().makeLoginSceneViewControllerWithOptions(viewControllerName: viewControllerName, router: router, validationService: validationService, loginService: loginService, alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
+        //        view?.navigationController?.pushViewController(mode, animated: true)
         
-        setAppearance(from: view, to: mode, presentStyle: presentStyle, transStyle: transStyle)
+        //        setAppearance(from: view, to: mode, presentStyle: presentStyle, transStyle: transStyle)
     }
 }
 

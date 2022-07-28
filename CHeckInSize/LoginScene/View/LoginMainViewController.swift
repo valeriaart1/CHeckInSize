@@ -72,6 +72,18 @@ class LoginMainViewController: UILoginViewController {
         
 //        view.layer.contents = uikitTemplate.backgroundImage.cgImage
     }
+
+    typealias DI = ViewContorllerFatory.Dependency
+
+    init(with container: DI) {
+        super.init(
+            router: container.router,
+            validationService: container.validationService,
+            loginService: container.loginService,
+            alertFactory: container.alertFactory,
+            uiComponentsFactory: container.uiComponentsFactory
+        )
+    }
     
     // MARK: Add views to the hierarchy
     
@@ -208,16 +220,36 @@ class LoginMainViewController: UILoginViewController {
                     }
                     return
                 }
-                self?.router.routingBetweenScenes(from: self, to: .trainingMainViewController, router: self?.router, validationService: self?.validationService, loginService: self?.loginService, alertFactory: self?.alertFactory, uiComponentsFactory: self?.uiComponentsFactory)
+//                self?.router.routingBetweenScenes(from: self, to: .trainingMainViewController, router: self?.router, validationService: self?.validationService, loginService: self?.loginService, alertFactory: self?.alertFactory, uiComponentsFactory: self?.uiComponentsFactory)
             }
         }
     }
     
     private lazy var signUpButtonTapped = UIAction { [weak self] _ in
-        self?.router.routingBetweenScenes(from: self, to: .signupViewController, router: self?.router, validationService: self?.validationService, loginService: self?.loginService, alertFactory: self?.alertFactory, uiComponentsFactory: self?.uiComponentsFactory)
+//        self?.router.routingBetweenScenes(from: self, to: .signupViewController, router: self?.router, validationService: self?.validationService, loginService: self?.loginService, alertFactory: self?.alertFactory, uiComponentsFactory: self?.uiComponentsFactory)
     }
     
     private lazy var forgotPasswordButtonTapped = UIAction { [weak self] _ in
-        self?.router.routingBetweenScenes(from: self, to: .forgotPasswordViewController, router: self?.router, validationService: self?.validationService, loginService: self?.loginService, alertFactory: self?.alertFactory, uiComponentsFactory: self?.uiComponentsFactory)
+//        self?.router.routingBetweenScenes(
+//            from: self,
+//            to: .forgotPasswordViewController,
+//            router: self?.router,
+//            validationService: self?.validationService,
+//            loginService: self?.loginService,
+//            alertFactory: self?.alertFactory,
+//            uiComponentsFactory: self?.uiComponentsFactory
+//        )
+
+        guard let self = self
+        else {
+            return
+        }
+
+        self.router.route(
+            from: self,
+            to: .forgotPasswordViewController,
+            presentStyle: .automatic,
+            transitionStyle: .crossDissolve
+        )
     }
 }

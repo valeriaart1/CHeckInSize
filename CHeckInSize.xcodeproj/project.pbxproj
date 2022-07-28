@@ -43,6 +43,7 @@
 		35CB9891287EFD9900965CB2 /* UserAccount+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB988F287EFD9900965CB2 /* UserAccount+CoreDataClass.swift */; };
 		35CB9892287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB9890287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift */; };
 		35F292732887D0FB005AC7CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F292722887D0FB005AC7CD /* Constants.swift */; };
+		3F62FB0B2893170C0058DC0A /* LoginSceneBuilderNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F62FB0A2893170C0058DC0A /* LoginSceneBuilderNew.swift */; };
 		3F71C3BF2890762C00A7B772 /* BackdropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F71C3BE2890762C00A7B772 /* BackdropView.swift */; };
 		3F71C3FC2890854D00A7B772 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F71C3FB2890854D00A7B772 /* ViewControllerFactory.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		35CB988F287EFD9900965CB2 /* UserAccount+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserAccount+CoreDataClass.swift"; path = "CHeckInSize/CoreData/UserAccount+CoreDataClass.swift"; sourceTree = "<group>"; };
 		35CB9890287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserAccount+CoreDataProperties.swift"; path = "CHeckInSize/CoreData/UserAccount+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35F292722887D0FB005AC7CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3F62FB0A2893170C0058DC0A /* LoginSceneBuilderNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneBuilderNew.swift; sourceTree = "<group>"; };
 		3F71C3BE2890762C00A7B772 /* BackdropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropView.swift; sourceTree = "<group>"; };
 		3F71C3FB2890854D00A7B772 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +144,7 @@
 			children = (
 				35548738287B25A1009BD164 /* LogicSceneRouter.swift */,
 				3554873A287B25B3009BD164 /* LogicSceneBuilder.swift */,
+				3F62FB0A2893170C0058DC0A /* LoginSceneBuilderNew.swift */,
 				35548736287B24EF009BD164 /* View */,
 			);
 			path = LoginScene;
@@ -356,6 +359,7 @@
 				3505B79C288A89A20052E7D7 /* CustomTextField.swift in Sources */,
 				35556A95286CE4B800988DA7 /* SceneDelegate.swift in Sources */,
 				3F71C3BF2890762C00A7B772 /* BackdropView.swift in Sources */,
+				3F62FB0B2893170C0058DC0A /* LoginSceneBuilderNew.swift in Sources */,
 				35F292732887D0FB005AC7CD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,12 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
           
         let window = UIWindow(windowScene: windowScene)
-        
-        let viewController = LoginMainViewController(router: LoginSceneRouter(), validationService: ValidationService(), loginService: LoginService(), alertFactory: AlertFactory(), uiComponentsFactory: UIComponentsFactory())
-        
-        let navigationController = UINavigationController(rootViewController: viewController)
-        window.rootViewController = navigationController
-        
+        window.rootViewController = LoginSceneAssembler.start()
+        window.tintColor = .black
         self.window = window
         window.makeKeyAndVisible()
     }
