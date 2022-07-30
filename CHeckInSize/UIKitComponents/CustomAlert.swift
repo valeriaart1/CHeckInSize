@@ -16,7 +16,6 @@ final class CustomAlert: UIAlertController {
     init(
         title: String,
         message: String,
-        preferredStyle: UIAlertController.Style,
         alertType: CustomAlertType,
         cancelButtonText: String,
         agreementButtonText: String,

@@ -71,31 +71,17 @@ class UILoginViewController: UIViewController {
     func constrainSubviews() {
         
         NSLayoutConstraint.activate([
-            logoImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-            logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginLogoTopAnchor * view.frame.height),
-            logoImage.widthAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginLogoImageWidthAnchor * view.frame.width),
-            logoImage.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLogoHeightAnchor * view.frame.height)
+            logoImage.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * self.view.frame.width),
+            logoImage.topAnchor.constraint(equalTo: self.view.topAnchor, constant: LoginConstantsAnchor.coeffLoginLogoTopAnchor * self.view.frame.height),
+            logoImage.widthAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginLogoImageWidthAnchor * self.view.frame.width),
+            logoImage.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLogoHeightAnchor * self.view.frame.height)
         ])
         
         NSLayoutConstraint.activate([
-            appName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-            appName.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginLogoTopAnchor * view.frame.height),
-            appName.widthAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginAppNameWidthAnchor * view.frame.width),
-            appName.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLogoHeightAnchor * view.frame.height)
+            appName.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * self.view.frame.width),
+            appName.topAnchor.constraint(equalTo: self.view.topAnchor, constant: LoginConstantsAnchor.coeffLoginLogoTopAnchor * self.view.frame.height),
+            appName.widthAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginAppNameWidthAnchor * self.view.frame.width),
+            appName.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLogoHeightAnchor * self.view.frame.height)
         ])
-    }
-    
-    func updateOptionsViewController (
-        router: LoginSceneRouter,
-        validationService: ValidationService,
-        loginService: LoginService,
-        alertFactory: AlertFactory,
-        uiComponentsFactory: UIComponentsFactory
-    ) {
-        self.validationService = validationService
-        self.loginService = loginService
-        self.alertFactory = alertFactory
-        self.router = router
-        self.uiComponentsFactory = uiComponentsFactory
     }
 }

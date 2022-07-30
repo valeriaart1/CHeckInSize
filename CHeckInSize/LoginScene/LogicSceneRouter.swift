@@ -12,20 +12,18 @@ final class LoginSceneRouter {
     func route(
         from view: UIViewController?,
         to viewControllerName: ViewControllerNaming,
-        presentStyle: UIModalPresentationStyle = .fullScreen,
-        transitionStyle: UIModalTransitionStyle = .crossDissolve
+        presentationStyle: UIModalPresentationStyle = .fullScreen,
+        transitionStyle: UIModalTransitionStyle = .crossDissolve,
+        navigationType: NavigatuinType = .pushViewController
     ) {
 
-        let viewController = ViewContorllerFatory.make(viewController: .forgotPasswordViewController)
-        viewController.modalPresentationStyle = presentStyle
-        viewController.modalTransitionStyle = transitionStyle
-
+        let viewController = ViewContorllerFactory.make(viewController: viewControllerName)
+        setAppearance(from: view, to: viewController, presentStyle: presentationStyle, transStyle: transitionStyle)
+        if navigationType == .presentViewController {
+            view?.present(viewController, animated: true, completion: nil)
+            return
+        }
         view?.navigationController?.pushViewController(viewController, animated: true)
-
-        //        let mode = LoginSceneBuilder().makeLoginSceneViewControllerWithOptions(viewControllerName: viewControllerName, router: router, validationService: validationService, loginService: loginService, alertFactory: alertFactory, uiComponentsFactory: uiComponentsFactory)
-        //        view?.navigationController?.pushViewController(mode, animated: true)
-        
-        //        setAppearance(from: view, to: mode, presentStyle: presentStyle, transStyle: transStyle)
     }
 }
 
@@ -39,7 +37,6 @@ extension LoginSceneRouter {
     ) {
         mode.modalPresentationStyle = presentStyle
         mode.modalTransitionStyle = transStyle
-        view?.navigationController?.navigationBar.tintColor = UIColor.black
         let backButton = UIBarButtonItem()
         backButton.title = "Назад"
         view?.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton

@@ -7,10 +7,16 @@
 
 import UIKit
 
+enum NavigatuinType {
+    
+    case presentViewController
+    case pushViewController
+}
+
 enum LoginSceneAssembler {
 
     static func start() -> UINavigationController {
-        let viewContoller = ViewContorllerFatory.make(
+        let viewContoller = ViewContorllerFactory.make(
             viewController: .loginMainViewController
         )
 

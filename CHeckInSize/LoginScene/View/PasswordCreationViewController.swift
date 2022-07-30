@@ -9,46 +9,27 @@ import UIKit
 
 class PasswordCreationViewController: UILoginViewController {
 
-//    private let uikitTemplate = UIKitTemplate()
-
     // MARK: Properties
-
-//    private var validationService: ValidationService
-//    private var loginService: LoginService
-//    private var alertFactory: AlertFactory
-//    private var uiComponentsFactory: UIComponentsFactory
-//    private var router: LoginSceneRouter
-//    private lazy var logoImage: UIImageView = uikitTemplate.logoImage
-//    private lazy var appName: UILabel = uikitTemplate.appName
     private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Cоздание надежного пароля", labelType: .labelWithNunitoBold, size: nil)
     private lazy var instructionCreatingPasswordLabel: UILabel = uiComponentsFactory.makeLabel(with: "Пароль должен содержать не менее 6 символов, включая цифры, буквы и специальные символы (!$@%)", labelType: .labelWithNunito, size: nil)
     private lazy var newPasswordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Новый пароль", fieldType: .loginScreenTextField)
     private lazy var repeatNewPasswordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Введите новый пароль ещё раз", fieldType: .loginScreenTextField)
     private lazy var resetPasswordButton: UIButton = uiComponentsFactory.makeButton(with: "СБРОСИТЬ ПАРОЛЬ", buttonType: .blackButton, and: getLoginLinkButtonTapped)
+    
+    
+    // MARK: Intialization
 
+    typealias DI = ViewContorllerFactory.Dependency
 
-//    // MARK: Intialization
-//
-//    init(
-//        router: LoginSceneRouter,
-//        validationService: ValidationService,
-//        loginService: LoginService,
-//        alertFactory: AlertFactory,
-//        uiComponentsFactory: UIComponentsFactory
-//    ) {
-//        self.validationService = validationService
-//        self.loginService = loginService
-//        self.alertFactory = alertFactory
-//        self.router = router
-//        self.uiComponentsFactory = uiComponentsFactory
-//
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    @available(*, unavailable)
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    init(with container: DI) {
+        super.init(
+            router: container.router,
+            validationService: container.validationService,
+            loginService: container.loginService,
+            alertFactory: container.alertFactory,
+            uiComponentsFactory: container.uiComponentsFactory
+        )
+    }
 
     // MARK: View Life Cycle
 
@@ -56,8 +37,6 @@ class PasswordCreationViewController: UILoginViewController {
         super.viewDidLoad()
         addSubviews()
         constrainSubviews()
-        
-//        view.layer.contents = uikitTemplate.backgroundImage.cgImage
     }
     
     // MARK: Add views to the hierarchy
@@ -66,8 +45,6 @@ class PasswordCreationViewController: UILoginViewController {
         super.addSubviews()
         
         [
-//            logoImage,
-//            appName,
             header,
             instructionCreatingPasswordLabel,
             newPasswordTextField,
@@ -82,20 +59,6 @@ class PasswordCreationViewController: UILoginViewController {
     // MARK: Add up constraints
     override func constrainSubviews() {
         super.constrainSubviews()
-        
-//        NSLayoutConstraint.activate([
-//            logoImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-//            logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginLogoTopAnchor * view.frame.height),
-//            logoImage.widthAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginLogoImageWidthAnchor * view.frame.width),
-//            logoImage.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLogoHeightAnchor * view.frame.height)
-//        ])
-//
-//        NSLayoutConstraint.activate([
-//            appName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-//            appName.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginLogoTopAnchor * view.frame.height),
-//            appName.widthAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginAppNameWidthAnchor * view.frame.width),
-//            appName.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLogoHeightAnchor * view.frame.height)
-//        ])
         
         NSLayoutConstraint.activate([
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
@@ -132,14 +95,6 @@ class PasswordCreationViewController: UILoginViewController {
             resetPasswordButton.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginTextFieldButtonHeightAnchor * view.frame.height)
         ])
     }
-    
-//    func updateOptionsViewController (
-//        alertFactory: AlertFactory,
-//        uiComponentsFactory: UIComponentsFactory
-//    ) {
-//        self.alertFactory = alertFactory
-//        self.uiComponentsFactory = uiComponentsFactory
-//    }
 
     // MARK: Actions
     

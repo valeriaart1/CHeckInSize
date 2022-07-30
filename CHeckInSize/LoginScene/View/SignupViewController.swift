@@ -9,46 +9,27 @@ import UIKit
 
 class SignupViewController: UILoginViewController {
 
-//    private let uikitTemplate = UIKitTemplate()
-
     // MARK: Properties
-
-//    private var validationService: ValidationService
-//    private var loginService: LoginService
-//    private var alertFactory: AlertFactory
-//    private var uiComponentsFactory: UIComponentsFactory
-//    private var router: LoginSceneRouter
-//    private lazy var logoImage: UIImageView = uikitTemplate.logoImage
-//    private lazy var appName: UILabel = uikitTemplate.appName
     private lazy var telephoneOrAddressTextField: UITextField = uiComponentsFactory.makeTextField(with: "Моб. телефон или эл. адрес", fieldType: .loginScreenTextField)
     private lazy var fullNameTextField: UITextField = uiComponentsFactory.makeTextField(with: "Имя и фамилия", fieldType: .loginScreenTextField)
     private lazy var userNameTextField: UITextField = uiComponentsFactory.makeTextField(with: "Имя пользователя", fieldType: .loginScreenTextField)
     private lazy var passwordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Пароль", fieldType: .loginScreenTextField)
     private lazy var signUpButton: UIButton = uiComponentsFactory.makeButton(with: "ЗАРЕГИСТРИРОВАТЬСЯ", buttonType: .blackButton, and: signUpButtonTapped)
+    
+    
+    // MARK: Intialization
 
+    typealias DI = ViewContorllerFactory.Dependency
 
-//    // MARK: Intialization
-//
-//    init(
-//        router: LoginSceneRouter,
-//        validationService: ValidationService,
-//        loginService: LoginService,
-//        alertFactory: AlertFactory,
-//        uiComponentsFactory: UIComponentsFactory
-//    ) {
-//        self.validationService = validationService
-//        self.loginService = loginService
-//        self.alertFactory = alertFactory
-//        self.router = router
-//        self.uiComponentsFactory = uiComponentsFactory
-//
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    @available(*, unavailable)
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    init(with container: DI) {
+        super.init(
+            router: container.router,
+            validationService: container.validationService,
+            loginService: container.loginService,
+            alertFactory: container.alertFactory,
+            uiComponentsFactory: container.uiComponentsFactory
+        )
+    }
 
     // MARK: View Life Cycle
 
@@ -56,8 +37,6 @@ class SignupViewController: UILoginViewController {
         super.viewDidLoad()
         addSubviews()
         constrainSubviews()
-        
-//        view.layer.contents = uikitTemplate.backgroundImage.cgImage
     }
     
     // MARK: Add views to the hierarchy
@@ -66,8 +45,6 @@ class SignupViewController: UILoginViewController {
         super.addSubviews()
         
         [
-//            logoImage,
-//            appName,
             telephoneOrAddressTextField,
             fullNameTextField,
             userNameTextField,
@@ -82,20 +59,6 @@ class SignupViewController: UILoginViewController {
     // MARK: Add up constraints
     override func constrainSubviews() {
         super.constrainSubviews()
-        
-//        NSLayoutConstraint.activate([
-//            logoImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-//            logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginLogoTopAnchor * view.frame.height),
-//            logoImage.widthAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginLogoImageWidthAnchor * view.frame.width),
-//            logoImage.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLogoHeightAnchor * view.frame.height)
-//        ])
-//
-//        NSLayoutConstraint.activate([
-//            appName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-//            appName.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginLogoTopAnchor * view.frame.height),
-//            appName.widthAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginAppNameWidthAnchor * view.frame.width),
-//            appName.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLogoHeightAnchor * view.frame.height)
-//        ])
         
         NSLayoutConstraint.activate([
             telephoneOrAddressTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
@@ -132,18 +95,20 @@ class SignupViewController: UILoginViewController {
             signUpButton.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginTextFieldButtonHeightAnchor * view.frame.height)
         ])
     }
-    
-//    func updateOptionsViewController (
-//        alertFactory: AlertFactory,
-//        uiComponentsFactory: UIComponentsFactory
-//    ) {
-//        self.alertFactory = alertFactory
-//        self.uiComponentsFactory = uiComponentsFactory
-//    }
 
     // MARK: Actions
     
     private lazy var signUpButtonTapped = UIAction { [weak self] _ in
-        print("")
+        
+        guard let self = self
+        else {
+            return
+        }
+
+        self.router.route(
+            from: self,
+            to: .loginMainViewController,
+            navigationType: .presentViewController
+        )
     }
 }

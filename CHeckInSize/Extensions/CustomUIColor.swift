@@ -35,15 +35,3 @@ extension UIColor {
         }
     }
 }
-
-enum CHISColor  {
-    case lightGreen
-
-    //Get Color
-    var color: UIColor {
-        switch self {
-        case .lightGreen:
-            return UIColor.init(hexString: "#D5ECC2", alpha: 1)
-        }
-    }
-}

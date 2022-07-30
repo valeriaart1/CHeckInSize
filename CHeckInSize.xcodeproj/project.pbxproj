@@ -23,7 +23,6 @@
 		351CC7EE28925B2E00DFEDAF /* TrainingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CC7ED28925B2E00DFEDAF /* TrainingMainViewController.swift */; };
 		351CC7F228925C7600DFEDAF /* TrainingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CC7F128925C7600DFEDAF /* TrainingConstants.swift */; };
 		35548739287B25A1009BD164 /* LogicSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35548738287B25A1009BD164 /* LogicSceneRouter.swift */; };
-		3554873B287B25B3009BD164 /* LogicSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554873A287B25B3009BD164 /* LogicSceneBuilder.swift */; };
 		3554873D287B25C7009BD164 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554873C287B25C7009BD164 /* ForgotPasswordViewController.swift */; };
 		3554873F287B25D6009BD164 /* LoginMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554873E287B25D6009BD164 /* LoginMainViewController.swift */; };
 		35548741287B25EA009BD164 /* OneTimePasswrodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35548740287B25EA009BD164 /* OneTimePasswrodViewController.swift */; };
@@ -44,7 +43,6 @@
 		35CB9892287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB9890287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift */; };
 		35F292732887D0FB005AC7CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F292722887D0FB005AC7CD /* Constants.swift */; };
 		3F62FB0B2893170C0058DC0A /* LoginSceneBuilderNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F62FB0A2893170C0058DC0A /* LoginSceneBuilderNew.swift */; };
-		3F71C3BF2890762C00A7B772 /* BackdropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F71C3BE2890762C00A7B772 /* BackdropView.swift */; };
 		3F71C3FC2890854D00A7B772 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F71C3FB2890854D00A7B772 /* ViewControllerFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +63,6 @@
 		351CC7ED28925B2E00DFEDAF /* TrainingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMainViewController.swift; sourceTree = "<group>"; };
 		351CC7F128925C7600DFEDAF /* TrainingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingConstants.swift; sourceTree = "<group>"; };
 		35548738287B25A1009BD164 /* LogicSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicSceneRouter.swift; sourceTree = "<group>"; };
-		3554873A287B25B3009BD164 /* LogicSceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicSceneBuilder.swift; sourceTree = "<group>"; };
 		3554873C287B25C7009BD164 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		3554873E287B25D6009BD164 /* LoginMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMainViewController.swift; sourceTree = "<group>"; };
 		35548740287B25EA009BD164 /* OneTimePasswrodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimePasswrodViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +85,6 @@
 		35CB9890287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserAccount+CoreDataProperties.swift"; path = "CHeckInSize/CoreData/UserAccount+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35F292722887D0FB005AC7CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3F62FB0A2893170C0058DC0A /* LoginSceneBuilderNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneBuilderNew.swift; sourceTree = "<group>"; };
-		3F71C3BE2890762C00A7B772 /* BackdropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropView.swift; sourceTree = "<group>"; };
 		3F71C3FB2890854D00A7B772 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				35548738287B25A1009BD164 /* LogicSceneRouter.swift */,
-				3554873A287B25B3009BD164 /* LogicSceneBuilder.swift */,
 				3F62FB0A2893170C0058DC0A /* LoginSceneBuilderNew.swift */,
 				35548736287B24EF009BD164 /* View */,
 			);
@@ -242,7 +237,6 @@
 			children = (
 				351BCFF22886C6B000E9A6B7 /* UIKitTemplate.swift */,
 				3F71C3FB2890854D00A7B772 /* ViewControllerFactory.swift */,
-				3F71C3BE2890762C00A7B772 /* BackdropView.swift */,
 				35F292722887D0FB005AC7CD /* Constants.swift */,
 				35548746287B2621009BD164 /* AlertFactory.swift */,
 				35792A2C288C6BB400811631 /* CustomAlert.swift */,
@@ -348,7 +342,6 @@
 				351CC7EC28925B0E00DFEDAF /* TrainingSceneBuilder.swift in Sources */,
 				3554873D287B25C7009BD164 /* ForgotPasswordViewController.swift in Sources */,
 				35548749287B262E009BD164 /* LoginService.swift in Sources */,
-				3554873B287B25B3009BD164 /* LogicSceneBuilder.swift in Sources */,
 				3554874B287B2640009BD164 /* ValidationService.swift in Sources */,
 				3F71C3FC2890854D00A7B772 /* ViewControllerFactory.swift in Sources */,
 				351CC7F228925C7600DFEDAF /* TrainingConstants.swift in Sources */,
@@ -358,7 +351,6 @@
 				35548739287B25A1009BD164 /* LogicSceneRouter.swift in Sources */,
 				3505B79C288A89A20052E7D7 /* CustomTextField.swift in Sources */,
 				35556A95286CE4B800988DA7 /* SceneDelegate.swift in Sources */,
-				3F71C3BF2890762C00A7B772 /* BackdropView.swift in Sources */,
 				3F62FB0B2893170C0058DC0A /* LoginSceneBuilderNew.swift in Sources */,
 				35F292732887D0FB005AC7CD /* Constants.swift in Sources */,
 			);

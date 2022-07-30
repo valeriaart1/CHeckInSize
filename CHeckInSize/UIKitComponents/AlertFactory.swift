@@ -35,7 +35,6 @@ final class AlertFactory  {
         title: String,
         alertType: CustomAlertType,
         message: CustomError,
-        preferredStyle: UIAlertController.Style = .alert,
         cancelButtonText: String = "",
         agreementButtonText: String = "",
         textFieldPlaceholder: String = ""
@@ -43,7 +42,6 @@ final class AlertFactory  {
         let alert = CustomAlert(
             title: title,
             message: message.rawValue,
-            preferredStyle: preferredStyle,
             alertType: alertType,
             cancelButtonText: cancelButtonText,
             agreementButtonText: agreementButtonText,

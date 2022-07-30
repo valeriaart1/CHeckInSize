@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewContorllerFatory {
+final class ViewContorllerFactory {
 
     private static var dependencyContainer: Dependency {
         Dependency(
@@ -30,18 +30,27 @@ final class ViewContorllerFatory {
                 with: dependencyContainer
             )
         case .oneTimePasswordViewController:
-            return UIViewController()
+            return OneTimePasswordViewController(
+                with: dependencyContainer
+            )
         case .passwordCreationViewController:
-            return UIViewController()
+            return PasswordCreationViewController(
+                with: dependencyContainer
+            )
         case .signupViewController:
-            return UIViewController()
+            return SignupViewController(
+                with: dependencyContainer
+            )
         case .trainingMainViewController:
             return UIViewController()
+//            return TrainingMainViewController(
+//                with: dependencyContainer
+//            )
         }
     }
 }
 
-extension ViewContorllerFatory {
+extension ViewContorllerFactory {
 
     struct Dependency {
         let router: LoginSceneRouter
