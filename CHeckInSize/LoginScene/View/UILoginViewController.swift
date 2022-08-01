@@ -19,7 +19,7 @@ class UILoginViewController: UIViewController {
     var uiComponentsFactory: UIComponentsFactory
     var router: LoginSceneRouter
     lazy var logoImage: UIImageView = uikitTemplate.logoImage
-    lazy var appName: UILabel = uikitTemplate.appName
+    lazy var appName: UILabel = uikitTemplate.appNameForLogin
     
     
     // MARK: Intialization

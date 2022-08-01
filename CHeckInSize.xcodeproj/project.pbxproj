@@ -22,6 +22,10 @@
 		351CC7EC28925B0E00DFEDAF /* TrainingSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CC7EB28925B0E00DFEDAF /* TrainingSceneBuilder.swift */; };
 		351CC7EE28925B2E00DFEDAF /* TrainingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CC7ED28925B2E00DFEDAF /* TrainingMainViewController.swift */; };
 		351CC7F228925C7600DFEDAF /* TrainingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CC7F128925C7600DFEDAF /* TrainingConstants.swift */; };
+		351F65AC2897A71F00EEB153 /* UserAccount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F65AA2897A71F00EEB153 /* UserAccount+CoreDataProperties.swift */; };
+		351F65AE2897B38100EEB153 /* CoreDataSaveFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F65AD2897B38100EEB153 /* CoreDataSaveFactory.swift */; };
+		351F65B02897B39200EEB153 /* CoreDataLoadFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F65AF2897B39200EEB153 /* CoreDataLoadFactory.swift */; };
+		351F65B52897BBF000EEB153 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F65B42897BBF000EEB153 /* Extensions.swift */; };
 		35548739287B25A1009BD164 /* LogicSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35548738287B25A1009BD164 /* LogicSceneRouter.swift */; };
 		3554873D287B25C7009BD164 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554873C287B25C7009BD164 /* ForgotPasswordViewController.swift */; };
 		3554873F287B25D6009BD164 /* LoginMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554873E287B25D6009BD164 /* LoginMainViewController.swift */; };
@@ -37,10 +41,11 @@
 		35556AA2286CE4B800988DA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35556AA0286CE4B800988DA7 /* LaunchScreen.storyboard */; };
 		35792A2D288C6BB400811631 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35792A2C288C6BB400811631 /* CustomAlert.swift */; };
 		35ABD53F2892B6340081EE88 /* UILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ABD53E2892B6340081EE88 /* UILoginViewController.swift */; };
+		35B37C282896A717004014EC /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B37C272896A717004014EC /* CustomImageView.swift */; };
+		35B3ADEF2895812A009DEA3C /* UITrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B3ADEE2895812A009DEA3C /* UITrainingViewController.swift */; };
+		35B3ADF128959C20009DEA3C /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B3ADF028959C20009DEA3C /* CustomDatePicker.swift */; };
 		35CB9881287EF79900965CB2 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB9880287EF79900965CB2 /* CoreDataService.swift */; };
 		35CB9886287EFAC700965CB2 /* CHeckInSize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35CB9884287EFAC700965CB2 /* CHeckInSize.xcdatamodeld */; };
-		35CB9891287EFD9900965CB2 /* UserAccount+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB988F287EFD9900965CB2 /* UserAccount+CoreDataClass.swift */; };
-		35CB9892287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CB9890287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift */; };
 		35F292732887D0FB005AC7CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F292722887D0FB005AC7CD /* Constants.swift */; };
 		3F62FB0B2893170C0058DC0A /* LoginSceneBuilderNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F62FB0A2893170C0058DC0A /* LoginSceneBuilderNew.swift */; };
 		3F71C3FC2890854D00A7B772 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F71C3FB2890854D00A7B772 /* ViewControllerFactory.swift */; };
@@ -62,6 +67,10 @@
 		351CC7EB28925B0E00DFEDAF /* TrainingSceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSceneBuilder.swift; sourceTree = "<group>"; };
 		351CC7ED28925B2E00DFEDAF /* TrainingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMainViewController.swift; sourceTree = "<group>"; };
 		351CC7F128925C7600DFEDAF /* TrainingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingConstants.swift; sourceTree = "<group>"; };
+		351F65AA2897A71F00EEB153 /* UserAccount+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserAccount+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		351F65AD2897B38100EEB153 /* CoreDataSaveFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSaveFactory.swift; sourceTree = "<group>"; };
+		351F65AF2897B39200EEB153 /* CoreDataLoadFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLoadFactory.swift; sourceTree = "<group>"; };
+		351F65B42897BBF000EEB153 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		35548738287B25A1009BD164 /* LogicSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicSceneRouter.swift; sourceTree = "<group>"; };
 		3554873C287B25C7009BD164 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		3554873E287B25D6009BD164 /* LoginMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMainViewController.swift; sourceTree = "<group>"; };
@@ -79,10 +88,11 @@
 		35556AA3286CE4B800988DA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35792A2C288C6BB400811631 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		35ABD53E2892B6340081EE88 /* UILoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoginViewController.swift; sourceTree = "<group>"; };
+		35B37C272896A717004014EC /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		35B3ADEE2895812A009DEA3C /* UITrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITrainingViewController.swift; sourceTree = "<group>"; };
+		35B3ADF028959C20009DEA3C /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		35CB9880287EF79900965CB2 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		35CB9885287EFAC700965CB2 /* CHeckInSize.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CHeckInSize.xcdatamodel; sourceTree = "<group>"; };
-		35CB988F287EFD9900965CB2 /* UserAccount+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserAccount+CoreDataClass.swift"; path = "CHeckInSize/CoreData/UserAccount+CoreDataClass.swift"; sourceTree = "<group>"; };
-		35CB9890287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserAccount+CoreDataProperties.swift"; path = "CHeckInSize/CoreData/UserAccount+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35F292722887D0FB005AC7CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3F62FB0A2893170C0058DC0A /* LoginSceneBuilderNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneBuilderNew.swift; sourceTree = "<group>"; };
 		3F71C3FB2890854D00A7B772 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -112,6 +122,7 @@
 		351CC7E828925AE700DFEDAF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				35B3ADEE2895812A009DEA3C /* UITrainingViewController.swift */,
 				351CC7ED28925B2E00DFEDAF /* TrainingMainViewController.swift */,
 				351CC7F128925C7600DFEDAF /* TrainingConstants.swift */,
 			);
@@ -122,8 +133,30 @@
 			isa = PBXGroup;
 			children = (
 				350FC195289153AA002D7B17 /* CustomUIColor.swift */,
+				351F65B42897BBF000EEB153 /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		351F65B12897B3F100EEB153 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				35CB9884287EFAC700965CB2 /* CHeckInSize.xcdatamodeld */,
+				35CB9880287EF79900965CB2 /* CoreDataService.swift */,
+				351F65AD2897B38100EEB153 /* CoreDataSaveFactory.swift */,
+				351F65AF2897B39200EEB153 /* CoreDataLoadFactory.swift */,
+				351F65B6289802F600EEB153 /* Entity */,
+			);
+			name = CoreData;
+			path = ../CoreData;
+			sourceTree = "<group>";
+		};
+		351F65B6289802F600EEB153 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				351F65AA2897A71F00EEB153 /* UserAccount+CoreDataProperties.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		3554872D287B1F10009BD164 /* Common */ = {
@@ -180,7 +213,6 @@
 			children = (
 				35548748287B262E009BD164 /* LoginService.swift */,
 				3554874A287B2640009BD164 /* ValidationService.swift */,
-				35CB9880287EF79900965CB2 /* CoreDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -188,8 +220,6 @@
 		35556A86286CE4B700988DA7 = {
 			isa = PBXGroup;
 			children = (
-				35CB988F287EFD9900965CB2 /* UserAccount+CoreDataClass.swift */,
-				35CB9890287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift */,
 				35556A91286CE4B700988DA7 /* CHeckInSize */,
 				35556A90286CE4B700988DA7 /* Products */,
 			);
@@ -212,7 +242,7 @@
 				351BCFEC2886918C00E9A6B7 /* NunitoSans_Bold.ttf */,
 				351BCFEE288692C100E9A6B7 /* Roboto_Black.ttf */,
 				3554872D287B1F10009BD164 /* Common */,
-				35CB9883287EF98F00965CB2 /* SupportingFiles */,
+				351F65B12897B3F100EEB153 /* CoreData */,
 				3554872E287B1F85009BD164 /* LoginScene */,
 				351CC7E728925AD500DFEDAF /* TrainingScene */,
 				35548732287B2465009BD164 /* Storyboards */,
@@ -222,14 +252,6 @@
 				35F292742887D219005AC7CD /* UIKitComponents */,
 			);
 			path = CHeckInSize;
-			sourceTree = "<group>";
-		};
-		35CB9883287EF98F00965CB2 /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				35CB9884287EFAC700965CB2 /* CHeckInSize.xcdatamodeld */,
-			);
-			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		35F292742887D219005AC7CD /* UIKitComponents */ = {
@@ -244,6 +266,8 @@
 				3505B799288A89930052E7D7 /* CustomButton.swift */,
 				3505B79B288A89A20052E7D7 /* CustomTextField.swift */,
 				3505B79D288A8D870052E7D7 /* CustomLabel.swift */,
+				35B3ADF028959C20009DEA3C /* CustomDatePicker.swift */,
+				35B37C272896A717004014EC /* CustomImageView.swift */,
 			);
 			path = UIKitComponents;
 			sourceTree = "<group>";
@@ -324,9 +348,11 @@
 			files = (
 				35548741287B25EA009BD164 /* OneTimePasswrodViewController.swift in Sources */,
 				3505B79E288A8D870052E7D7 /* CustomLabel.swift in Sources */,
+				35B3ADF128959C20009DEA3C /* CustomDatePicker.swift in Sources */,
 				351BCFF32886C6B000E9A6B7 /* UIKitTemplate.swift in Sources */,
 				351CC7EA28925AFE00DFEDAF /* TrainingSceneRouter.swift in Sources */,
 				351CC7EE28925B2E00DFEDAF /* TrainingMainViewController.swift in Sources */,
+				351F65B52897BBF000EEB153 /* Extensions.swift in Sources */,
 				350FC196289153AA002D7B17 /* CustomUIColor.swift in Sources */,
 				35792A2D288C6BB400811631 /* CustomAlert.swift in Sources */,
 				3505B798288A886E0052E7D7 /* UIComponentsFactory.swift in Sources */,
@@ -335,20 +361,23 @@
 				35CB9881287EF79900965CB2 /* CoreDataService.swift in Sources */,
 				35556A93286CE4B800988DA7 /* AppDelegate.swift in Sources */,
 				35548743287B25FE009BD164 /* PasswordCreationViewController.swift in Sources */,
-				35CB9892287EFD9900965CB2 /* UserAccount+CoreDataProperties.swift in Sources */,
+				35B37C282896A717004014EC /* CustomImageView.swift in Sources */,
 				350FC198289153EB002D7B17 /* LoginConstants.swift in Sources */,
 				35CB9886287EFAC700965CB2 /* CHeckInSize.xcdatamodeld in Sources */,
 				35ABD53F2892B6340081EE88 /* UILoginViewController.swift in Sources */,
 				351CC7EC28925B0E00DFEDAF /* TrainingSceneBuilder.swift in Sources */,
+				351F65AC2897A71F00EEB153 /* UserAccount+CoreDataProperties.swift in Sources */,
+				35B3ADEF2895812A009DEA3C /* UITrainingViewController.swift in Sources */,
 				3554873D287B25C7009BD164 /* ForgotPasswordViewController.swift in Sources */,
 				35548749287B262E009BD164 /* LoginService.swift in Sources */,
 				3554874B287B2640009BD164 /* ValidationService.swift in Sources */,
 				3F71C3FC2890854D00A7B772 /* ViewControllerFactory.swift in Sources */,
 				351CC7F228925C7600DFEDAF /* TrainingConstants.swift in Sources */,
-				35CB9891287EFD9900965CB2 /* UserAccount+CoreDataClass.swift in Sources */,
+				351F65B02897B39200EEB153 /* CoreDataLoadFactory.swift in Sources */,
 				3505B79A288A89930052E7D7 /* CustomButton.swift in Sources */,
 				35548747287B2621009BD164 /* AlertFactory.swift in Sources */,
 				35548739287B25A1009BD164 /* LogicSceneRouter.swift in Sources */,
+				351F65AE2897B38100EEB153 /* CoreDataSaveFactory.swift in Sources */,
 				3505B79C288A89A20052E7D7 /* CustomTextField.swift in Sources */,
 				35556A95286CE4B800988DA7 /* SceneDelegate.swift in Sources */,
 				3F62FB0B2893170C0058DC0A /* LoginSceneBuilderNew.swift in Sources */,

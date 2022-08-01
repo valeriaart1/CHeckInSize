@@ -7,33 +7,21 @@
 
 import UIKit
 
-class TrainingMainViewController: UIViewController {
-
-    private let uikitTemplate = UIKitTemplate()
+class TrainingMainViewController: UITrainingViewController {
 
     // MARK: Properties
-
-    private let alertFactory: AlertFactory
-    private let uiComponentsFactory: UIComponentsFactory
-    private lazy var logoImage: UIImageView = uikitTemplate.logoImage
-    private lazy var appName: UILabel = uikitTemplate.appName
-
-
+    
+    
     // MARK: Intialization
 
-    init(
-        alertFactory: AlertFactory,
-        uiComponentsFactory: UIComponentsFactory
-    ) {
-        self.alertFactory = alertFactory
-        self.uiComponentsFactory = uiComponentsFactory
+    typealias DI = ViewContorllerFactory.TrainingDependency
 
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    init(with container: DI) {
+        super.init(
+            router: container.router,
+            alertFactory: container.alertFactory,
+            uiComponentsFactory: container.uiComponentsFactory
+        )
     }
 
     // MARK: View Life Cycle
@@ -42,43 +30,54 @@ class TrainingMainViewController: UIViewController {
         super.viewDidLoad()
         addSubviews()
         constrainSubviews()
-        
-        view.layer.contents = uikitTemplate.backgroundImage.cgImage
     }
     
     // MARK: Add views to the hierarchy
     
-    func addSubviews() {
-        [
-            logoImage,
-            appName
-        ].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview($0)
-        }
+    override func addSubviews() {
+        super.addSubviews()
+        
+//        [
+//        ].forEach {
+//            $0.translatesAutoresizingMaskIntoConstraints = false
+//            view.addSubview($0)
+//        }
     }
     
     // MARK: Add up constraints
-    func constrainSubviews() {
+    override func constrainSubviews() {
+        super.constrainSubviews()
         
-        NSLayoutConstraint.activate([
-            logoImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-            logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginLogoTopAnchor * view.frame.height),
-            logoImage.widthAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginLogoImageWidthAnchor * view.frame.width),
-            logoImage.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLogoHeightAnchor * view.frame.height)
-        ])
-        
-        NSLayoutConstraint.activate([
-            appName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-            appName.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginLogoTopAnchor * view.frame.height),
-            appName.widthAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginAppNameWidthAnchor * view.frame.width),
-            appName.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLogoHeightAnchor * view.frame.height)
-        ])
+//
+//        NSLayoutConstraint.activate([
+//            codeTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+//            codeTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+//            codeTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginThirdTextFieldTopAnchor * view.frame.height),
+//            codeTextField.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginTextFieldButtonHeightAnchor * view.frame.height)
+//        ])
+//
+//        NSLayoutConstraint.activate([
+//            getNewCodeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+//            getNewCodeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+//            getNewCodeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginUnderTextFieldButtonTopAnchor * view.frame.height),
+//            getNewCodeButton.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginLabelUnderLineButtonHeightAnchor * view.frame.height)
+//        ])
+//
+//        NSLayoutConstraint.activate([
+//            confirmButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+//            confirmButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+//            confirmButton.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginMainButtonTopAnchor * view.frame.height),
+//            confirmButton.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginTextFieldButtonHeightAnchor * view.frame.height)
+//        ])
     }
 
     // MARK: Actions
     
 //    private lazy var confirmButtonTapped = UIAction { [weak self] _ in
+//        print("")
+//    }
+//
+//    private lazy var getNewCodeTapped = UIAction { [weak self] _ in
 //        print("")
 //    }
 }

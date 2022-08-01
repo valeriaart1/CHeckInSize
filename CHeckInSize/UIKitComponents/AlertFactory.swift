@@ -18,7 +18,14 @@ enum CustomError: String, Error {
     case uncorrectPassword = "Введен неверный пароль"
     case usernameNotBelongAccount = "Введенное имя пользователя не принадлежит аккаунту"
     
-    //
+    //CoreDataError
+    case savingDataError = "Ошибка сохранения записи в базу данных"
+    case loadingDataError = "Ошибка получения записей из базы данных"
+    
+    //SignUpError
+    case userLoginIsEmpty = "Пожалуйста, заполните поле логина пользователя"
+    case userNameIsEmpty = "Пожалуйста, заполните поле имя пользователя"
+    case userPasswordIsEmpty = "Пожалуйста, заполните поле пароля"
 }
 
 enum CustomAlertType {

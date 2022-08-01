@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 class SignupViewController: UILoginViewController {
 
     // MARK: Properties
-    private lazy var telephoneOrAddressTextField: UITextField = uiComponentsFactory.makeTextField(with: "Моб. телефон или эл. адрес", fieldType: .loginScreenTextField)
+    private lazy var userLoginTextField: UITextField = uiComponentsFactory.makeTextField(with: "Моб. телефон или эл. адрес", fieldType: .loginScreenTextField)
     private lazy var fullNameTextField: UITextField = uiComponentsFactory.makeTextField(with: "Имя и фамилия", fieldType: .loginScreenTextField)
     private lazy var userNameTextField: UITextField = uiComponentsFactory.makeTextField(with: "Имя пользователя", fieldType: .loginScreenTextField)
     private lazy var passwordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Пароль", fieldType: .loginScreenTextField)
@@ -19,7 +20,7 @@ class SignupViewController: UILoginViewController {
     
     // MARK: Intialization
 
-    typealias DI = ViewContorllerFactory.Dependency
+    typealias DI = ViewContorllerFactory.LoginDependency
 
     init(with container: DI) {
         super.init(
@@ -45,7 +46,7 @@ class SignupViewController: UILoginViewController {
         super.addSubviews()
         
         [
-            telephoneOrAddressTextField,
+            userLoginTextField,
             fullNameTextField,
             userNameTextField,
             passwordTextField,
@@ -61,10 +62,10 @@ class SignupViewController: UILoginViewController {
         super.constrainSubviews()
         
         NSLayoutConstraint.activate([
-            telephoneOrAddressTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-            telephoneOrAddressTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-            telephoneOrAddressTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginFirstTextFieldTopAnchor * view.frame.height),
-            telephoneOrAddressTextField.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginTextFieldButtonHeightAnchor * view.frame.height)
+            userLoginTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+            userLoginTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+            userLoginTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginFirstTextFieldTopAnchor * view.frame.height),
+            userLoginTextField.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginTextFieldButtonHeightAnchor * view.frame.height)
         ])
         
         NSLayoutConstraint.activate([
@@ -100,15 +101,42 @@ class SignupViewController: UILoginViewController {
     
     private lazy var signUpButtonTapped = UIAction { [weak self] _ in
         
-        guard let self = self
-        else {
-            return
-        }
+        self?.validationService.validateSignup(userLogin: self?.userLoginTextField.text, userName: self?.userNameTextField.text, userPassword: self?.passwordTextField.text) { success, error in
+            guard success
+            else {
+                if let error = error,
+                   let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error) {
+                    self?.present(alert, animated: true, completion: nil)
+                }
+                return
+            }
 
-        self.router.route(
-            from: self,
-            to: .loginMainViewController,
-            navigationType: .presentViewController
-        )
+            CoreDataSaveFactory.saveNewUserAccount(
+                userLogin: (self?.userLoginTextField.text!)!,
+                userFullname: self?.fullNameTextField.text,
+                userName: (self?.userNameTextField.text!)!,
+                userPassword: (self?.passwordTextField.text)!!
+            ) { success, error in
+                guard success
+                else {
+                    if let error = error,
+                       let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error){
+                        self?.present(alert, animated: true, completion: nil)
+                    }
+                    return
+                }
+                
+                guard let self = self
+                else {
+                    return
+                }
+
+                self.router.route(
+                    from: self,
+                    to: .loginMainViewController,
+                    navigationType: .presentViewController
+                )
+            }
+        }
     }
 }

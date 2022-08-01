@@ -5,26 +5,40 @@
 //  Created by Валерия Артемьева on 10.07.22.
 //
 
-enum LoginError: String, Error {
-
-    case invalidLogin
-    case invalidPassword
-}
-
 final class LoginService {
 
-    private typealias LError = LoginError
-
     func login(
-        login: String,
-        pwd: String,
-        _ completion: @escaping (Bool, Error?) -> Void
+                login: String,
+                pwd: String,
+                _ completion: @escaping (Bool, CustomError?) -> Void
     ) {
-        if true {
-            completion(true, nil)
-        } else { 
-            completion(false, LError.invalidLogin)
-        }
+        
+            let users = CoreDataLoadFactory.loadUserAccount( { success, error in
+                guard (error == nil) else {
+                    completion(false, error)
+                    return
+                }
+            })
+        
+            for user in users {
+                switch (login, pwd) {
+                case (user.login, user.password):
+                    completion(true, nil)
+                    return
+                case (user.userName, user.password):
+                    completion(true, nil)
+                    return
+                case (user.login, _):
+                    completion(false, CustomError.uncorrectPassword)
+                    return
+                case (user.userName, _):
+                    completion(false, CustomError.uncorrectPassword)
+                    return
+                case (_, _):
+                    break
+                }
+            }
+        
+            completion(false, CustomError.usernameNotBelongAccount)
     }
-
 }

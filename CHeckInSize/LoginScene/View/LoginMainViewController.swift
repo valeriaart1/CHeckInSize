@@ -22,7 +22,7 @@ class LoginMainViewController: UILoginViewController {
     
     // MARK: Intialization
 
-    typealias DI = ViewContorllerFactory.Dependency
+    typealias DI = ViewContorllerFactory.LoginDependency
 
     init(with container: DI) {
         super.init(
@@ -128,11 +128,11 @@ class LoginMainViewController: UILoginViewController {
             return
         }
         
-        self?.validationService.validate(login: login, and: pwd) { success, error in
+        self?.validationService.validateLogin(login: login, and: pwd) { success, error in
             guard success
             else {
                 if let error = error,
-                   let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error as! CustomError) {
+                   let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error) {
                     self?.present(alert, animated: true, completion: nil)
                 }
                 return
@@ -142,7 +142,7 @@ class LoginMainViewController: UILoginViewController {
                 guard success
                 else {
                     if let error = error,
-                       let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error as! CustomError){
+                       let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error){
                         self?.present(alert, animated: true, completion: nil)
                     }
                     return
@@ -155,7 +155,7 @@ class LoginMainViewController: UILoginViewController {
 
                 self.router.route(
                     from: self,
-                    to: .forgotPasswordViewController,
+                    to: .trainingMainViewController,
                     navigationType: .presentViewController
                 )
             }

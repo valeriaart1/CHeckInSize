@@ -23,6 +23,13 @@ enum CustomLabelType {
     
     case labelWithNunito
     case labelWithNunitoBold
+    case dateFormat
+    case menuBackground
+}
+
+enum CustomImageViewType {
+    
+    case iconImage
 }
 
 final class UIComponentsFactory {
@@ -47,12 +54,31 @@ final class UIComponentsFactory {
     }
     
     func makeLabel(
-        with text: String,
+        with text: String = "",
         labelType type: CustomLabelType,
         size: Float?,
         textAligment: NSTextAlignment = .center
     ) -> CustomLabel {
         let label = CustomLabel(type: type, text: text, size: size, textAligment: textAligment)
         return label
+    }
+    
+    func makeDatePicker(
+        and action: UIAction?
+    ) -> CustomDatePicker {
+        let datePicker = CustomDatePicker()
+        if let action = action {
+            datePicker.addAction(action, for: UIControl.Event.valueChanged)
+        }
+        return datePicker
+    }
+    
+    func makeImageView(
+        imageViewType: CustomImageViewType,
+        named: String = Constants.defaultUserIcon
+    ) -> UIImageView {
+        let imageView = CustomImageView(customImageViewType: imageViewType,
+                                        named: named)
+        return imageView
     }
 }

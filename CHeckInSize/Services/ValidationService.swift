@@ -5,24 +5,16 @@
 //  Created by Валерия Артемьева on 10.07.22.
 //
 
-extension String {
-
-    var isEmpty: Bool {
-
-        count == 0 ? true : false
-    }
-}
-
 // MARK: - ValidationService
 
 final class ValidationService {
 
     private typealias VError = CustomError
 
-    func validate(
+    func validateLogin(
         login: String,
         and password: String,
-        _ completion: @escaping (Bool, Error?) -> Void
+        _ completion: @escaping (Bool, CustomError?) -> Void
     ) {
         
         guard !(login.isEmpty && password.isEmpty)
@@ -30,7 +22,6 @@ final class ValidationService {
             completion(false, VError.zeroCaseCredentials)
             return
         }
-        
         switch (login.isEmpty, password.isEmpty) {
         case (true, _):
             completion(false, VError.zeroCharsLogin)
@@ -38,6 +29,24 @@ final class ValidationService {
             completion(false, VError.zeroCharsPassword)
         default:
             completion(true, nil)
+        }
+    }
+    
+    func validateSignup(
+        userLogin: String?,
+        userName: String?,
+        userPassword: String?,
+        _ completion: @escaping (Bool, CustomError?) -> Void
+    ) {
+        switch (userLogin?.isEmpty, userName?.isEmpty, userPassword?.isEmpty) {
+            case (true, _, _):
+                completion(false,CustomError.userLoginIsEmpty)
+            case (_, true, _):
+                completion(false,CustomError.userNameIsEmpty)
+            case (_, _, true):
+                completion(false,CustomError.userPasswordIsEmpty)
+            default:
+                completion(true, nil)
         }
     }
 }

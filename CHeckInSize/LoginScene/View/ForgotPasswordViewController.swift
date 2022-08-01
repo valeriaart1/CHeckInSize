@@ -20,7 +20,7 @@ class ForgotPasswordViewController: UILoginViewController {
     
     // MARK: Intialization
 
-    typealias DI = ViewContorllerFactory.Dependency
+    typealias DI = ViewContorllerFactory.LoginDependency
 
     init(with container: DI) {
         super.init(

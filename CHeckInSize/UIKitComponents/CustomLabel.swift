@@ -58,6 +58,18 @@ extension CustomLabel {
             self.font = UIFont(name: "Nunito Sans Bold", size: CGFloat(size ?? 22))
             self.textAlignment = textAligment
             self.sizeToFit()
+            
+        case .dateFormat:
+            let date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.mm.yyyy"
+            let dateString = dateFormatter.string(from: date)
+
+            self.text = dateString
+            
+        case .menuBackground:
+            self.layer.cornerRadius = 20
+            self.layer.backgroundColor = UIColor(hexString: "FFFFFF", alpha: 0.6).cgColor
         }
     }
 }

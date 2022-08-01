@@ -12,6 +12,11 @@ class CoreDataService {
     
     let dataModelName = "CHeckInSize"
     
+    static func setContext() ->NSManagedObjectContext {
+        let context = CoreDataService().persistentContainer.viewContext
+        return context
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {

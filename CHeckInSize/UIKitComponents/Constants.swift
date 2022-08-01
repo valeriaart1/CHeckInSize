@@ -9,6 +9,7 @@ struct Constants {
 
     static let backgroundImageName = "backgroundImage.png"
     static let logoImageName = "logoImage.png"
+    static let defaultUserIcon = "defaultUserIcon.png"
 }
 
 enum ViewControllerNaming {

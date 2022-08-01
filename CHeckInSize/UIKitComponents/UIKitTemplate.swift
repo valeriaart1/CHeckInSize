@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum SceneType {
+    case login
+    case app
+}
+
 final class UIKitTemplate {
     
     lazy var backgroundImage: UIImage = {
@@ -18,6 +23,25 @@ final class UIKitTemplate {
         image: UIImage(named: Constants.logoImageName)
     )
     return imageView
+    }()
+    
+    lazy var appNameForLogin: UILabel = {
+        let myString:String = "CHeckInSize"
+        let strokeTextAttributes = [
+            NSAttributedString.Key.strokeColor : UIColor.black,
+          NSAttributedString.Key.strokeWidth : -4.0]
+          as [NSAttributedString.Key : Any]
+        
+        let label = UILabel(frame: .zero)
+        let myMutableString = NSMutableAttributedString(string: myString, attributes: strokeTextAttributes)
+        label.attributedText = myMutableString
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white.cgColor, range: NSRange(location:2,length:3))
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white.cgColor, range: NSRange(location:6,length:1))
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white.cgColor, range: NSRange(location:8,length:3))
+        myMutableString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "Bubblegum Sans", size: 45.0)!, range: NSRange(location:0,length:myString.lengthOfBytes(using: .ascii)))
+        label.attributedText = myMutableString
+        label.textAlignment = .center
+        return label
     }()
     
     lazy var appName: UILabel = {
@@ -33,7 +57,7 @@ final class UIKitTemplate {
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white.cgColor, range: NSRange(location:2,length:3))
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white.cgColor, range: NSRange(location:6,length:1))
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white.cgColor, range: NSRange(location:8,length:3))
-        myMutableString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "Bubblegum Sans", size: 45.0)!, range: NSRange(location:0,length:myString.lengthOfBytes(using: .ascii)))
+        myMutableString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "Bubblegum Sans", size: 25.0)!, range: NSRange(location:0,length:myString.lengthOfBytes(using: .ascii)))
         label.attributedText = myMutableString
         label.textAlignment = .center
         return label

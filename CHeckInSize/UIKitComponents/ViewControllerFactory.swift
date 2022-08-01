@@ -9,11 +9,19 @@ import UIKit
 
 final class ViewContorllerFactory {
 
-    private static var dependencyContainer: Dependency {
-        Dependency(
+    private static var loginDependencyContainer: LoginDependency {
+        LoginDependency (
             router: LoginSceneRouter(),
             validationService: ValidationService(),
             loginService: LoginService(),
+            alertFactory: AlertFactory(),
+            uiComponentsFactory: UIComponentsFactory()
+        )
+    }
+    
+    private static var trainingDependencyContainer: TrainingDependency {
+        TrainingDependency (
+            router: TrainingSceneRouter(),
             alertFactory: AlertFactory(),
             uiComponentsFactory: UIComponentsFactory()
         )
@@ -23,39 +31,44 @@ final class ViewContorllerFactory {
         switch type {
         case .loginMainViewController:
             return LoginMainViewController(
-                with: dependencyContainer
+                with: loginDependencyContainer
             )
         case .forgotPasswordViewController:
             return ForgotPasswordViewController(
-                with: dependencyContainer
+                with: loginDependencyContainer
             )
         case .oneTimePasswordViewController:
             return OneTimePasswordViewController(
-                with: dependencyContainer
+                with: loginDependencyContainer
             )
         case .passwordCreationViewController:
             return PasswordCreationViewController(
-                with: dependencyContainer
+                with: loginDependencyContainer
             )
         case .signupViewController:
             return SignupViewController(
-                with: dependencyContainer
+                with: loginDependencyContainer
             )
         case .trainingMainViewController:
-            return UIViewController()
-//            return TrainingMainViewController(
-//                with: dependencyContainer
-//            )
+            return TrainingMainViewController(
+                with: trainingDependencyContainer
+            )
         }
     }
 }
 
 extension ViewContorllerFactory {
 
-    struct Dependency {
+    struct LoginDependency {
         let router: LoginSceneRouter
         let validationService: ValidationService
         let loginService: LoginService
+        let alertFactory: AlertFactory
+        let uiComponentsFactory: UIComponentsFactory
+    }
+    
+    struct TrainingDependency {
+        let router: TrainingSceneRouter
         let alertFactory: AlertFactory
         let uiComponentsFactory: UIComponentsFactory
     }
