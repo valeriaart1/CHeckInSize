@@ -10,8 +10,6 @@ import CoreData
 
 class CoreDataService {
     
-    let dataModelName = "CHeckInSize"
-    
     static func setContext() ->NSManagedObjectContext {
         let context = CoreDataService().persistentContainer.viewContext
         return context
@@ -20,7 +18,7 @@ class CoreDataService {
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: dataModelName)
+        let container = NSPersistentContainer(name: Constants.dataModelName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

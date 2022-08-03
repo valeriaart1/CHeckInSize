@@ -37,9 +37,9 @@ final class ViewContorllerFactory {
             return ForgotPasswordViewController(
                 with: loginDependencyContainer
             )
-        case .oneTimePasswordViewController:
+        case .oneTimePasswordViewController(let login):
             return OneTimePasswordViewController(
-                with: loginDependencyContainer
+                with: loginDependencyContainer, login: login
             )
         case .passwordCreationViewController:
             return PasswordCreationViewController(

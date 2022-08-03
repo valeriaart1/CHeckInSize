@@ -14,7 +14,8 @@ final class TrainingSceneRouter {
         to viewControllerName: ViewControllerNaming,
         presentationStyle: UIModalPresentationStyle = .fullScreen,
         transitionStyle: UIModalTransitionStyle = .crossDissolve,
-        navigationType: NavigatuinType = .pushViewController
+        navigationType: NavigatuinType = .pushViewController,
+        login: String = ""
     ) {
 
         let viewController = ViewContorllerFactory.make(viewController: viewControllerName)

@@ -38,6 +38,13 @@ class LoginMainViewController: UILoginViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let login = KeychainWrapper(serviceName: Constants.dataModelName).string(forKey: Constants.strLoginKey),
+           let password = KeychainWrapper(serviceName: Constants.dataModelName).string(forKey: Constants.strPasswordKey) {
+            loginTextField.text = login
+            passwordTextField.text = password
+        }
+        
         addSubviews()
         constrainSubviews()
     }
@@ -152,6 +159,8 @@ class LoginMainViewController: UILoginViewController {
                 else {
                     return
                 }
+                
+                KeyChainWrapperService().keyChain(login: login, password: pwd)
 
                 self.router.route(
                     from: self,

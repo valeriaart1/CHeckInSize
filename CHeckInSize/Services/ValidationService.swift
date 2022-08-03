@@ -7,6 +7,8 @@
 
 // MARK: - ValidationService
 
+import Foundation
+
 final class ValidationService {
 
     private typealias VError = CustomError
@@ -48,6 +50,39 @@ final class ValidationService {
             default:
                 completion(true, nil)
         }
+    }
+    
+    func validatePassword(
+        password: String,
+        _ completion: @escaping (Bool, CustomError?) -> Void
+    ) {
+        guard password.lengthOfBytes(using: .ascii) >= 8 else {
+            completion(false,CustomError.insufficientPasswordLength)
+            return
+        }
+        
+        let pwd = password.trimmingCharacters(in: CharacterSet.whitespaces)
+        let regex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        guard predicate.evaluate(with: pwd) == true else {
+            completion(false,CustomError.uncorrectLogicPassword)
+            return
+        }
+        
+        completion(true, nil)
+    }
+    
+    func validatePasswordMatch(
+        password: String,
+        repeatPassword: String?,
+        _ completion: @escaping (Bool, CustomError?) -> Void
+    ) {
+        guard password == repeatPassword else {
+            completion(false,CustomError.passwordMismatch)
+            return
+        }
+        
+        completion(true, nil)
     }
 }
 

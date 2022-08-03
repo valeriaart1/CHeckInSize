@@ -11,10 +11,10 @@ class PasswordCreationViewController: UILoginViewController {
 
     // MARK: Properties
     private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Cоздание надежного пароля", labelType: .labelWithNunitoBold, size: nil)
-    private lazy var instructionCreatingPasswordLabel: UILabel = uiComponentsFactory.makeLabel(with: "Пароль должен содержать не менее 6 символов, включая цифры, буквы и специальные символы (!$@%)", labelType: .labelWithNunito, size: nil)
+    private lazy var instructionCreatingPasswordLabel: UILabel = uiComponentsFactory.makeLabel(with: "Пароль должен содержать не менее 8 символов, включая цифры, буквы и специальные символы (!$@%)", labelType: .labelWithNunito, size: nil)
     private lazy var newPasswordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Новый пароль", fieldType: .loginScreenTextField)
     private lazy var repeatNewPasswordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Введите новый пароль ещё раз", fieldType: .loginScreenTextField)
-    private lazy var resetPasswordButton: UIButton = uiComponentsFactory.makeButton(with: "СБРОСИТЬ ПАРОЛЬ", buttonType: .blackButton, and: getLoginLinkButtonTapped)
+    private lazy var resetPasswordButton: UIButton = uiComponentsFactory.makeButton(with: "СБРОСИТЬ ПАРОЛЬ", buttonType: .blackButton, and: resetPasswordButtonTapped)
     
     
     // MARK: Intialization
@@ -98,7 +98,46 @@ class PasswordCreationViewController: UILoginViewController {
 
     // MARK: Actions
     
-    private lazy var getLoginLinkButtonTapped = UIAction { [weak self] _ in
-        print("")
+    private lazy var resetPasswordButtonTapped = UIAction { [weak self] _ in
+        guard self?.newPasswordTextField.text?.isEmpty == false else {
+            if let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: CustomError.zeroCharsPassword) {
+                self?.present(alert, animated: true, completion: nil)
+            }
+            return
+        }
+        
+        self?.validationService.validatePassword(password: (self?.newPasswordTextField.text)!) { success, error in
+            guard success
+            else {
+                if let error = error,
+                   let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error) {
+                    self?.present(alert, animated: true, completion: nil)
+                }
+                return
+            }
+            
+            self?.validationService.validatePasswordMatch(password: (self?.newPasswordTextField.text)!, repeatPassword: self?.repeatNewPasswordTextField.text) { success, error in
+                guard success
+                else {
+                    if let error = error,
+                       let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error) {
+                        self?.present(alert, animated: true, completion: nil)
+                    }
+                    return
+                }
+                
+                guard let self = self
+                else {
+                    return
+                }
+
+                self.router.route(
+                    from: self,
+                    to: .loginMainViewController,
+                    navigationType: .presentViewController
+                )
+            }
+        }
+        
     }
 }

@@ -115,7 +115,7 @@ class SignupViewController: UILoginViewController {
                 userLogin: (self?.userLoginTextField.text!)!,
                 userFullname: self?.fullNameTextField.text,
                 userName: (self?.userNameTextField.text!)!,
-                userPassword: (self?.passwordTextField.text)!!
+                userPassword: (self?.passwordTextField.text)!
             ) { success, error in
                 guard success
                 else {
@@ -126,16 +126,27 @@ class SignupViewController: UILoginViewController {
                     return
                 }
                 
-                guard let self = self
-                else {
-                    return
-                }
+                self?.validationService.validatePassword(password: (self?.passwordTextField.text)!) { success, error in
+                    guard success
+                    else {
+                        if let error = error,
+                           let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error) {
+                            self?.present(alert, animated: true, completion: nil)
+                        }
+                        return
+                    }
+                    
+                    guard let self = self
+                    else {
+                        return
+                    }
 
-                self.router.route(
-                    from: self,
-                    to: .loginMainViewController,
-                    navigationType: .presentViewController
-                )
+                    self.router.route(
+                        from: self,
+                        to: .loginMainViewController,
+                        navigationType: .presentViewController
+                    )
+                }
             }
         }
     }

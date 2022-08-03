@@ -101,7 +101,16 @@ class ForgotPasswordViewController: UILoginViewController {
     // MARK: Actions
     
     private lazy var getLoginLinkButtonTapped = UIAction { [weak self] _ in
-        print("")
+        
+        guard let self = self
+        else {
+            return
+        }
+
+        self.router.route(
+            from: self,
+            to: .oneTimePasswordViewController(login: self.loginTextField.text)
+        )
     }
     
     private lazy var createNewAccountButtonTapped = UIAction { [weak self] _ in
@@ -113,7 +122,7 @@ class ForgotPasswordViewController: UILoginViewController {
 
         self.router.route(
             from: self,
-            to: .passwordCreationViewController
+            to: .signupViewController
         )
     }
 }

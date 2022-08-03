@@ -10,6 +10,7 @@ import UIKit
 class OneTimePasswordViewController: UILoginViewController {
 
     // MARK: Properties
+    var login: String
     private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Ввод кода безопасности", labelType: .labelWithNunitoBold, size: nil)
     private lazy var instructionEnterCodeLabel: UILabel = uiComponentsFactory.makeLabel(with: "Введите 6-значный код, который мы отправили на почту", labelType: .labelWithNunito, size: nil)
     private lazy var codeTextField: UITextField = uiComponentsFactory.makeTextField(with: "Код", fieldType: .loginScreenTextField)
@@ -21,7 +22,10 @@ class OneTimePasswordViewController: UILoginViewController {
 
     typealias DI = ViewContorllerFactory.LoginDependency
 
-    init(with container: DI) {
+    init(with container: DI,
+         login: String? = "") {
+        self.login = login ?? ""
+        
         super.init(
             router: container.router,
             validationService: container.validationService,

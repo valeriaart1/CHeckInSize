@@ -26,6 +26,10 @@
 		351F65AE2897B38100EEB153 /* CoreDataSaveFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F65AD2897B38100EEB153 /* CoreDataSaveFactory.swift */; };
 		351F65B02897B39200EEB153 /* CoreDataLoadFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F65AF2897B39200EEB153 /* CoreDataLoadFactory.swift */; };
 		351F65B52897BBF000EEB153 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351F65B42897BBF000EEB153 /* Extensions.swift */; };
+		352506B328990E18001DF92D /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352506B228990E18001DF92D /* KeychainWrapper.swift */; };
+		352506BA28990F1F001DF92D /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352506B628990F1F001DF92D /* KeychainItemAccessibility.swift */; };
+		352506BB28990F1F001DF92D /* KeyChainWrapperService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352506B728990F1F001DF92D /* KeyChainWrapperService.swift */; };
+		352506BC28990F1F001DF92D /* KeychainWrapperSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352506B828990F1F001DF92D /* KeychainWrapperSubscript.swift */; };
 		35548739287B25A1009BD164 /* LogicSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35548738287B25A1009BD164 /* LogicSceneRouter.swift */; };
 		3554873D287B25C7009BD164 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554873C287B25C7009BD164 /* ForgotPasswordViewController.swift */; };
 		3554873F287B25D6009BD164 /* LoginMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3554873E287B25D6009BD164 /* LoginMainViewController.swift */; };
@@ -71,6 +75,11 @@
 		351F65AD2897B38100EEB153 /* CoreDataSaveFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSaveFactory.swift; sourceTree = "<group>"; };
 		351F65AF2897B39200EEB153 /* CoreDataLoadFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLoadFactory.swift; sourceTree = "<group>"; };
 		351F65B42897BBF000EEB153 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		352506B228990E18001DF92D /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainWrapper.swift; path = CHeckInSize/Services/KeychainWrapper.swift; sourceTree = SOURCE_ROOT; };
+		352506B628990F1F001DF92D /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		352506B728990F1F001DF92D /* KeyChainWrapperService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainWrapperService.swift; sourceTree = "<group>"; };
+		352506B828990F1F001DF92D /* KeychainWrapperSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapperSubscript.swift; sourceTree = "<group>"; };
+		352506B928990F1F001DF92D /* SwiftKeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftKeychainWrapper.h; sourceTree = "<group>"; };
 		35548738287B25A1009BD164 /* LogicSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicSceneRouter.swift; sourceTree = "<group>"; };
 		3554873C287B25C7009BD164 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		3554873E287B25D6009BD164 /* LoginMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMainViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +222,11 @@
 			children = (
 				35548748287B262E009BD164 /* LoginService.swift */,
 				3554874A287B2640009BD164 /* ValidationService.swift */,
+				352506B728990F1F001DF92D /* KeyChainWrapperService.swift */,
+				352506B228990E18001DF92D /* KeychainWrapper.swift */,
+				352506B628990F1F001DF92D /* KeychainItemAccessibility.swift */,
+				352506B828990F1F001DF92D /* KeychainWrapperSubscript.swift */,
+				352506B928990F1F001DF92D /* SwiftKeychainWrapper.h */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -363,16 +377,19 @@
 				35548743287B25FE009BD164 /* PasswordCreationViewController.swift in Sources */,
 				35B37C282896A717004014EC /* CustomImageView.swift in Sources */,
 				350FC198289153EB002D7B17 /* LoginConstants.swift in Sources */,
+				352506B328990E18001DF92D /* KeychainWrapper.swift in Sources */,
 				35CB9886287EFAC700965CB2 /* CHeckInSize.xcdatamodeld in Sources */,
 				35ABD53F2892B6340081EE88 /* UILoginViewController.swift in Sources */,
 				351CC7EC28925B0E00DFEDAF /* TrainingSceneBuilder.swift in Sources */,
 				351F65AC2897A71F00EEB153 /* UserAccount+CoreDataProperties.swift in Sources */,
 				35B3ADEF2895812A009DEA3C /* UITrainingViewController.swift in Sources */,
+				352506BB28990F1F001DF92D /* KeyChainWrapperService.swift in Sources */,
 				3554873D287B25C7009BD164 /* ForgotPasswordViewController.swift in Sources */,
 				35548749287B262E009BD164 /* LoginService.swift in Sources */,
 				3554874B287B2640009BD164 /* ValidationService.swift in Sources */,
 				3F71C3FC2890854D00A7B772 /* ViewControllerFactory.swift in Sources */,
 				351CC7F228925C7600DFEDAF /* TrainingConstants.swift in Sources */,
+				352506BC28990F1F001DF92D /* KeychainWrapperSubscript.swift in Sources */,
 				351F65B02897B39200EEB153 /* CoreDataLoadFactory.swift in Sources */,
 				3505B79A288A89930052E7D7 /* CustomButton.swift in Sources */,
 				35548747287B2621009BD164 /* AlertFactory.swift in Sources */,
@@ -380,6 +397,7 @@
 				351F65AE2897B38100EEB153 /* CoreDataSaveFactory.swift in Sources */,
 				3505B79C288A89A20052E7D7 /* CustomTextField.swift in Sources */,
 				35556A95286CE4B800988DA7 /* SceneDelegate.swift in Sources */,
+				352506BA28990F1F001DF92D /* KeychainItemAccessibility.swift in Sources */,
 				3F62FB0B2893170C0058DC0A /* LoginSceneBuilderNew.swift in Sources */,
 				35F292732887D0FB005AC7CD /* Constants.swift in Sources */,
 			);

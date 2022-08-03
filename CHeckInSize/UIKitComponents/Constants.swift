@@ -7,9 +7,13 @@
 
 struct Constants {
 
+    static let dataModelName = "CHeckInSize"
     static let backgroundImageName = "backgroundImage.png"
     static let logoImageName = "logoImage.png"
     static let defaultUserIcon = "defaultUserIcon.png"
+    static let strLoginKey = "login"
+    static let strUsernameKey = "username"
+    static let strPasswordKey = "password"
 }
 
 enum ViewControllerNaming {
@@ -17,7 +21,7 @@ enum ViewControllerNaming {
     //LoginScene
     case loginMainViewController
     case forgotPasswordViewController
-    case oneTimePasswordViewController
+    case oneTimePasswordViewController(login: String?)
     case passwordCreationViewController
     case signupViewController
     

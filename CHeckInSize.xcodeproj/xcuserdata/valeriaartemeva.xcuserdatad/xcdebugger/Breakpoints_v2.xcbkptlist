@@ -7,33 +7,61 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "29EB48F8-265F-44E8-9B75-6E136865D61A"
-            shouldBeEnabled = "Yes"
+            uuid = "C0C30D6F-7AFE-4B7F-9C94-65B2C404CE7F"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CHeckInSize/Services/SignUpService.swift"
+            filePath = "CHeckInSize/LoginScene/View/LoginMainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "signUp(userLogin:userFullname:userName:userPassword:_:)"
-            landmarkType = "7">
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "loginButtonTapped"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "C0C30D6F-7AFE-4B7F-9C94-65B2C404CE7F - ac6b1899623683aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;CHeckInSize.CustomError&gt;) -&gt; () in closure #1 (__C.UIAction) -&gt; () in CHeckInSize.LoginMainViewController.loginButtonTapped.getter : __C.UIAction"
+                  moduleName = "CHeckInSize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/valeriaartemeva/Desktop/Homework%20OTUS/CHeckInSize/CHeckInSize/LoginScene/View/LoginMainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "424">
+               </Location>
+               <Location
+                  uuid = "C0C30D6F-7AFE-4B7F-9C94-65B2C404CE7F - ac6b1899623683aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;CHeckInSize.CustomError&gt;) -&gt; () in closure #1 (__C.UIAction) -&gt; () in CHeckInSize.LoginMainViewController.loginButtonTapped.getter : __C.UIAction"
+                  moduleName = "CHeckInSize"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/valeriaartemeva/Desktop/Homework%20OTUS/CHeckInSize/CHeckInSize/LoginScene/View/LoginMainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "448">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "45FAE62D-902A-4AE0-9CFD-928DC9073029"
+            uuid = "0FE099ED-EDE2-4E13-8715-0EAC5A6A7280"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoreData/CoreDataSaveFactory.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "saveNewUserAccount(userLogin:userFullname:userName:userPassword:_:)"
-            landmarkType = "7">
+            breakpointStackSelectionBehavior = "1"
+            scope = "1"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
