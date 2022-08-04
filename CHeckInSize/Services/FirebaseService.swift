@@ -48,8 +48,8 @@ final class FirebaseService {
         }
     }
     
-    func getDocumentIDByUser(
-        login: String,
+    func getDocumentId(
+        by login: String,
         _ completion: @escaping (String?, CustomError?) -> Void
     ) {
         let collection = FirebaseService.db.collection(CollectionNaming.userAccount.rawValue)
@@ -110,41 +110,72 @@ final class FirebaseService {
         collection.addDocument(data: data as! [String : Any])
     }
     
-    func updatePassword(login: String,
-                               password: String,
-                               _ completion: @escaping (Bool, CustomError?) -> Void
+    func updatePassword(
+        login: String,
+        password: String,
+        _ completion: @escaping (Bool, CustomError?) -> Void
     ) {
-        
         self.getUsers() { users, error in
-            guard !users.isEmpty
+            guard error == nil
             else {
-                if let error = error {
+                completion(false, error)
+                return
+            }
+
+            guard !users.isEmpty,
+                  var user = users.first(where: { $0.login == login })
+            else {
+                completion(false, FError.gettingUserError)
+                return
+            }
+
+            user.password = password
+
+            self.getDocumentId(by: login) { documentID, error in
+                guard error == nil else {
                     completion(false, error)
+                    return
                 }
-                return
-            }
-            
-            for user in users {
-                if user.login == login {
-                    var userUpd = user
-                    userUpd.password = password
-                    self.getDocumentIDByUser(login: login) { documentID, error in
-                        guard documentID != nil else {
-                            if let error = error {
-                                completion(false, error)
-                            }
-                            return
-                        }
-                        let data = try! FirebaseEncoder().encode(userUpd)
-                        if let documentID = documentID {
-                            FirebaseService.db.document("\(CollectionNaming.userAccount.rawValue)/\(documentID)").updateData(data as! [AnyHashable : Any])
-                        }
-                        completion(true, nil)
-                    }
+
+                var data: Any = 0
+
+                do {
+                    data = try FirebaseEncoder().encode(user)
+                } catch {
+                    completion(false, FError.encodingFirebaseDataError)
                 }
-                return
+
+                guard let documentID = documentID,
+                      let convertedData = data as? [AnyHashable : Any]
+                else {
+                    completion(false, FError.gettingDocumentIdError)
+                    return
+                }
+
+                FirebaseService.db.document(
+                    "\(CollectionNaming.userAccount.rawValue)/\(documentID)"
+                ).updateData(
+                    convertedData
+                )
+
+                completion(true, nil)
             }
-        
+        }
+    }
+}
+
+extension FirebaseService {
+
+    private func decode<Entity: Decodable>(
+        of type: Entity.Type,
+        from data: [String : Any],
+        _ completion: @escaping (Entity?, Error?) -> Void
+    ) {
+        do {
+            let item = try FirebaseDecoder().decode(type.self, from: data)
+            completion(item, nil)
+        } catch let error {
+            completion(nil, error)
         }
     }
 }

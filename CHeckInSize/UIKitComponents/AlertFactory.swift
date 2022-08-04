@@ -35,6 +35,9 @@ enum CustomError: String, Error {
     //FirebaseServiceError
     case gettingFirebaseDataError = "Ошибка получения данных от Firebase"
     case decodingFirebaseDataError = "Ошибка декодирования Firebase данных"
+    case encodingFirebaseDataError = "Ошибка расшифровки Firebase данных"
+    case gettingUserError = "Ошибка получения данных пользователя"
+    case gettingDocumentIdError = "Ошибка получения записи базы данных"
 }
 
 enum CustomAlertType {
