@@ -31,6 +31,10 @@ enum CustomError: String, Error {
     case insufficientPasswordLength = "Длина пароля должна быть не менее 8 символов"
     case uncorrectLogicPassword = "Пожалуйста, составьте Ваш пароль, включая в него буквы, а также цифры или спецсимволы (!$@%)"
     case passwordMismatch = "Пароли не совпадают"
+    
+    //FirebaseServiceError
+    case gettingFirebaseDataError = "Ошибка получения данных от Firebase"
+    case decodingFirebaseDataError = "Ошибка декодирования Firebase данных"
 }
 
 enum CustomAlertType {

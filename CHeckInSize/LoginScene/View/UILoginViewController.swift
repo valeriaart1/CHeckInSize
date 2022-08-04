@@ -15,6 +15,7 @@ class UILoginViewController: UIViewController {
     
     var validationService: ValidationService
     var loginService: LoginService
+    var firebaseService: FirebaseService
     var alertFactory: AlertFactory
     var uiComponentsFactory: UIComponentsFactory
     var router: LoginSceneRouter
@@ -28,11 +29,13 @@ class UILoginViewController: UIViewController {
         router: LoginSceneRouter,
         validationService: ValidationService,
         loginService: LoginService,
+        firebaseService: FirebaseService,
         alertFactory: AlertFactory,
         uiComponentsFactory: UIComponentsFactory
     ) {
         self.validationService = validationService
         self.loginService = loginService
+        self.firebaseService = firebaseService
         self.alertFactory = alertFactory
         self.router = router
         self.uiComponentsFactory = uiComponentsFactory
@@ -49,6 +52,7 @@ class UILoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addSubviews()
         constrainSubviews()
         

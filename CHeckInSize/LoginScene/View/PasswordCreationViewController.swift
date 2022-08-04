@@ -10,6 +10,7 @@ import UIKit
 class PasswordCreationViewController: UILoginViewController {
 
     // MARK: Properties
+    var login: String
     private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Cоздание надежного пароля", labelType: .labelWithNunitoBold, size: nil)
     private lazy var instructionCreatingPasswordLabel: UILabel = uiComponentsFactory.makeLabel(with: "Пароль должен содержать не менее 8 символов, включая цифры, буквы и специальные символы (!$@%)", labelType: .labelWithNunito, size: nil)
     private lazy var newPasswordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Новый пароль", fieldType: .loginScreenTextField)
@@ -21,11 +22,15 @@ class PasswordCreationViewController: UILoginViewController {
 
     typealias DI = ViewContorllerFactory.LoginDependency
 
-    init(with container: DI) {
+    init(with container: DI,
+         login: String) {
+        self.login = login
+        
         super.init(
             router: container.router,
             validationService: container.validationService,
             loginService: container.loginService,
+            firebaseService: container.firebaseService,
             alertFactory: container.alertFactory,
             uiComponentsFactory: container.uiComponentsFactory
         )
@@ -130,12 +135,23 @@ class PasswordCreationViewController: UILoginViewController {
                 else {
                     return
                 }
-
-                self.router.route(
-                    from: self,
-                    to: .loginMainViewController,
-                    navigationType: .presentViewController
-                )
+                
+                self.firebaseService.updatePassword(login: self.login, password: self.newPasswordTextField.text!) { success, error in
+                    guard success
+                    else {
+                        if let error = error {
+                            let alert = self.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error)
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        return
+                    }
+                    
+                    self.router.route(
+                        from: self,
+                        to: .loginMainViewController,
+                        navigationType: .presentViewController
+                    )
+                }
             }
         }
         

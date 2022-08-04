@@ -42,11 +42,11 @@ final class ValidationService {
     ) {
         switch (userLogin?.isEmpty, userName?.isEmpty, userPassword?.isEmpty) {
             case (true, _, _):
-                completion(false,CustomError.userLoginIsEmpty)
+                completion(false,VError.userLoginIsEmpty)
             case (_, true, _):
-                completion(false,CustomError.userNameIsEmpty)
+                completion(false,VError.userNameIsEmpty)
             case (_, _, true):
-                completion(false,CustomError.userPasswordIsEmpty)
+                completion(false,VError.userPasswordIsEmpty)
             default:
                 completion(true, nil)
         }
@@ -57,7 +57,7 @@ final class ValidationService {
         _ completion: @escaping (Bool, CustomError?) -> Void
     ) {
         guard password.lengthOfBytes(using: .ascii) >= 8 else {
-            completion(false,CustomError.insufficientPasswordLength)
+            completion(false,VError.insufficientPasswordLength)
             return
         }
         
@@ -65,7 +65,7 @@ final class ValidationService {
         let regex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
         guard predicate.evaluate(with: pwd) == true else {
-            completion(false,CustomError.uncorrectLogicPassword)
+            completion(false,VError.uncorrectLogicPassword)
             return
         }
         
@@ -78,7 +78,7 @@ final class ValidationService {
         _ completion: @escaping (Bool, CustomError?) -> Void
     ) {
         guard password == repeatPassword else {
-            completion(false,CustomError.passwordMismatch)
+            completion(false,VError.passwordMismatch)
             return
         }
         

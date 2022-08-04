@@ -14,6 +14,7 @@ final class ViewContorllerFactory {
             router: LoginSceneRouter(),
             validationService: ValidationService(),
             loginService: LoginService(),
+            firebaseService: FirebaseService(),
             alertFactory: AlertFactory(),
             uiComponentsFactory: UIComponentsFactory()
         )
@@ -41,9 +42,9 @@ final class ViewContorllerFactory {
             return OneTimePasswordViewController(
                 with: loginDependencyContainer, login: login
             )
-        case .passwordCreationViewController:
+        case .passwordCreationViewController(let login):
             return PasswordCreationViewController(
-                with: loginDependencyContainer
+                with: loginDependencyContainer, login: login
             )
         case .signupViewController:
             return SignupViewController(
@@ -63,6 +64,7 @@ extension ViewContorllerFactory {
         let router: LoginSceneRouter
         let validationService: ValidationService
         let loginService: LoginService
+        let firebaseService: FirebaseService
         let alertFactory: AlertFactory
         let uiComponentsFactory: UIComponentsFactory
     }

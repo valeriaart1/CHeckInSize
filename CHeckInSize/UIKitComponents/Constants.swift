@@ -21,8 +21,8 @@ enum ViewControllerNaming {
     //LoginScene
     case loginMainViewController
     case forgotPasswordViewController
-    case oneTimePasswordViewController(login: String?)
-    case passwordCreationViewController
+    case oneTimePasswordViewController(login: String)
+    case passwordCreationViewController(login: String)
     case signupViewController
     
     //TrainingScene

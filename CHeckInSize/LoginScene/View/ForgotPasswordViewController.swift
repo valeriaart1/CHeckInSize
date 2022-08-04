@@ -27,6 +27,7 @@ class ForgotPasswordViewController: UILoginViewController {
             router: container.router,
             validationService: container.validationService,
             loginService: container.loginService,
+            firebaseService: container.firebaseService,
             alertFactory: container.alertFactory,
             uiComponentsFactory: container.uiComponentsFactory
         )
@@ -106,10 +107,16 @@ class ForgotPasswordViewController: UILoginViewController {
         else {
             return
         }
+        guard self.loginTextField.text?.isEmpty == false
+        else {
+            let alert = self.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: CustomError.zeroCharsLogin)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
 
         self.router.route(
             from: self,
-            to: .oneTimePasswordViewController(login: self.loginTextField.text)
+            to: .oneTimePasswordViewController(login: self.loginTextField.text ?? "")
         )
     }
     

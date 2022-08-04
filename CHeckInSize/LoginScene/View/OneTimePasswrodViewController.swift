@@ -23,13 +23,14 @@ class OneTimePasswordViewController: UILoginViewController {
     typealias DI = ViewContorllerFactory.LoginDependency
 
     init(with container: DI,
-         login: String? = "") {
-        self.login = login ?? ""
+         login: String) {
+        self.login = login
         
         super.init(
             router: container.router,
             validationService: container.validationService,
             loginService: container.loginService,
+            firebaseService: container.firebaseService,
             alertFactory: container.alertFactory,
             uiComponentsFactory: container.uiComponentsFactory
         )
@@ -103,7 +104,16 @@ class OneTimePasswordViewController: UILoginViewController {
     // MARK: Actions
     
     private lazy var confirmButtonTapped = UIAction { [weak self] _ in
-        print("")
+        
+        guard let self = self
+        else {
+            return
+        }
+        
+        self.router.route(
+            from: self,
+            to: .passwordCreationViewController(login: self.login)
+        )
     }
     
     private lazy var getNewCodeTapped = UIAction { [weak self] _ in

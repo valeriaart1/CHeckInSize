@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreData
 
 class SignupViewController: UILoginViewController {
 
@@ -27,6 +26,7 @@ class SignupViewController: UILoginViewController {
             router: container.router,
             validationService: container.validationService,
             loginService: container.loginService,
+            firebaseService: container.firebaseService,
             alertFactory: container.alertFactory,
             uiComponentsFactory: container.uiComponentsFactory
         )
@@ -110,43 +110,31 @@ class SignupViewController: UILoginViewController {
                 }
                 return
             }
-
-            CoreDataSaveFactory.saveNewUserAccount(
-                userLogin: (self?.userLoginTextField.text!)!,
-                userFullname: self?.fullNameTextField.text,
-                userName: (self?.userNameTextField.text!)!,
-                userPassword: (self?.passwordTextField.text)!
-            ) { success, error in
+                
+            self?.validationService.validatePassword(password: (self?.passwordTextField.text)!) { success, error in
                 guard success
                 else {
                     if let error = error,
-                       let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error){
+                       let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error) {
                         self?.present(alert, animated: true, completion: nil)
                     }
                     return
                 }
                 
-                self?.validationService.validatePassword(password: (self?.passwordTextField.text)!) { success, error in
-                    guard success
-                    else {
-                        if let error = error,
-                           let alert = self?.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error) {
-                            self?.present(alert, animated: true, completion: nil)
-                        }
-                        return
-                    }
-                    
-                    guard let self = self
-                    else {
-                        return
-                    }
-
-                    self.router.route(
-                        from: self,
-                        to: .loginMainViewController,
-                        navigationType: .presentViewController
-                    )
+                guard let self = self
+                else {
+                    return
                 }
+                
+                let user = User(login: self.userLoginTextField.text!, fullname: self.fullNameTextField.text, userName: self.userNameTextField.text!, password: self.passwordTextField.text!)
+
+                self.firebaseService.setUser(user: user)
+                
+                self.router.route(
+                    from: self,
+                    to: .loginMainViewController,
+                    navigationType: .presentViewController
+                )
             }
         }
     }

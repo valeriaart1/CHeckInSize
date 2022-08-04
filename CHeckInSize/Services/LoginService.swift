@@ -6,6 +6,8 @@
 //
 
 final class LoginService {
+    
+    private typealias LError = CustomError
 
     func login(
                 login: String,
@@ -13,13 +15,15 @@ final class LoginService {
                 _ completion: @escaping (Bool, CustomError?) -> Void
     ) {
         
-            let users = CoreDataLoadFactory.loadUserAccount( { success, error in
-                guard (error == nil) else {
+        FirebaseService().getUsers() { users, error in
+            guard !users.isEmpty
+            else {
+                if let error = error {
                     completion(false, error)
-                    return
                 }
-            })
-        
+                return
+            }
+    
             for user in users {
                 switch (login, pwd) {
                 case (user.login, user.password):
@@ -29,16 +33,17 @@ final class LoginService {
                     completion(true, nil)
                     return
                 case (user.login, _):
-                    completion(false, CustomError.uncorrectPassword)
+                    completion(false, LError.uncorrectPassword)
                     return
                 case (user.userName, _):
-                    completion(false, CustomError.uncorrectPassword)
+                    completion(false, LError.uncorrectPassword)
                     return
                 case (_, _):
                     break
                 }
             }
         
-            completion(false, CustomError.usernameNotBelongAccount)
+            completion(false, LError.usernameNotBelongAccount)
+        }
     }
 }

@@ -29,6 +29,7 @@ class LoginMainViewController: UILoginViewController {
             router: container.router,
             validationService: container.validationService,
             loginService: container.loginService,
+            firebaseService: container.firebaseService,
             alertFactory: container.alertFactory,
             uiComponentsFactory: container.uiComponentsFactory
         )

@@ -7,61 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C0C30D6F-7AFE-4B7F-9C94-65B2C404CE7F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CHeckInSize/LoginScene/View/LoginMainViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "loginButtonTapped"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "C0C30D6F-7AFE-4B7F-9C94-65B2C404CE7F - ac6b1899623683aa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;CHeckInSize.CustomError&gt;) -&gt; () in closure #1 (__C.UIAction) -&gt; () in CHeckInSize.LoginMainViewController.loginButtonTapped.getter : __C.UIAction"
-                  moduleName = "CHeckInSize"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/valeriaartemeva/Desktop/Homework%20OTUS/CHeckInSize/CHeckInSize/LoginScene/View/LoginMainViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "424">
-               </Location>
-               <Location
-                  uuid = "C0C30D6F-7AFE-4B7F-9C94-65B2C404CE7F - ac6b1899623683aa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;CHeckInSize.CustomError&gt;) -&gt; () in closure #1 (__C.UIAction) -&gt; () in CHeckInSize.LoginMainViewController.loginButtonTapped.getter : __C.UIAction"
-                  moduleName = "CHeckInSize"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/valeriaartemeva/Desktop/Homework%20OTUS/CHeckInSize/CHeckInSize/LoginScene/View/LoginMainViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "448">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            uuid = "0FE099ED-EDE2-4E13-8715-0EAC5A6A7280"
+            uuid = "F9F83AA4-8E4A-4273-ADA7-9CCBBCAC07CC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            breakpointStackSelectionBehavior = "1"
-            scope = "1"
-            stopOnStyle = "0">
+            filePath = "CHeckInSize/LoginScene/View/ForgotPasswordViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "getLoginLinkButtonTapped"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
