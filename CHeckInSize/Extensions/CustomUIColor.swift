@@ -35,3 +35,21 @@ extension UIColor {
         }
     }
 }
+
+enum CustomColor  {
+    case lightGreen
+    case white
+    case black
+
+    //Get Color
+    var color: UIColor {
+        switch self {
+        case .lightGreen:
+            return UIColor.init(hexString: "#79CC72", alpha: 1)
+        case .white:
+            return UIColor.white
+        case .black:
+            return UIColor.black
+        }
+    }
+}

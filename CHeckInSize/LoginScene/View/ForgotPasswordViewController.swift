@@ -12,10 +12,12 @@ class ForgotPasswordViewController: UILoginViewController {
     // MARK: Properties
 
     private lazy var header: UILabel = uiComponentsFactory.makeLabel(with: "Не удается войти?", labelType: .labelWithNunitoBold, size: nil)
-    private lazy var instructionChangingPasswordLabel: UILabel = uiComponentsFactory.makeLabel(with: "Введите свой электронный адрес, имя пользователя или номер телефона, и мы отправим вам ссылку для восстановления доступа к аккаунту.", labelType: .labelWithNunito, size: nil)
+    private lazy var instructionChangingPasswordLabel: UILabel = uiComponentsFactory.makeLabel(with: "Введите свой электронный адрес, имя пользователя или номер телефона для восстановления доступа к аккаунту.", labelType: .labelWithNunito, size: nil)
+//    private lazy var instructionChangingPasswordLabel: UILabel = uiComponentsFactory.makeLabel(with: "Введите свой электронный адрес, имя пользователя или номер телефона, и мы отправим вам ссылку для восстановления доступа к аккаунту.", labelType: .labelWithNunito, size: nil)
     private lazy var loginTextField: UITextField = uiComponentsFactory.makeTextField(with: "Эл. адрес, телефон или имя пользователя", fieldType: .loginScreenTextField)
     private lazy var createNewAccountButton: UIButton = uiComponentsFactory.makeButton(with: "Создать новый аккаунт", buttonType: .buttonWithNunitoBoldUnderline, and: createNewAccountButtonTapped)
-    private lazy var getLoginLinkButton: UIButton = uiComponentsFactory.makeButton(with: "ПОЛУЧИТЬ ССЫЛКУ ДЛЯ ВХОДА", buttonType: .blackButton, and: getLoginLinkButtonTapped)
+    private lazy var getLoginLinkButton: UIButton = uiComponentsFactory.makeButton(with: "СМЕНИТЬ ПАРОЛЬ", buttonType: .blackButton(cornerRadius: 20, backgroundColor: .black, titleColor: .white, size: 15), and: getLoginLinkButtonTapped)
+//    private lazy var getLoginLinkButton: UIButton = uiComponentsFactory.makeButton(with: "ПОЛУЧИТЬ ССЫЛКУ ДЛЯ ВХОДА", buttonType: .blackButton, and: getLoginLinkButtonTapped)
     
     
     // MARK: Intialization
@@ -27,7 +29,7 @@ class ForgotPasswordViewController: UILoginViewController {
             router: container.router,
             validationService: container.validationService,
             loginService: container.loginService,
-            firebaseService: container.firebaseService,
+            firebaseServiceUserAccount: container.firebaseServiceUserAccount,
             alertFactory: container.alertFactory,
             uiComponentsFactory: container.uiComponentsFactory
         )
@@ -114,9 +116,14 @@ class ForgotPasswordViewController: UILoginViewController {
             return
         }
 
+//        self.router.route(
+//            from: self,
+//            to: .oneTimePasswordViewController(login: self.loginTextField.text ?? "")
+//        )
+        
         self.router.route(
             from: self,
-            to: .oneTimePasswordViewController(login: self.loginTextField.text ?? "")
+            to: .passwordCreationViewController(login: self.loginTextField.text ?? "")
         )
     }
     

@@ -9,8 +9,10 @@ import UIKit
 
 enum CustomButtonType {
 
-    case blackButton
+    case blackButton(cornerRadius: CGFloat, backgroundColor: CustomColor, titleColor: CustomColor, size: CGFloat)
     case buttonWithNunitoBoldUnderline
+    case mainMenuButton(color: CustomColor)
+    case patternsButton(text: String)
 }
 
 enum CustomTextFieldType {

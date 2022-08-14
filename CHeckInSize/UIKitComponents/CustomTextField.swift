@@ -40,7 +40,7 @@ extension CustomTextField {
     ) {
         switch type {
         case .loginScreenTextField:
-            self.keyboardType = .namePhonePad
+//            self.keyboardType = .namePhonePad
             self.placeholder = placeholder
             self.backgroundColor = UIColor(hexString: "#FFFFFF", alpha: 0.6)
             self.layer.cornerRadius = 20
@@ -51,7 +51,7 @@ extension CustomTextField {
             self.layer.borderWidth = 1
             self.clearButtonMode = .always
         case .namingTextFieldAlert:
-            self.keyboardType = .namePhonePad
+//            self.keyboardType = .namePhonePad
             self.placeholder = placeholder
             self.backgroundColor = UIColor(hexString: "#FFFFFF", alpha: 0.6)
             self.layer.cornerRadius = 20

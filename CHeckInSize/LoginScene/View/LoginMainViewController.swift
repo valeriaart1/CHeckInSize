@@ -15,7 +15,7 @@ class LoginMainViewController: UILoginViewController {
     private lazy var loginTextField: UITextField = uiComponentsFactory.makeTextField(with: "Номер телефона, эл. адрес или имя пользователя", fieldType: .loginScreenTextField)
     private lazy var passwordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Пароль", fieldType: .loginScreenTextField)
     private lazy var forgotPasswordButton: UIButton = uiComponentsFactory.makeButton(with: "Забыли пароль?", buttonType: .buttonWithNunitoBoldUnderline, and: forgotPasswordButtonTapped)
-    private lazy var signInButton: UIButton = uiComponentsFactory.makeButton(with: "ВОЙТИ", buttonType: .blackButton, and: loginButtonTapped)
+    private lazy var signInButton: UIButton = uiComponentsFactory.makeButton(with: "ВОЙТИ", buttonType: .blackButton(cornerRadius: 20, backgroundColor: .black, titleColor: .white, size: 15), and: loginButtonTapped)
     private lazy var noAccountLabel: UILabel = uiComponentsFactory.makeLabel(with: "Еще нет аккаунта?", labelType: .labelWithNunito, size: nil, textAligment: .left)
     private lazy var signUpButton: UIButton = uiComponentsFactory.makeButton(with: "Зарегистрируйтесь", buttonType: .buttonWithNunitoBoldUnderline, and: signUpButtonTapped, contentAligment: .right)
     
@@ -29,7 +29,7 @@ class LoginMainViewController: UILoginViewController {
             router: container.router,
             validationService: container.validationService,
             loginService: container.loginService,
-            firebaseService: container.firebaseService,
+            firebaseServiceUserAccount: container.firebaseServiceUserAccount,
             alertFactory: container.alertFactory,
             uiComponentsFactory: container.uiComponentsFactory
         )
@@ -162,11 +162,11 @@ class LoginMainViewController: UILoginViewController {
                 }
                 
                 KeyChainWrapperService().keyChain(login: login, password: pwd)
-
-                self.router.route(
-                    from: self,
-                    to: .trainingMainViewController,
-                    navigationType: .presentViewController
+                
+                self.router.route (
+                   from: self,
+                   to: .trainingMainViewController,
+                   navigationType: .presentViewController
                 )
             }
         }

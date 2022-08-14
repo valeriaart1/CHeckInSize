@@ -19,7 +19,6 @@
 		3513B63A289A6B370048616E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3513B639289A6B370048616E /* FirebaseFirestore */; };
 		3513B63C289A95210048616E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3513B63B289A95210048616E /* GoogleService-Info.plist */; };
 		3513B63F289AA95D0048616E /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513B63E289AA95D0048616E /* UserAccount.swift */; };
-		3513B641289AAA560048616E /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513B640289AAA560048616E /* FirebaseService.swift */; };
 		3513B645289B24E60048616E /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 3513B644289B24E60048616E /* CodableFirebase */; };
 		351BCFED2886918C00E9A6B7 /* NunitoSans_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 351BCFEC2886918C00E9A6B7 /* NunitoSans_Bold.ttf */; };
 		351BCFEF288692C100E9A6B7 /* Roboto_Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 351BCFEE288692C100E9A6B7 /* Roboto_Black.ttf */; };
@@ -47,7 +46,9 @@
 		35556A95286CE4B800988DA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35556A94286CE4B800988DA7 /* SceneDelegate.swift */; };
 		35556A9F286CE4B800988DA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35556A9E286CE4B800988DA7 /* Assets.xcassets */; };
 		35556AA2286CE4B800988DA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35556AA0286CE4B800988DA7 /* LaunchScreen.storyboard */; };
+		3571DF74289FF3B4009DD354 /* SwiftSMTP in Frameworks */ = {isa = PBXBuildFile; productRef = 3571DF73289FF3B4009DD354 /* SwiftSMTP */; };
 		35792A2D288C6BB400811631 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35792A2C288C6BB400811631 /* CustomAlert.swift */; };
+		358C5778289EB0250036A21C /* FirebaseServiceUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358C5777289EB0250036A21C /* FirebaseServiceUserAccount.swift */; };
 		35ABD53F2892B6340081EE88 /* UILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ABD53E2892B6340081EE88 /* UILoginViewController.swift */; };
 		35B37C282896A717004014EC /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B37C272896A717004014EC /* CustomImageView.swift */; };
 		35B3ADEF2895812A009DEA3C /* UITrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B3ADEE2895812A009DEA3C /* UITrainingViewController.swift */; };
@@ -67,7 +68,6 @@
 		350FC197289153EB002D7B17 /* LoginConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConstants.swift; sourceTree = "<group>"; };
 		3513B63B289A95210048616E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3513B63E289AA95D0048616E /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
-		3513B640289AAA560048616E /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		351BCFEC2886918C00E9A6B7 /* NunitoSans_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NunitoSans_Bold.ttf; sourceTree = "<group>"; };
 		351BCFEE288692C100E9A6B7 /* Roboto_Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roboto_Black.ttf; sourceTree = "<group>"; };
 		351BCFF02886959500E9A6B7 /* NunitoSans_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NunitoSans_Regular.ttf; sourceTree = "<group>"; };
@@ -98,6 +98,7 @@
 		35556AA1286CE4B800988DA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35556AA3286CE4B800988DA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35792A2C288C6BB400811631 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		358C5777289EB0250036A21C /* FirebaseServiceUserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServiceUserAccount.swift; sourceTree = "<group>"; };
 		35ABD53E2892B6340081EE88 /* UILoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoginViewController.swift; sourceTree = "<group>"; };
 		35B37C272896A717004014EC /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		35B3ADEE2895812A009DEA3C /* UITrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITrainingViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 			files = (
 				3513B638289A6B370048616E /* FirebaseDatabase in Frameworks */,
 				3513B636289A6B370048616E /* FirebaseAuth in Frameworks */,
+				3571DF74289FF3B4009DD354 /* SwiftSMTP in Frameworks */,
 				3513B645289B24E60048616E /* CodableFirebase in Frameworks */,
 				3513B63A289A6B370048616E /* FirebaseFirestore in Frameworks */,
 			);
@@ -225,7 +227,7 @@
 			children = (
 				35548748287B262E009BD164 /* LoginService.swift */,
 				3554874A287B2640009BD164 /* ValidationService.swift */,
-				3513B640289AAA560048616E /* FirebaseService.swift */,
+				358C5777289EB0250036A21C /* FirebaseServiceUserAccount.swift */,
 				3513B642289AEBFC0048616E /* KeychainWrapper */,
 			);
 			path = Services;
@@ -308,6 +310,7 @@
 				3513B637289A6B370048616E /* FirebaseDatabase */,
 				3513B639289A6B370048616E /* FirebaseFirestore */,
 				3513B644289B24E60048616E /* CodableFirebase */,
+				3571DF73289FF3B4009DD354 /* SwiftSMTP */,
 			);
 			productName = CHeckInSize;
 			productReference = 35556A8F286CE4B700988DA7 /* CHeckInSize.app */;
@@ -340,6 +343,7 @@
 			packageReferences = (
 				3513B634289A6B370048616E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				3513B643289B24E60048616E /* XCRemoteSwiftPackageReference "CodableFirebase" */,
+				3571DF72289FF3B4009DD354 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
 			);
 			productRefGroup = 35556A90286CE4B700988DA7 /* Products */;
 			projectDirPath = "";
@@ -376,7 +380,6 @@
 				3505B79E288A8D870052E7D7 /* CustomLabel.swift in Sources */,
 				35B3ADF128959C20009DEA3C /* CustomDatePicker.swift in Sources */,
 				351BCFF32886C6B000E9A6B7 /* UIKitTemplate.swift in Sources */,
-				3513B641289AAA560048616E /* FirebaseService.swift in Sources */,
 				351CC7EA28925AFE00DFEDAF /* TrainingSceneRouter.swift in Sources */,
 				351CC7EE28925B2E00DFEDAF /* TrainingMainViewController.swift in Sources */,
 				351F65B52897BBF000EEB153 /* Extensions.swift in Sources */,
@@ -406,6 +409,7 @@
 				3505B79C288A89A20052E7D7 /* CustomTextField.swift in Sources */,
 				35556A95286CE4B800988DA7 /* SceneDelegate.swift in Sources */,
 				352506BA28990F1F001DF92D /* KeychainItemAccessibility.swift in Sources */,
+				358C5778289EB0250036A21C /* FirebaseServiceUserAccount.swift in Sources */,
 				3513B63F289AA95D0048616E /* UserAccount.swift in Sources */,
 				3F62FB0B2893170C0058DC0A /* LoginSceneBuilderNew.swift in Sources */,
 				35F292732887D0FB005AC7CD /* Constants.swift in Sources */,
@@ -636,6 +640,14 @@
 				minimumVersion = 0.2.2;
 			};
 		};
+		3571DF72289FF3B4009DD354 /* XCRemoteSwiftPackageReference "Swift-SMTP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Swift-SMTP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -658,6 +670,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3513B643289B24E60048616E /* XCRemoteSwiftPackageReference "CodableFirebase" */;
 			productName = CodableFirebase;
+		};
+		3571DF73289FF3B4009DD354 /* SwiftSMTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3571DF72289FF3B4009DD354 /* XCRemoteSwiftPackageReference "Swift-SMTP" */;
+			productName = SwiftSMTP;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

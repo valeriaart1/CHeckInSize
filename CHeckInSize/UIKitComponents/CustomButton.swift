@@ -43,13 +43,15 @@ extension CustomButton {
     ) {
         
         switch type {
-        case .blackButton:
+        case .blackButton(let cornerRadius, let backgroundColor, let titleColor, let size):
             self.setTitle(title, for: .normal)
-            self.setTitleColor(.white, for: .normal)
-            self.backgroundColor = .black
-            self.layer.cornerRadius = 20
+            self.setTitleColor(titleColor.color, for: .normal)
+            self.backgroundColor = backgroundColor.color
+            self.layer.borderColor = UIColor.black.cgColor
+            self.layer.borderWidth = 1
+            self.layer.cornerRadius = cornerRadius
             self.titleLabel?.sizeToFit()
-            self.titleLabel?.font = UIFont(name: "Roboto", size: 15.0)
+            self.titleLabel?.font = UIFont(name: "Roboto", size: size)
             
         case .buttonWithNunitoBoldUnderline:
             let attrs = [
@@ -59,6 +61,21 @@ extension CustomButton {
             let buttonTitleStr = NSMutableAttributedString(string: title, attributes:attrs)
             self.setAttributedTitle(buttonTitleStr, for: .normal)
             self.contentHorizontalAlignment = contentAligment
+            
+        case .mainMenuButton(let color):
+            self.setTitleColor(.black, for: .normal)
+            self.setTitle(title, for: .normal)
+            self.backgroundColor = color.color
+            self.layer.cornerRadius = 14
+            self.layer.borderColor = UIColor.black.cgColor
+            self.layer.borderWidth = 1
+            self.titleLabel?.sizeToFit()
+            self.titleLabel?.font = UIFont(name: "Roboto", size: 13.0)
+            
+        case .patternsButton(let text):
+            self.setTitle(title, for: .normal)
+            self.layer.cornerRadius = 20
+            self.layer.backgroundColor = UIColor(hexString: "FFFFFF", alpha: 0.6).cgColor
         }
     }
 }

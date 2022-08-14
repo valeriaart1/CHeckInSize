@@ -15,7 +15,7 @@ class OneTimePasswordViewController: UILoginViewController {
     private lazy var instructionEnterCodeLabel: UILabel = uiComponentsFactory.makeLabel(with: "Введите 6-значный код, который мы отправили на почту", labelType: .labelWithNunito, size: nil)
     private lazy var codeTextField: UITextField = uiComponentsFactory.makeTextField(with: "Код", fieldType: .loginScreenTextField)
     private lazy var getNewCodeButton: UIButton = uiComponentsFactory.makeButton(with: "Получить новый код", buttonType: .buttonWithNunitoBoldUnderline, and: getNewCodeTapped)
-    private lazy var confirmButton: UIButton = uiComponentsFactory.makeButton(with: "ПОДТВЕРДИТЬ", buttonType: .blackButton, and: confirmButtonTapped)
+    private lazy var confirmButton: UIButton = uiComponentsFactory.makeButton(with: "ПОДТВЕРДИТЬ", buttonType: .blackButton(cornerRadius: 20, backgroundColor: .black, titleColor: .white, size: 15), and: confirmButtonTapped)
     
     
     // MARK: Intialization
@@ -30,7 +30,7 @@ class OneTimePasswordViewController: UILoginViewController {
             router: container.router,
             validationService: container.validationService,
             loginService: container.loginService,
-            firebaseService: container.firebaseService,
+            firebaseServiceUserAccount: container.firebaseServiceUserAccount,
             alertFactory: container.alertFactory,
             uiComponentsFactory: container.uiComponentsFactory
         )

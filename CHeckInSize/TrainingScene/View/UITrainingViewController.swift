@@ -19,7 +19,11 @@ class UITrainingViewController: UIViewController {
     lazy var logoImage: UIImageView = uikitTemplate.logoImage
     lazy var appName: UILabel = uikitTemplate.appName
     private lazy var recordDate: UIDatePicker = uiComponentsFactory.makeDatePicker(and: dueDateChanged)
-    private lazy var menuBackground: UILabel = uiComponentsFactory.makeLabel(labelType: .menuBackground, size: nil)
+    lazy var menuBackground: UILabel = uiComponentsFactory.makeLabel(labelType: .menuBackground, size: nil)
+    private lazy var trainingButton: UIButton = uiComponentsFactory.makeButton(with: "Тренировки", buttonType: .mainMenuButton(color: .lightGreen), and: trainingButtonTapped, contentAligment: .center)
+    private lazy var eatingButton: UIButton = uiComponentsFactory.makeButton(with: "Питание", buttonType: .mainMenuButton(color: .white), and: eatingButtonTapped, contentAligment: .center)
+    private lazy var measurementsButton: UIButton = uiComponentsFactory.makeButton(with: "Замеры", buttonType: .mainMenuButton(color: .white), and: measurementsButtonTapped, contentAligment: .center)
+    private lazy var statisticsButton: UIButton = uiComponentsFactory.makeButton(with: "Статистика", buttonType: .mainMenuButton(color: .white), and: statisticsButtonTapped, contentAligment: .center)
     private lazy var accountIcon: UIImageView = uiComponentsFactory.makeImageView(imageViewType: .iconImage)
     
     
@@ -60,7 +64,11 @@ class UITrainingViewController: UIViewController {
             appName,
             recordDate,
             menuBackground,
-            accountIcon
+            accountIcon,
+            trainingButton,
+            eatingButton,
+            measurementsButton,
+            statisticsButton
         ].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
@@ -90,7 +98,14 @@ class UITrainingViewController: UIViewController {
             recordDate.topAnchor.constraint(equalTo: view.topAnchor, constant: TrainingConstantsAnchor.coeffRecordDateTopAnchor * view.frame.height),
             recordDate.heightAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffRecordDateHeightAnchor * view.frame.height)
         ])
-
+        
+        NSLayoutConstraint.activate([
+            accountIcon.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -TrainingConstantsAnchor.coeffLeadingTrailingAnchor * self.view.frame.width),
+            accountIcon.centerYAnchor.constraint(equalTo: logoImage.centerYAnchor),
+            accountIcon.widthAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffUserIconWidthAnchor * self.view.frame.width),
+            accountIcon.heightAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffUserIconHeightAnchor * self.view.frame.height)
+        ])
+        
         NSLayoutConstraint.activate([
             menuBackground.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: TrainingConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
             menuBackground.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -TrainingConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
@@ -99,14 +114,63 @@ class UITrainingViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            accountIcon.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -TrainingConstantsAnchor.coeffLeadingTrailingAnchor * self.view.frame.width),
-            accountIcon.topAnchor.constraint(equalTo: self.view.topAnchor, constant: TrainingConstantsAnchor.coeffLogoTopAnchor * self.view.frame.height),
-            accountIcon.widthAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffUserIconWidthAnchor * self.view.frame.width),
-            accountIcon.heightAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffUserIconHeightAnchor * self.view.frame.height)
+            trainingButton.leadingAnchor.constraint(equalTo: menuBackground.leadingAnchor, constant: TrainingConstantsAnchor.coeffMenuButtonTrailingAnchor * view.frame.width),
+            trainingButton.heightAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffMenuButtonHeightAnchor * view.frame.height),
+            trainingButton.centerYAnchor.constraint(equalTo: menuBackground.centerYAnchor),
+            trainingButton.widthAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffMenuButtonWidthAnchor * view.frame.width)
+        ])
+        
+        NSLayoutConstraint.activate([
+            eatingButton.leadingAnchor.constraint(equalTo: trainingButton.trailingAnchor, constant: TrainingConstantsAnchor.coeffMenuButtonTrailingAnchor * view.frame.width),
+            eatingButton.heightAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffMenuButtonHeightAnchor * view.frame.height),
+            eatingButton.centerYAnchor.constraint(equalTo: menuBackground.centerYAnchor),
+            eatingButton.widthAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffMenuButtonWidthAnchor * view.frame.width)
+        ])
+        
+        NSLayoutConstraint.activate([
+            measurementsButton.leadingAnchor.constraint(equalTo: eatingButton.trailingAnchor, constant: TrainingConstantsAnchor.coeffMenuButtonTrailingAnchor * view.frame.width),
+            measurementsButton.heightAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffMenuButtonHeightAnchor * view.frame.height),
+            measurementsButton.centerYAnchor.constraint(equalTo: menuBackground.centerYAnchor),
+            measurementsButton.widthAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffMenuButtonWidthAnchor * view.frame.width)
+        ])
+        
+        NSLayoutConstraint.activate([
+            statisticsButton.leadingAnchor.constraint(equalTo: measurementsButton.trailingAnchor, constant: TrainingConstantsAnchor.coeffMenuButtonTrailingAnchor * view.frame.width),
+            statisticsButton.heightAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffMenuButtonHeightAnchor * view.frame.height),
+            statisticsButton.centerYAnchor.constraint(equalTo: menuBackground.centerYAnchor),
+            statisticsButton.widthAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffMenuButtonWidthAnchor * view.frame.width)
         ])
     }
     
     private lazy var dueDateChanged = UIAction { [weak self] _ in
         print("")
+    }
+    
+    private lazy var trainingButtonTapped = UIAction { [weak self] _ in
+        self?.trainingButton.backgroundColor = CustomColor.lightGreen.color
+        self?.eatingButton.backgroundColor = CustomColor.white.color
+        self?.measurementsButton.backgroundColor = CustomColor.white.color
+        self?.statisticsButton.backgroundColor = CustomColor.white.color
+    }
+    
+    private lazy var eatingButtonTapped = UIAction { [weak self] _ in
+        self?.trainingButton.backgroundColor = CustomColor.white.color
+        self?.eatingButton.backgroundColor = CustomColor.lightGreen.color
+        self?.measurementsButton.backgroundColor = CustomColor.white.color
+        self?.statisticsButton.backgroundColor = CustomColor.white.color
+    }
+    
+    private lazy var measurementsButtonTapped = UIAction { [weak self] _ in
+        self?.trainingButton.backgroundColor = CustomColor.white.color
+        self?.eatingButton.backgroundColor = CustomColor.white.color
+        self?.measurementsButton.backgroundColor = CustomColor.lightGreen.color
+        self?.statisticsButton.backgroundColor = CustomColor.white.color
+    }
+    
+    private lazy var statisticsButtonTapped = UIAction { [weak self] _ in
+        self?.trainingButton.backgroundColor = CustomColor.white.color
+        self?.eatingButton.backgroundColor = CustomColor.white.color
+        self?.measurementsButton.backgroundColor = CustomColor.white.color
+        self?.statisticsButton.backgroundColor = CustomColor.lightGreen.color
     }
 }

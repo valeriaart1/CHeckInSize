@@ -10,7 +10,10 @@ import UIKit
 class TrainingMainViewController: UITrainingViewController {
 
     // MARK: Properties
-    
+    private lazy var createNewTrainingButton: UIButton = uiComponentsFactory.makeButton(with: "СОЗДАТЬ НОВУЮ ТРЕНИРОВКУ", buttonType: .blackButton(cornerRadius: 15, backgroundColor: .white, titleColor: .black, size: 13), and: createNewTrainingTapped)
+    private lazy var createNewPatternButton: UIButton = uiComponentsFactory.makeButton(with: "СОЗДАТЬ НОВЫЙ ШАБЛОН", buttonType: .blackButton(cornerRadius: 15, backgroundColor: .black, titleColor: .white, size: 13), and: createNewPatternTapped)
+    private lazy var patternsLabel: UILabel = uiComponentsFactory.makeLabel(with: "Шаблоны", labelType: .labelWithNunitoBold, size: nil)
+//    private lazy var patternsButton: UIButton = uiComponentsFactory.makeButton(with: "Нажмите, чтобы добавить новый шаблон", buttonType: .patternsButton(type: nilButton, text: ""), and: patternsButtonTapped)
     
     // MARK: Intialization
 
@@ -37,47 +40,52 @@ class TrainingMainViewController: UITrainingViewController {
     override func addSubviews() {
         super.addSubviews()
         
-//        [
-//        ].forEach {
-//            $0.translatesAutoresizingMaskIntoConstraints = false
-//            view.addSubview($0)
-//        }
+        [
+            createNewTrainingButton,
+            createNewPatternButton,
+            patternsLabel//,
+//            patternsButton
+        ].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
     }
     
     // MARK: Add up constraints
     override func constrainSubviews() {
         super.constrainSubviews()
         
-//
-//        NSLayoutConstraint.activate([
-//            codeTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-//            codeTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-//            codeTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginThirdTextFieldTopAnchor * view.frame.height),
-//            codeTextField.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginTextFieldButtonHeightAnchor * view.frame.height)
-//        ])
-//
-//        NSLayoutConstraint.activate([
-//            getNewCodeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-//            getNewCodeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-//            getNewCodeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginUnderTextFieldButtonTopAnchor * view.frame.height),
-//            getNewCodeButton.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginLabelUnderLineButtonHeightAnchor * view.frame.height)
-//        ])
-//
-//        NSLayoutConstraint.activate([
-//            confirmButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-//            confirmButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -LoginConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
-//            confirmButton.topAnchor.constraint(equalTo: view.topAnchor, constant: LoginConstantsAnchor.coeffLoginMainButtonTopAnchor * view.frame.height),
-//            confirmButton.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginTextFieldButtonHeightAnchor * view.frame.height)
-//        ])
+        NSLayoutConstraint.activate([
+            createNewTrainingButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: TrainingConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+            createNewTrainingButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -TrainingConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+            createNewTrainingButton.topAnchor.constraint(equalTo: menuBackground.bottomAnchor, constant: TrainingConstantsAnchor.coeffYTrailingAnchor * view.frame.height),
+            createNewTrainingButton.heightAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffButtonHeightAnchor * view.frame.height)
+        ])
+        
+        NSLayoutConstraint.activate([
+            createNewPatternButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: TrainingConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+            createNewPatternButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -TrainingConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+            createNewPatternButton.topAnchor.constraint(equalTo: createNewTrainingButton.bottomAnchor, constant: TrainingConstantsAnchor.coeffYTrailingAnchor * view.frame.height),
+            createNewPatternButton.heightAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffButtonHeightAnchor * view.frame.height)
+        ])
+        
+        NSLayoutConstraint.activate([
+            patternsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: TrainingConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+//            patternsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -TrainingConstantsAnchor.coeffLeadingTrailingAnchor * view.frame.width),
+            patternsLabel.topAnchor.constraint(equalTo: createNewPatternButton.bottomAnchor, constant: TrainingConstantsAnchor.coeffYTrailingAnchor * view.frame.height),
+            patternsLabel.heightAnchor.constraint(equalToConstant: TrainingConstantsAnchor.coeffButtonHeightAnchor * view.frame.height),
+            patternsLabel.widthAnchor.constraint(equalToConstant: patternsLabel.frame.width)
+        ])
     }
 
     // MARK: Actions
     
-//    private lazy var confirmButtonTapped = UIAction { [weak self] _ in
-//        print("")
-//    }
-//
-//    private lazy var getNewCodeTapped = UIAction { [weak self] _ in
-//        print("")
-//    }
+    private lazy var createNewTrainingTapped = UIAction { [weak self] _ in
+    }
+    
+    private lazy var createNewPatternTapped = UIAction { [weak self] _ in
+    }
+    
+    private lazy var patternsButtonTapped = UIAction { [weak self] _ in
+    }
 }

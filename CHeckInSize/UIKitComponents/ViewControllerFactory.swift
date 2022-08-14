@@ -14,7 +14,7 @@ final class ViewContorllerFactory {
             router: LoginSceneRouter(),
             validationService: ValidationService(),
             loginService: LoginService(),
-            firebaseService: FirebaseService(),
+            firebaseServiceUserAccount: FirebaseServiceUserAccount(),
             alertFactory: AlertFactory(),
             uiComponentsFactory: UIComponentsFactory()
         )
@@ -64,7 +64,7 @@ extension ViewContorllerFactory {
         let router: LoginSceneRouter
         let validationService: ValidationService
         let loginService: LoginService
-        let firebaseService: FirebaseService
+        let firebaseServiceUserAccount: FirebaseServiceUserAccount
         let alertFactory: AlertFactory
         let uiComponentsFactory: UIComponentsFactory
     }

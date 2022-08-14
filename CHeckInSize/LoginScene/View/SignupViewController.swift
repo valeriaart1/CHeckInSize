@@ -14,7 +14,7 @@ class SignupViewController: UILoginViewController {
     private lazy var fullNameTextField: UITextField = uiComponentsFactory.makeTextField(with: "Имя и фамилия", fieldType: .loginScreenTextField)
     private lazy var userNameTextField: UITextField = uiComponentsFactory.makeTextField(with: "Имя пользователя", fieldType: .loginScreenTextField)
     private lazy var passwordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Пароль", fieldType: .loginScreenTextField)
-    private lazy var signUpButton: UIButton = uiComponentsFactory.makeButton(with: "ЗАРЕГИСТРИРОВАТЬСЯ", buttonType: .blackButton, and: signUpButtonTapped)
+    private lazy var signUpButton: UIButton = uiComponentsFactory.makeButton(with: "ЗАРЕГИСТРИРОВАТЬСЯ", buttonType: .blackButton(cornerRadius: 20, backgroundColor: .black, titleColor: .white, size: 15), and: signUpButtonTapped)
     
     
     // MARK: Intialization
@@ -26,7 +26,7 @@ class SignupViewController: UILoginViewController {
             router: container.router,
             validationService: container.validationService,
             loginService: container.loginService,
-            firebaseService: container.firebaseService,
+            firebaseServiceUserAccount: container.firebaseServiceUserAccount,
             alertFactory: container.alertFactory,
             uiComponentsFactory: container.uiComponentsFactory
         )
@@ -126,9 +126,19 @@ class SignupViewController: UILoginViewController {
                     return
                 }
                 
-                let user = User(login: self.userLoginTextField.text!, fullname: self.fullNameTextField.text, userName: self.userNameTextField.text!, password: self.passwordTextField.text!)
+                let user = UserAccount(login: self.userLoginTextField.text!, fullname: self.fullNameTextField.text, userName: self.userNameTextField.text!, password: self.passwordTextField.text!)
 
-                self.firebaseService.setUser(user: user)
+                self.firebaseServiceUserAccount.setUser(user: user) {success, error in
+                    guard success
+                    else {
+                        if let error = error {
+                           let alert = self.alertFactory.showAlert(title: "Ошибка", alertType: .errorAlert, message: error)
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        return
+                    }
+                    
+                }
                 
                 self.router.route(
                     from: self,

@@ -15,7 +15,7 @@ final class LoginService {
                 _ completion: @escaping (Bool, CustomError?) -> Void
     ) {
         
-        FirebaseService().getUsers() { users, error in
+        FirebaseServiceUserAccount().getUsers() { users, error in
             guard !users.isEmpty
             else {
                 if let error = error {

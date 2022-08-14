@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UILoginViewController: UIViewController {
+class UILoginViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     private let uikitTemplate = UIKitTemplate()
 
@@ -15,7 +15,7 @@ class UILoginViewController: UIViewController {
     
     var validationService: ValidationService
     var loginService: LoginService
-    var firebaseService: FirebaseService
+    var firebaseServiceUserAccount: FirebaseServiceUserAccount
     var alertFactory: AlertFactory
     var uiComponentsFactory: UIComponentsFactory
     var router: LoginSceneRouter
@@ -29,13 +29,13 @@ class UILoginViewController: UIViewController {
         router: LoginSceneRouter,
         validationService: ValidationService,
         loginService: LoginService,
-        firebaseService: FirebaseService,
+        firebaseServiceUserAccount: FirebaseServiceUserAccount,
         alertFactory: AlertFactory,
         uiComponentsFactory: UIComponentsFactory
     ) {
         self.validationService = validationService
         self.loginService = loginService
-        self.firebaseService = firebaseService
+        self.firebaseServiceUserAccount = firebaseServiceUserAccount
         self.alertFactory = alertFactory
         self.router = router
         self.uiComponentsFactory = uiComponentsFactory
@@ -57,6 +57,11 @@ class UILoginViewController: UIViewController {
         constrainSubviews()
         
         view.layer.contents = uikitTemplate.backgroundImage.cgImage
+        
+        let tapScreen = UITapGestureRecognizer(target: self,
+                                               action: #selector(dismissKeyboard))
+        tapScreen.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapScreen)
     }
     
     // MARK: Add views to the hierarchy
@@ -87,5 +92,9 @@ class UILoginViewController: UIViewController {
             appName.widthAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLoginAppNameWidthAnchor * self.view.frame.width),
             appName.heightAnchor.constraint(equalToConstant: LoginConstantsAnchor.coeffLogoHeightAnchor * self.view.frame.height)
         ])
+    }
+    
+    @objc private func dismissKeyboard(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
 }

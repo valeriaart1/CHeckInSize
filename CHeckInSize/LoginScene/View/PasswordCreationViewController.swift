@@ -15,7 +15,7 @@ class PasswordCreationViewController: UILoginViewController {
     private lazy var instructionCreatingPasswordLabel: UILabel = uiComponentsFactory.makeLabel(with: "Пароль должен содержать не менее 8 символов, включая цифры, буквы и специальные символы (!$@%)", labelType: .labelWithNunito, size: nil)
     private lazy var newPasswordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Новый пароль", fieldType: .loginScreenTextField)
     private lazy var repeatNewPasswordTextField: UITextField = uiComponentsFactory.makeTextField(with: "Введите новый пароль ещё раз", fieldType: .loginScreenTextField)
-    private lazy var resetPasswordButton: UIButton = uiComponentsFactory.makeButton(with: "СБРОСИТЬ ПАРОЛЬ", buttonType: .blackButton, and: resetPasswordButtonTapped)
+    private lazy var resetPasswordButton: UIButton = uiComponentsFactory.makeButton(with: "СБРОСИТЬ ПАРОЛЬ", buttonType: .blackButton(cornerRadius: 20, backgroundColor: .black, titleColor: .white, size: 15), and: resetPasswordButtonTapped)
     
     
     // MARK: Intialization
@@ -30,7 +30,7 @@ class PasswordCreationViewController: UILoginViewController {
             router: container.router,
             validationService: container.validationService,
             loginService: container.loginService,
-            firebaseService: container.firebaseService,
+            firebaseServiceUserAccount: container.firebaseServiceUserAccount,
             alertFactory: container.alertFactory,
             uiComponentsFactory: container.uiComponentsFactory
         )
@@ -136,7 +136,7 @@ class PasswordCreationViewController: UILoginViewController {
                     return
                 }
                 
-                self.firebaseService.updatePassword(login: self.login, password: self.newPasswordTextField.text!) { success, error in
+                self.firebaseServiceUserAccount.updatePassword(login: self.login, password: self.newPasswordTextField.text!) { success, error in
                     guard success
                     else {
                         if let error = error {
