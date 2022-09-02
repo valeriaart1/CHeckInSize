@@ -12,11 +12,4 @@ struct UserAccount: Codable {
     var fullname: String?
     var userName: String
     var password: String
-    
-    enum codingKeys: String, CodingKey {
-        case login
-        case fullname
-        case userName
-        case password
-    }
 }

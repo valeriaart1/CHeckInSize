@@ -5,4 +5,17 @@
 //  Created by Валерия Артемьева on 28.07.22.
 //
 
-import Foundation
+import UIKit
+
+enum TrainingSceneAssembler {
+
+    static func start() -> UINavigationController {
+        let viewContoller = ViewControllerFactory.make(
+            viewController: .trainingMainViewController
+        )
+
+        return UINavigationController(
+            rootViewController: viewContoller
+        )
+    }
+}

@@ -17,7 +17,7 @@ final class LoginSceneRouter {
         navigationType: NavigatuinType = .pushViewController
     ) {
 
-        let viewController = ViewContorllerFactory.make(viewController: viewControllerName)
+        let viewController = ViewControllerFactory.make(viewController: viewControllerName)
         setAppearance(from: view, to: viewController, presentStyle: presentationStyle, transStyle: transitionStyle)
         if navigationType == .presentViewController {
             view?.present(viewController, animated: true, completion: nil)

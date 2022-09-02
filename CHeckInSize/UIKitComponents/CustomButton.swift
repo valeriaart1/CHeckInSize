@@ -45,8 +45,8 @@ extension CustomButton {
         switch type {
         case .blackButton(let cornerRadius, let backgroundColor, let titleColor, let size):
             self.setTitle(title, for: .normal)
-            self.setTitleColor(titleColor.color, for: .normal)
-            self.backgroundColor = backgroundColor.color
+            self.setTitleColor(titleColor, for: .normal)
+            self.backgroundColor = backgroundColor
             self.layer.borderColor = UIColor.black.cgColor
             self.layer.borderWidth = 1
             self.layer.cornerRadius = cornerRadius
@@ -65,17 +65,17 @@ extension CustomButton {
         case .mainMenuButton(let color):
             self.setTitleColor(.black, for: .normal)
             self.setTitle(title, for: .normal)
-            self.backgroundColor = color.color
+            self.backgroundColor = color
             self.layer.cornerRadius = 14
             self.layer.borderColor = UIColor.black.cgColor
             self.layer.borderWidth = 1
             self.titleLabel?.sizeToFit()
             self.titleLabel?.font = UIFont(name: "Roboto", size: 13.0)
             
-        case .patternsButton(let text):
+        case .patternsButton:
             self.setTitle(title, for: .normal)
             self.layer.cornerRadius = 20
-            self.layer.backgroundColor = UIColor(hexString: "FFFFFF", alpha: 0.6).cgColor
+            self.layer.backgroundColor = UIColor.white.cgColor
         }
     }
 }

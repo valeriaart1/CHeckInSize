@@ -1,13 +1,11 @@
 //
-//  AlertFactory.swift
+//  Extension+UIAlert.swift
 //  CHeckInSize
 //
-//  Created by Валерия Артемьева on 10.07.22.
+//  Created by Валерия Артемьева on 23.08.22.
 //
 
 import UIKit
-
-// MARK: - Validation Error
 
 enum CustomError: String, Error {
 
@@ -48,9 +46,8 @@ enum CustomAlertType {
     case errorAlert
 }
 
-final class AlertFactory  {
-
-    func showAlert(
+extension UIAlertController {
+    static func showAlert(
         title: String,
         alertType: CustomAlertType,
         message: CustomError,
@@ -58,7 +55,7 @@ final class AlertFactory  {
         agreementButtonText: String = "",
         textFieldPlaceholder: String = ""
     ) -> UIAlertController {
-        
+
         let alert = CustomAlert.showAlert(
             title: title,
             message: message.rawValue,

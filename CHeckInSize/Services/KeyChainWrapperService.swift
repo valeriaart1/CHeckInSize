@@ -4,7 +4,7 @@
 //
 //  Created by Валерия Артемьева on 2.08.22.
 //
-
+import SwiftKeychainWrapper
 
 final class KeyChainWrapperService {
     func keyChain (

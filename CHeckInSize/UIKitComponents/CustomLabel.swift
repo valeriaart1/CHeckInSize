@@ -69,7 +69,7 @@ extension CustomLabel {
             
         case .menuBackground:
             self.layer.cornerRadius = 20
-            self.layer.backgroundColor = UIColor(hexString: "FFFFFF", alpha: 0.6).cgColor
+            self.layer.backgroundColor = UIColor.white.cgColor
         }
     }
 }

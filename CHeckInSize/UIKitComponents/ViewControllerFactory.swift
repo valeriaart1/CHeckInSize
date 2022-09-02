@@ -7,26 +7,22 @@
 
 import UIKit
 
-final class ViewContorllerFactory {
+final class ViewControllerFactory {
 
     private static var loginDependencyContainer: LoginDependency {
         LoginDependency (
             router: LoginSceneRouter(),
             validationService: ValidationService(),
             loginService: LoginService(),
-            firebaseServiceUserAccount: FirebaseServiceUserAccount(),
-            alertFactory: AlertFactory(),
-            uiComponentsFactory: UIComponentsFactory()
+            firebaseServiceUserAccount: FirebaseServiceUserAccount()
         )
     }
     
     private static var trainingDependencyContainer: TrainingDependency {
         TrainingDependency (
-            router: TrainingSceneRouter(),
-            alertFactory: AlertFactory(),
-            uiComponentsFactory: UIComponentsFactory()
+            router: TrainingSceneRouter()
         )
-    }
+    } 
 
     static func make(viewController type: ViewControllerNaming) -> UIViewController {
         switch type {
@@ -58,20 +54,16 @@ final class ViewContorllerFactory {
     }
 }
 
-extension ViewContorllerFactory {
+extension ViewControllerFactory {
 
     struct LoginDependency {
         let router: LoginSceneRouter
         let validationService: ValidationService
         let loginService: LoginService
         let firebaseServiceUserAccount: FirebaseServiceUserAccount
-        let alertFactory: AlertFactory
-        let uiComponentsFactory: UIComponentsFactory
     }
     
     struct TrainingDependency {
         let router: TrainingSceneRouter
-        let alertFactory: AlertFactory
-        let uiComponentsFactory: UIComponentsFactory
     }
 }

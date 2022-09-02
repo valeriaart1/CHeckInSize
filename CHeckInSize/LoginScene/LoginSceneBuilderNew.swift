@@ -16,7 +16,7 @@ enum NavigatuinType {
 enum LoginSceneAssembler {
 
     static func start() -> UINavigationController {
-        let viewContoller = ViewContorllerFactory.make(
+        let viewContoller = ViewControllerFactory.make(
             viewController: .loginMainViewController
         )
 

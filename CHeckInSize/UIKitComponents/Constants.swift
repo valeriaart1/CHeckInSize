@@ -5,6 +5,8 @@
 //  Created by Валерия Артемьева on 20.07.22.
 //
 
+import UIKit
+
 struct Constants {
 
     static let dataModelName = "CHeckInSize"
@@ -14,6 +16,18 @@ struct Constants {
     static let strLoginKey = "login"
     static let strUsernameKey = "username"
     static let strPasswordKey = "password"
+}
+
+enum CustomColor {
+    case lightGreen
+    
+    //Get Color
+    var color: UIColor {
+        switch self {
+        case .lightGreen:
+            return UIColor(named: "lightGreen") ?? .green
+        }
+    }
 }
 
 enum ViewControllerNaming {
