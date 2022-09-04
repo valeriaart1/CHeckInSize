@@ -26,6 +26,9 @@
 		351CC7EC28925B0E00DFEDAF /* TrainingSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CC7EB28925B0E00DFEDAF /* TrainingSceneBuilder.swift */; };
 		351CC7EE28925B2E00DFEDAF /* TrainingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CC7ED28925B2E00DFEDAF /* TrainingMainViewController.swift */; };
 		351CC7F228925C7600DFEDAF /* TrainingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351CC7F128925C7600DFEDAF /* TrainingConstants.swift */; };
+		351FE5F628C3CF7200CF60A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351FE5F528C3CF7200CF60A3 /* ViewController.swift */; };
+		351FE5FD28C40DFB00CF60A3 /* UITrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351FE5FC28C40DFB00CF60A3 /* UITrainingView.swift */; };
+		351FE5FF28C40E0700CF60A3 /* TrainingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351FE5FE28C40E0700CF60A3 /* TrainingMainView.swift */; };
 		352506BB28990F1F001DF92D /* KeyChainWrapperService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352506B728990F1F001DF92D /* KeyChainWrapperService.swift */; };
 		35395D1528C234B8004E5C71 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 35395D1428C234B8004E5C71 /* SnapKit */; };
 		35548739287B25A1009BD164 /* LogicSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35548738287B25A1009BD164 /* LogicSceneRouter.swift */; };
@@ -83,6 +86,9 @@
 		351CC7EB28925B0E00DFEDAF /* TrainingSceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSceneBuilder.swift; sourceTree = "<group>"; };
 		351CC7ED28925B2E00DFEDAF /* TrainingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMainViewController.swift; sourceTree = "<group>"; };
 		351CC7F128925C7600DFEDAF /* TrainingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingConstants.swift; sourceTree = "<group>"; };
+		351FE5F528C3CF7200CF60A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		351FE5FC28C40DFB00CF60A3 /* UITrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITrainingView.swift; sourceTree = "<group>"; };
+		351FE5FE28C40E0700CF60A3 /* TrainingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMainView.swift; sourceTree = "<group>"; };
 		352506B728990F1F001DF92D /* KeyChainWrapperService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainWrapperService.swift; sourceTree = "<group>"; };
 		35548738287B25A1009BD164 /* LogicSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicSceneRouter.swift; sourceTree = "<group>"; };
 		3554873C287B25C7009BD164 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 				351CC7E928925AFE00DFEDAF /* TrainingSceneRouter.swift */,
 				351CC7EB28925B0E00DFEDAF /* TrainingSceneBuilder.swift */,
 				3590763E28B5445700DC7455 /* ViewController */,
+				351FE5FB28C40DE500CF60A3 /* TrainingView */,
 				351CC7E828925AE700DFEDAF /* View */,
 			);
 			path = TrainingScene;
@@ -183,11 +190,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		351FE5FB28C40DE500CF60A3 /* TrainingView */ = {
+			isa = PBXGroup;
+			children = (
+				351FE5FC28C40DFB00CF60A3 /* UITrainingView.swift */,
+				351FE5FE28C40E0700CF60A3 /* TrainingMainView.swift */,
+			);
+			path = TrainingView;
+			sourceTree = "<group>";
+		};
 		3554872D287B1F10009BD164 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				35556A92286CE4B800988DA7 /* AppDelegate.swift */,
 				35556A94286CE4B800988DA7 /* SceneDelegate.swift */,
+				351FE5F528C3CF7200CF60A3 /* ViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -448,7 +465,9 @@
 				3590763528B543ED00DC7455 /* UILoginView.swift in Sources */,
 				35548749287B262E009BD164 /* LoginService.swift in Sources */,
 				3554874B287B2640009BD164 /* ValidationService.swift in Sources */,
+				351FE5FF28C40E0700CF60A3 /* TrainingMainView.swift in Sources */,
 				3F71C3FC2890854D00A7B772 /* ViewControllerFactory.swift in Sources */,
+				351FE5F628C3CF7200CF60A3 /* ViewController.swift in Sources */,
 				351CC7F228925C7600DFEDAF /* TrainingConstants.swift in Sources */,
 				3590764028B5449F00DC7455 /* UITrainingView.swift in Sources */,
 				3505B79A288A89930052E7D7 /* CustomButton.swift in Sources */,
@@ -457,6 +476,7 @@
 				3590763328B543CF00DC7455 /* SignupView.swift in Sources */,
 				35556A95286CE4B800988DA7 /* SceneDelegate.swift in Sources */,
 				358C5778289EB0250036A21C /* FirebaseServiceUserAccount.swift in Sources */,
+				351FE5FD28C40DFB00CF60A3 /* UITrainingView.swift in Sources */,
 				3513B63F289AA95D0048616E /* UserAccount.swift in Sources */,
 				3590763728B543FC00DC7455 /* ForgotPasswordView.swift in Sources */,
 				3F62FB0B2893170C0058DC0A /* LoginSceneBuilderNew.swift in Sources */,

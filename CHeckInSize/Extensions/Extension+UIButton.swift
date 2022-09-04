@@ -19,11 +19,11 @@ extension UIButton {
     static func makeButton(
         with title: String,
         buttonType type: CustomButtonType,
-        and action: UIAction, 
+//        and action: UIAction,
         contentAligment: UIButton.ContentHorizontalAlignment = .center
     ) -> CustomButton {
         let button = CustomButton(type: type, title: title, contentAligment: contentAligment)
-        button.addAction(action, for: .touchUpInside)
+//        button.addAction(action, for: .touchUpInside)
         return button
     }
 }

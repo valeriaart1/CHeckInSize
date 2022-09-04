@@ -14,7 +14,8 @@ final class ViewControllerFactory {
             router: LoginSceneRouter(),
             validationService: ValidationService(),
             loginService: LoginService(),
-            firebaseServiceUserAccount: FirebaseServiceUserAccount()
+            firebaseServiceUserAccount: FirebaseServiceUserAccount(),
+            uiLoginView: UILoginView()
         )
     }
     
@@ -28,7 +29,8 @@ final class ViewControllerFactory {
         switch type {
         case .loginMainViewController:
             return LoginMainViewController(
-                with: loginDependencyContainer
+                with: loginDependencyContainer,
+                loginMainView: LoginMainView()
             )
         case .forgotPasswordViewController:
             return ForgotPasswordViewController(
@@ -61,6 +63,7 @@ extension ViewControllerFactory {
         let validationService: ValidationService
         let loginService: LoginService
         let firebaseServiceUserAccount: FirebaseServiceUserAccount
+        let uiLoginView: UILoginView
     }
     
     struct TrainingDependency {
